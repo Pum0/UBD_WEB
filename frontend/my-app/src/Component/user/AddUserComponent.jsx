@@ -10,6 +10,7 @@ class AddUserComponent extends Component {
     constructor(props){
         super(props);
 
+        // vo
         this.state = {
             id_name: '',
             pwd: '',
@@ -17,7 +18,7 @@ class AddUserComponent extends Component {
             birth: '',
             weight: '',
             message: null
-        }
+        }``
 
     }
 

@@ -19,24 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react init">
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/LoginTab.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/MapAPI.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/NavBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Community_Board.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/My_Record.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Sharing_Board.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/route/RouterComponent.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/user/AddUserComponent.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/src/img/UBD_Login_Img.jpg" afterDir="false" />
+    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="프론트 UI 초기 구성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/user/AddUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/user/AddUserComponent.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591779462877</updated>
       <workItem from="1591779468672" duration="13232000" />
-      <workItem from="1592893445679" duration="24608000" />
+      <workItem from="1592893445679" duration="24941000" />
     </task>
     <task id="LOCAL-00001" summary="react 초기구성">
       <created>1591780441438</created>
@@ -124,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592304931322</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="프론트 UI 초기 구성">
+      <created>1592928072017</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592928072017</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +137,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="react 초기구성" />
     <MESSAGE value="react init" />
-    <option name="LAST_COMMIT_MESSAGE" value="react init" />
+    <MESSAGE value="프론트 UI 초기 구성" />
+    <option name="LAST_COMMIT_MESSAGE" value="프론트 UI 초기 구성" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1591779487045">
@@ -172,17 +165,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592903765945" />
-    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1592897474491">
+    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1592992023019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592897474491" />
+    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592992023019" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/my-app/src/Component/user/AddUserComponent.jsx</url>
-          <line>33</line>
+          <line>34</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
