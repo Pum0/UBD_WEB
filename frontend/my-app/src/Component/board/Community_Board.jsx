@@ -1,11 +1,11 @@
-import React,{Componenet} from "react";
+import React,{Component} from "react";
 
-class Community_Board extends Componenet {
+class Community_Board extends Component {
 
     render() {
         return(
           <div>
-                <H2> Community Board</H2>
+                <h2> Community Board</h2>
                 ....
           </div>
         );

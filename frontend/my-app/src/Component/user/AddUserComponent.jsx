@@ -18,7 +18,7 @@ class AddUserComponent extends Component {
             birth: '',
             weight: '',
             message: null
-        }``
+        }
 
     }
 

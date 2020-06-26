@@ -24,8 +24,8 @@ class LoginTab extends Component {
                             <Face/>
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="username" label="Username" type="email" fullWidth autoFocus required/>
-                        </Grid>
+                                <TextField id="username" label="Username" type="email" fullWidth autoFocus required/>
+                            </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>

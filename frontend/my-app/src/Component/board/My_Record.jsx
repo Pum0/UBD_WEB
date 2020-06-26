@@ -14,6 +14,6 @@ class My_Record extends Component{
 
 
     }
-
-
 }
+
+export default My_Record;

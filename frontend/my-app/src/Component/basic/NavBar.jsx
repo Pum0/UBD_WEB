@@ -12,20 +12,67 @@ class NavBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
 
+        this.state = {
+            isDisplay: false,
+            NavDis: 'none'
         }
     }
 
 
+    openSubNav = (e) => {
+        e.preventDefault();
+
+        let SubNavState = this.isDisplay;
+
+        if( SubNavState === false){
+            e.setState= {
+                NavDis: 'inline'
+            }
+            this.isDisplay= true;
+
+        }
+        else {
+            e.setState= {
+                NavDis: 'none'
+            }
+            this.isDisplay = false;
+        }
+    }
+
+
+
     render() {
+        const Sub_Nav = {
+            left: "0px",
+            width: "28%",
+            height: "50px",
+            border: '1px solid black',
+            top: "50px",
+            display: this.state.NavDis
+        }
+        const style = {
+            flexGrow: 1,
+            marginBottom: '10px'
+        }
+
+        const Main_Nav = {
+            position: "absolute",
+            border: '1px solid black',
+            height: '50px',
+        }
+
+
         return (
             <div>
                 <AppBar color="inherit" style={Main_Nav}>
                     <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="Menu" style={text_al}>
+
+                        <IconButton edge="start" color="inherit" aria-label="Menu"
+                        onClick={this.openSubNav}>
                             <ArrowDropDownIcon/>
                         </IconButton>
+
                         <Typography variant="h6" style={style}>
                             UBD
                         </Typography>
@@ -33,9 +80,9 @@ class NavBar extends Component {
                 </AppBar>
 
                 {/* 서브 네비바 */}
-                <AppBar color="inherit" position="absolute" style={Sub_Nav}>
+                <AppBar className="SubNav" color="inherit" position="absolute" style={Sub_Nav}>
                     <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="Menu" style={text_al}>
+                        <IconButton edge="start" color="inherit" aria-label="Menu" >
                             <ArrowDropUpIcon/>
                         </IconButton>
                         <Button>
@@ -50,27 +97,6 @@ class NavBar extends Component {
         );
     }
 
-}
-
-const text_al = {
-
-    marginBottom: '13px'
-}
-
-const style = {   flexGrow: 1,
-    marginBottom: '10px'}
-
-const Main_Nav = {
-    position: "absolute",
-    border: '1px solid black',
-    height: '50px',
-}
-const Sub_Nav = {
-    left: "0px",
-    width: "28%",
-    height: "50px",
-    border: '1px solid black',
-    top: "50px"
 }
 
 export default NavBar;
