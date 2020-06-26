@@ -1,54 +1,87 @@
-import React,{Component} from 'react';
-import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons';
-import {NavLink} from "react-router-dom";
+import {Paper, Grid, TextField, Button} from '@material-ui/core';
+import {Face, Fingerprint} from '@material-ui/icons';
+import React, {Component, useState} from 'react'
+import Axios from 'axios'
+import {useDispatch} from 'react-redux';
+import {loginUser} from '../../_actions/user_action';
+import {withRouter} from 'react-router-dom';
 
-const styles = theme => ({
-    margin: {
-        margin: theme.spacing.unit * 2,
-    },
-    padding: {
-        padding: theme.spacing.unit
+
+
+function LoginTab(props) {
+    const dispatch = useDispatch();
+
+    const [Email, setEmail] = useState("")
+    const [Password, setPassword] = useState("")
+
+    const onEmailHandler = (event) => {
+        setEmail(event.currentTarget.value)
     }
-});
 
-class LoginTab extends Component {
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
 
-    render() {
-        const {classes} = this.props;
-        return (
-            <Paper className={classes.padding}>
-                <div className={classes.margin}>
+    const onSubmitHandler = (event) => {
+        event.preventDefault();  //page가 새로고침되는걸 막아줌
+
+        let body = {
+            email: Email,
+            password: Password
+        }
+
+        dispatch(loginUser(body))
+            .then(response => {
+                if (response.payload.loginSuccess) {
+                    props.history.push('/Home')
+
+                } else {
+                    alert('로그인 실패')
+                }
+            })
+    }
+
+
+    return (
+        <Paper variant="outlined" square style={{padding:20}}>
+            <div style={{margin:15}}>
+                <form
+                      onSubmit={onSubmitHandler}
+                >
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
                             <Face/>
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                                <TextField id="username" label="Username" type="email" fullWidth autoFocus required/>
-                            </Grid>
+                            <TextField label="Email" type="email" fullWidth autoFocus required
+                                       value={Email} onChange={onEmailHandler}/>
+                        </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
                             <Fingerprint/>
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="username" label="Password" type="password" fullWidth required/>
+                            <TextField label="Password" type="password" fullWidth required
+                                       value={Password} onChange={onPasswordHandler}/>
                         </Grid>
                     </Grid>
 
                     <Grid container justify="center" style={{marginTop: '10px'}}>
-                        <Button variant="outlined" color="primary" style={{textTransform: "none"}}>
-                            <NavLink to="/Home" style={{textDecoration:"none"}}>Login</NavLink>
+                        <Button type="submit" variant="outlined" color="primary" style={{textTransform: "none",marginTop:20 , marginRight:70}}>
+                            Login
                         </Button>
 
-                        <Button variant="outlined" color="primary" style={{textTransform: "none"}}>
-                            <NavLink to="/sign-in" style={{textDecoration:"none"}}>Sign in</NavLink>
+                        <Button variant="outlined" color="primary" style={{textTransform: "none", marginTop:20 }}>
+                            Sign up
                         </Button>
                     </Grid>
-                </div>
-            </Paper>
-        );
-    }
+                </form>
+            </div>
+        </Paper>
+    );
+
 }
 
-export default withStyles(styles)(LoginTab);
+
+export default withRouter(LoginTab)
