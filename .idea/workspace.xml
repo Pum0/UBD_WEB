@@ -19,20 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="BoardRouter init">
+    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/LoginTab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Community_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Community_Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/board/My_Record.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/My_Record.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Sharing_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Sharing_Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/route/ContentRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/route/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/route/RouterComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-prac" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -92,7 +82,9 @@
       <updated>1591779462877</updated>
       <workItem from="1591779468672" duration="13232000" />
       <workItem from="1592893445679" duration="44929000" />
-      <workItem from="1593156216586" duration="19799000" />
+      <workItem from="1593156216586" duration="20369000" />
+      <workItem from="1593421500664" duration="161000" />
+      <workItem from="1593520117754" duration="582000" />
     </task>
     <task id="LOCAL-00001" summary="react 초기구성">
       <created>1591780441438</created>
@@ -143,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593149958321</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="react front + node.js backend test&#10;Content router init config Completed">
+      <created>1593182159131</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593182159133</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +166,8 @@
     <MESSAGE value="프론트 UI 초기 구성" />
     <MESSAGE value="의미x" />
     <MESSAGE value="BoardRouter init" />
-    <option name="LAST_COMMIT_MESSAGE" value="BoardRouter init" />
+    <MESSAGE value="react front + node.js backend test&#10;Content router init config Completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="react front + node.js backend test&#10;Content router init config Completed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1591779487045">
@@ -182,10 +182,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593163335273" />
-    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593176160725">
+    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593421659884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593176160725" />
+    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593421659884" />
     <state width="1591" height="279" key="GridCell.Tab.0.bottom" timestamp="1593156168093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -206,10 +206,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593177008486" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593149969361">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593182165418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593149969361" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593182165418" />
     <state x="752" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1591780598866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
