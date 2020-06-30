@@ -45,3 +45,16 @@ export function auth() {
         payload: request
     }
 }
+
+//로그아웃 액션
+export function logoutUser() {
+    
+    // 클라이언트에서 요청한 로그아웃 정보를 서버로 보냄
+    const request = axios.get(`${USER_SERVER}/logout`)
+        .then(response => response.data)
+
+    return {
+        type: LOGOUT_USER,
+        payload: request
+    }
+}
