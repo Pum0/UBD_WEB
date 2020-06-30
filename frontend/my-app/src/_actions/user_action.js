@@ -5,7 +5,7 @@ import {
     AUTH_USER,
     LOGOUT_USER
 } from './types';
-import { USER_SERVER } from '../components/config.js';
+import { USER_SERVER } from '../Component/config';
 
 // 로그인 액션
 export function loginUser(dataToSubmit) {
