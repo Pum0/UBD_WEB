@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import RouterComponent from "./Component/route/RouterComponent"
 import ContentRouter from "./Component/route/ContentRouter";
@@ -11,6 +11,11 @@ function App() {
         <Router>
             <div>
                 <RouterComponent></RouterComponent>
+                <Switch>
+                    <Route exact path="/" component={Auth(LandingPage, null, true)} />
+                    <Route exact path="/login" component={Auth(LoginPage, false)} />
+                    <Route exact path="/register" component={Auth(RegisterPage, false)} />
+                </Switch>
             </div>
         </Router>
     );
