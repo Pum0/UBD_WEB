@@ -1,5 +1,5 @@
 {
-  "name": "boiler-plate",
+  "name": "UBD_WEB",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run backend\" \"npm run start --prefix frontend/my-app\""
   },
-  "author": "JinYeong",
+  "author": "ChoiJinYeong , YuChangWoo",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",

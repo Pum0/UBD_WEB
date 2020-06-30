@@ -1,6 +1,4 @@
 const { User } = require('../models/User');
-const { NativeError } = require("mongoose");
-
 
 let auth = (req, res, next) => {
 
