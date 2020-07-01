@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express()
 const path = require("path");
+const helmet = require('helmet');
+const morgan = require('morgan');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const config = require("./config/key");
+
 
 const mongoose = require('mongoose')
 const connect = mongoose.connect(config.mongoURI, {
@@ -20,7 +23,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// Helmet helps you secure your Express apps by setting various HTTP headers. 
+app.use(helmet())
+
+// Logger Middleware
+app.use(morgan('dev'));
+
 app.use('/api/users', require('./routes/users'));
+
+app.use('/uploads', express.static('uploads'));
 
 
 if (process.env.NODE_ENV === "production") {
