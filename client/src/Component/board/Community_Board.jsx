@@ -9,7 +9,7 @@ class Community_Board extends Component {
             <div style={Board_style}>
 
                 <table style={{border:"1px solid black", width:"100%"}}>
-                    <thead>
+                    <thead style={{border:"1px solid black"}}>
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
@@ -19,11 +19,55 @@ class Community_Board extends Component {
                     </tr>
                     </thead>
                     <tbody>
+                    <tr>
                         <td>165</td>
                         <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
                         <td>정진규</td>
                         <td>2016.12.02</td>
-                        <td>2</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr>
+                    <tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr>
+                    <tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr>
+                    <tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr>
+                    <tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr><tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr><tr>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td style={{textAlign:"center"}}>2</td>
+                    </tr>
+
+
                     </tbody>
 
                 </table>

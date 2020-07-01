@@ -24,20 +24,20 @@ class Board_Area extends Component {
 
                         <NavLink to="/Home/board/free_board">
                             <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h5" >자유게시판</Typography>
+                                <Typography variant="h6" >자유게시판</Typography>
                             </Button>
                         </NavLink>
 
                         <NavLink to="/Home/board/share_board">
                             <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h5">공유게시판</Typography>
+                                <Typography variant="h6">공유게시판</Typography>
                             </Button>
                         </NavLink>
 
 
                         <NavLink to="/Home/board/my_record">
                             <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h5">나의기록</Typography>
+                                <Typography variant="h6">나의기록</Typography>
                             </Button>
                         </NavLink>
 
