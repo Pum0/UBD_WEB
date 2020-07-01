@@ -1,15 +1,12 @@
 import React, {Component} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {NavLink, Route, Switch} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ContentRouter from "../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import My_Record from "./My_Record";
-import Community_Board from "./Community_Board";
-import Sharing_Board from "./Sharing_Board";
 
 class Board_Area extends Component {
     render() {
@@ -77,4 +74,4 @@ const Board_Nav = {
     height: '50px'
 }
 
-export default Board_Area;
+export default withRouter(Board_Area);

@@ -27,7 +27,7 @@ function NavBar(props) {
         <div>
             <AppBar color="inherit" style={Main_Nav}>
                 <Toolbar>
-                    <NavLink to="/Home/board">
+                    <NavLink to="/Home/board" >
                         <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
 
                             <ArrowDropDownIcon/>

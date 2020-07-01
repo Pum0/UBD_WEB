@@ -1,21 +1,34 @@
 import React, {Component} from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import {NavLink, Route, Switch} from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Sharing_Board from "./Sharing_Board";
 
+
+// import {table}
 class Community_Board extends Component {
 
     render() {
         return (
             <div style={Board_style}>
 
-                <h2> Community Board</h2>
-                자유게시판
+                <table style={{border:"1px solid black", width:"100%"}}>
+                    <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>조회수</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <td>165</td>
+                        <td>이제 곧 부트 스트랩 4 가 나온다면서요?</td>
+                        <td>정진규</td>
+                        <td>2016.12.02</td>
+                        <td>2</td>
+                    </tbody>
+
+                </table>
+
+
             </div>
         );
     }
@@ -23,12 +36,12 @@ class Community_Board extends Component {
 
 const Board_style = {
     border: '1px solid black',
-    margin: 0,
+    margin: 10,
     padding: 0,
     top: "50px",
     position: "absolute",
-    left: 0, height: "95%",
-    width: "100%",
+    left: 0, height: "92%",
+    width: "96%",
     backgroundColor: "pink",
     zIndex: 451
 }

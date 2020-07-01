@@ -13,6 +13,7 @@ function Home() {
             <NavBar></NavBar>
             <MapAPI></MapAPI>
 
+
             <Switch>
                 <Route path="/Home/board" component={Auth(Board_Area, true)}/>
             </Switch>

@@ -21,6 +21,11 @@ class AppRouter extends Component {
                         <Route exact path="/signup" component={Auth(RegisterPage, false)}/>
                         <Route path="/Home" component={Auth(Home, true)}/>
 
+
+                        {/*<Route exact path="/" component={Main}/>*/}
+                        {/*<Route exact path="/signup" component={RegisterPage}/>*/}
+                        {/*<Route path="/Home" component={Home}/>*/}
+
                     </Switch>
                 </div>
             </Router>
