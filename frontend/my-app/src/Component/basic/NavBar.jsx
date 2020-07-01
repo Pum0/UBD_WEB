@@ -1,58 +1,61 @@
 import React, {Component} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
-import ContentRouter from "../route/ContentRouter";
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import axios from "axios";
+import {USER_SERVER} from "../config";
 
-class NavBar extends Component {
 
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            isDisplay: false,
-            NavDis: 'none'
-        }
+function NavBar(props) {
+    const onClickHandler = () => {
+        axios.get(`${USER_SERVER}/logout`)
+            .then(response => {
+                if (response.data.success) {
+                    props.history.push("/")
+                } else {
+                    alert('로그아웃 하는데 실패 했습니다.')
+                }
+            })
     }
 
-    render() {
+    return (
+        <div>
+            <AppBar color="inherit" style={Main_Nav}>
+                <Toolbar>
+                    <NavLink to="/Home/board">
+                        <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
+
+                            <ArrowDropDownIcon/>
+
+                        </IconButton>
+                    </NavLink>
+
+                    <Typography variant="h4" style={style}>
+                        UBD
+                    </Typography>
 
 
-        return (
-            <div>
-                <AppBar color="inherit" style={Main_Nav}>
-                    <Toolbar>
-                        <NavLink to="/Home/board">
-                            <IconButton edge="start" color="inherit" aria-label="Menu">
-
-                                <ArrowDropDownIcon/>
-
-                            </IconButton>
-                        </NavLink>
-
-                        <Typography variant="h4" style={style}>
-                            UBD
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                    <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}} onClick={onClickHandler}>
+                        <MeetingRoomIcon/>
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
 
 
-
-            </div>
-        );
-    }
-
+        </div>
+    );
 }
 
 
 const style = {
+
     flexGrow: 1,
-    marginBottom: '10px'
+    marginBottom: '12px'
 }
 
 const Main_Nav = {
@@ -60,4 +63,6 @@ const Main_Nav = {
     border: '1px solid black',
     height: '50px'
 }
-export default NavBar;
+
+
+export default withRouter(NavBar);

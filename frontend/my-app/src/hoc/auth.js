@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { auth } from '../_actions/user_action';
-
-
-
 export default function (SpecificComponent, option, adminRoute = null) {
 
     // option
@@ -25,17 +22,17 @@ export default function (SpecificComponent, option, adminRoute = null) {
                 if (await !response.payload.isAuth) {
                     if (option) {
                         alert('비정상적인 접근입니다.(비로그인)')
-                        props.history.push('/login')
+                        props.history.push('/')
                     }
                 } else {
                     // 로그인 상태
                     if (adminRoute && !response.payload.isAdmin) {
-                        // alert('비정상적인 접근입니다.')
-                        props.history.push('/')
+                        alert('비정상적인 접근입니다.')
+                        props.history.push('/Home')
                     } else {
                         if (option === false)
                         alert('비정상적인 접근입니다.')
-                            props.history.push('/')
+                            props.history.push('/Home')
                     }
                 }
             })
