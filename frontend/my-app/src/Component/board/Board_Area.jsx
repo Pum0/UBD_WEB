@@ -21,7 +21,7 @@ class Board_Area extends Component {
                     <Toolbar>
                         <NavLink to="/Home">
                             <IconButton edge="start" color="inherit" style={style}>
-                                <ArrowDropUpIcon/>
+                                <ArrowDropUpIcon  />
                             </IconButton>
                         </NavLink>
 
@@ -47,7 +47,6 @@ class Board_Area extends Component {
                     </Toolbar>
                 </AppBar>
 
-                <ContentRouter></ContentRouter>
             </div>
         );
     }
@@ -61,15 +60,14 @@ const Board_style = {
     position: "absolute",
     left: 0, height: "95%",
     width: "28%",
-    backgroundColor: "red",
+    backgroundColor: "white",
     zIndex: 450
 }
 
 const style = {
 
     flexGrow: 1,
-    marginBottom: '12px',
-    textDecoration:"none"
+    marginBottom: '12px'
 }
 
 const Board_Nav = {

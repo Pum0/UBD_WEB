@@ -4,8 +4,7 @@ import React, {Component, useState} from 'react'
 import Axios from 'axios'
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../_actions/user_action';
-import {withRouter} from 'react-router-dom';
-
+import {withRouter, NavLink} from 'react-router-dom';
 
 
 function LoginTab(props) {
@@ -43,10 +42,10 @@ function LoginTab(props) {
 
 
     return (
-        <Paper variant="outlined" square style={{padding:20}}>
-            <div style={{margin:15}}>
+        <Paper variant="outlined" square style={{padding: 20}}>
+            <div style={{margin: 15}}>
                 <form
-                      onSubmit={onSubmitHandler}
+                    onSubmit={onSubmitHandler}
                 >
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
@@ -68,12 +67,14 @@ function LoginTab(props) {
                     </Grid>
 
                     <Grid container justify="center" style={{marginTop: '10px'}}>
-                        <Button type="submit" variant="outlined" color="primary" style={{textTransform: "none",marginTop:20 , marginRight:70}}>
+                        <Button type="submit" variant="outlined" color="primary"
+                                style={{textTransform: "none", marginTop: 20, marginRight: 70}}>
                             Login
                         </Button>
 
-                        <Button variant="outlined" color="primary" style={{textTransform: "none", marginTop:20 }}>
-                            Sign up
+                        <Button variant="outlined" color="primary"
+                                style={{textTransform: "none", marginTop: 20}}>
+                            <NavLink to="/signin"> Sign up </NavLink>
                         </Button>
                     </Grid>
                 </form>

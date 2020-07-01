@@ -20,9 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/LoginTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/basic/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/board/Board_Area.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/route/ContentRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/Component/route/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/Component/route/RouterComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/src/hoc/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/src/hoc/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
