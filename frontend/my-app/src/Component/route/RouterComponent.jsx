@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import AddUserComponent from "../user/AddUserComponent";
+import AddUserComponent from "../user/RegisterPage";
 import Home from "../basic/Home";
 import Main from "../basic/Main";
 import Auth from "../../hoc/auth";
 import Board_Area from "../board/Board_Area";
+import RegisterPage from "../user/RegisterPage"
 
 class AppRouter extends Component {
     // option
@@ -17,7 +18,7 @@ class AppRouter extends Component {
                 <div>
                     <Switch>
                         <Route exact path="/" component={Auth(Main, false)}/>
-                        <Route exact path="/signup" component={Auth(AddUserComponent, true)}/>
+                        <Route exact path="/signup" component={Auth(RegisterPage, false)}/>
                         <Route path="/Home" component={Auth(Home, true)}/>
 
                     </Switch>

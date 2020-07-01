@@ -74,7 +74,7 @@ function LoginTab(props) {
 
                         <Button variant="outlined" color="primary"
                                 style={{textTransform: "none", marginTop: 20}}>
-                            <NavLink to="/signin"> Sign up </NavLink>
+                            <NavLink to="/signup"> Sign up </NavLink>
                         </Button>
                     </Grid>
                 </form>
