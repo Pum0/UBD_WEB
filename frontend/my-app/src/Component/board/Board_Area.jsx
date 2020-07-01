@@ -47,6 +47,7 @@ class Board_Area extends Component {
                     </Toolbar>
                 </AppBar>
 
+                <ContentRouter></ContentRouter>
             </div>
         );
     }
