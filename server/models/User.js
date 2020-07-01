@@ -6,23 +6,29 @@ const moment = require('moment');
 
 
 const userSchema = mongoose.Schema({
-    name: {
-        type: String,
-        maxlength: 50
-    },
-
     email: {
         type: String,
         trim: true,
         unique: 1
     },
+    name: {
+        type: String,
+        maxlength: 50
+    },
     password: {
         type: String,
         minlength: 5
     },
-    lastname: {
-        type: String,
-        maxlength: 50
+    birth: {
+        type: Date,
+        default:Date.now
+    },
+    weight: {
+        type: Number
+    },
+    created: {
+        type: Date,
+        default:Date.now
     },
     role: {
         type: Number,
