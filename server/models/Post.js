@@ -1,7 +1,7 @@
 const mongoose = requrie('mongoose');
 const Schma = mongoose.Schma;
 
-const Post = mongoose.Schma({
+const postSchema = mongoose.Schma({
     writer: {
         type: Schma.Types.ObjectId,
         ref: 'User'
@@ -41,7 +41,7 @@ const Post = mongoose.Schma({
 
 })
 
-const Post = mongoose.model('Post', Post)
+const Post = mongoose.model('Post', postSchema)
 
 module.exports = { Post }
 

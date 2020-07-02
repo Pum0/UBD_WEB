@@ -3,7 +3,8 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    WRITE_POST
 } from './types';
 import { USER_SERVER } from '../Component/config';
 
@@ -55,6 +56,18 @@ export function logoutUser() {
 
     return {
         type: LOGOUT_USER,
+        payload: request
+    }
+}
+
+// 게시글 작성 액션
+export function writepost(variables) {
+
+    const request = axios.post(`${USER_SERVER}/writepost`, variables)
+        .then(response => response.data)
+
+    return {
+        type: WRITE_POST,
         payload: request
     }
 }

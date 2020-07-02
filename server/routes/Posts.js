@@ -41,7 +41,7 @@ router.post("/uploadfiles", (req, res) => {
 
 router.post("/writePost", (req, res) => {
 
-    const Post = new Post(req.body)
+    const post = new Post(req.body)
 
     Post.save((err, post) => {
         if (err) return res.status(400).json({ success: false, err })
