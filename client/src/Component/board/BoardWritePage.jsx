@@ -5,8 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {NavLink} from "react-router-dom";
 import Input from "reactstrap/es/Input";
+import {useDispatch} from "react-redux";
+import {writepost} from "../../_actions/post_action";
 
 function BoardWritePage(props) {
+    const dispatch = useDispatch();
+
 
     const [BoardName, setBoardName] = useState("")
     const [BoardContent, setBoardContent] = useState("")
@@ -19,10 +23,24 @@ function BoardWritePage(props) {
     }
 
     const onSubmitHandler = (event) => {
+
+
+
         event.preventDefault();
         let body = {
-
+            title:BoardName,
+            content:BoardContent,
+            created:Date.now()
         }
+
+        dispatch(writepost(body))
+            .then(response => {
+                if (response.payload.success) {
+                    props.history.push("/Home/board/BoardList")
+                } else {
+                    alert('저장실패')
+                }
+            })
 
     }
 
@@ -31,7 +49,7 @@ function BoardWritePage(props) {
             <Container style={Board_style}>
                 <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
 
-                <form style={{height: "96%"}}>
+                <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
                     <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
                                fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
 
@@ -47,7 +65,7 @@ function BoardWritePage(props) {
                         onChange={onBoardContentHandler}
                     />
 
-                    <Input type="file" style={{margin: 5, textDecoration: "none"}}></Input> <br/>
+                    {/*<Input type="file" style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/}
                     <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
                     <Button variant="contained" type="button" color="inherit"
                             style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
