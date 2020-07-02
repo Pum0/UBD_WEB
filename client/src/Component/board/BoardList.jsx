@@ -4,36 +4,11 @@ import {Button, Container} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import moment from "moment";
+import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 
 // import {POST_SERVER} from "../config";
 
 function BoardList() {
-    // var Board = [];
-    //
-    // for (var i = 0; i < Board.length; i++) {
-    //     var title = [];
-    //
-    //     title.push()
-    //
-    //     var Writer = [];
-    //
-    //     Writer.push()
-    //
-    //     Board.push(
-    //         <tr  style={{border: "1px solid black"}}>
-    //             <td>{title[i]}</td>
-    //             <td>{Writer[i]}</td>
-    //             <td>{Date.now()}</td>
-    //             <td>0</td>
-    //         </tr>
-    //     )
-    // }
-    // var params = useParams();
-    // var Board_id = params.Board_id;
-    // const [BoardTitle, setBoardTitle] = useState("")
-    // const [BoardWriter, setBoardWriter] = useState("")
-    // const [CreationDate, setCreationDate] = useState("")
-    // const [ViewCount, setViewCount] = useState("")
 
     const [Posts, setPosts] = useState([])
 
@@ -53,32 +28,34 @@ function BoardList() {
     const renderTableRows = Posts.map((post, index) => {
 
 
-        return <div style={{margin: 5, position: 'relative', border: "1px soild black"}}>
-            <Container>
-            <Typography variant="subtitle2">
-                <a href={`/Home/board/BoardList/${post._id}`}>
-                <span style={{width:"5"}}>
-                    {post.title}
-                </span>
-
-
-                </a>
-                <span>{post.writer.name} </span>
-
-                <span> {moment(post.created).format("MMM Do YYYY")} </span>
-                <span style={{marginLeft: '3rem'}}> {post.viewcount}</span>
-            </Typography>
-            </Container>
-        </div>
-
-
+        return <TableBody>
+            <TableRow>
+                <TableCell component="th" scope="row" ><a href={`/Home/board/BoardList/${post._id}`}> <Typography variant={"subtitle2"}>{post.title}</Typography></a></TableCell>
+                <TableCell align="right">{post.writer.name}</TableCell>
+                <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
+                <TableCell align="right" style={{textAlign:"center"}}>{post.viewcount}</TableCell>
+            </TableRow>
+        </TableBody>
     })
 
 
     return (
         <div style={Board_style}>
+            <TableContainer component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>제목</TableCell>
+                            <TableCell align="right">작성자</TableCell>
+                            <TableCell align="right">작성일자</TableCell>
+                            <TableCell align="right">조회수</TableCell>
 
-            {renderTableRows}
+                        </TableRow>
+                    </TableHead>
+                    {renderTableRows}
+                </Table>
+            </TableContainer>
+
             <NavLink to="/Home/board/BoardWritePage">
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                     <Typography variant="subtitle2">글쓰기</Typography>

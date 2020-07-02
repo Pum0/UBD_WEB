@@ -3,17 +3,10 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-<<<<<<< HEAD
 import {withRouter, NavLink} from "react-router-dom";
 import Input from "reactstrap/es/Input";
 import {useDispatch, useSelector} from "react-redux";
 import {writePost} from "../../_actions/user_action";
-=======
-import { withRouter, NavLink } from "react-router-dom";
-import Input from "reactstrap/es/Input";
-import { useDispatch, useSelector } from "react-redux";
-import { writePost } from "../../_actions/user_action";
->>>>>>> acec5a70a4f3be43c9288ca9b7e44af8efb48750
 
 
 function BoardWritePage(props) {

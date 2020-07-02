@@ -21,14 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/user_action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/user_action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,10 +206,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
-    <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593676860838">
+    <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593718740334">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593676860838" />
+    <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593718740334" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593182165418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
