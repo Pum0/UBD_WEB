@@ -5,8 +5,10 @@ import {Button} from "@material-ui/core";
 function CommunityBoardList(props) {
     var Board = [];
     var BoardId = 1;
+
     for (var i = 0; i < 12; i++) {
         var title = ["메이플 하고싶다", "존나 자고싶다", "ㅇㅎ) 와.."];
+
         Board.push(
             <tr style={{border: "1px solid black"}}>
                 <td>{title[i]}</td>

@@ -9,8 +9,18 @@ import {applyMiddleware, createStore} from 'redux';
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './_reducers';
+import './index.css';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
+
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: 'GmarketSansMedium',
+    },
+});
+
 
 ReactDOM.render(
     <Provider
@@ -19,7 +29,9 @@ ReactDOM.render(
             window.__REDUX_DEVTOOLS_EXTENSION__()
         )}
     >
-        <App/>
+        <MuiThemeProvider theme={theme}>
+            <App/>
+        </MuiThemeProvider>
     </Provider>
 
     , document.getElementById('root')
