@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, Route, Switch, withRouter} from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ContentRouter from "../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Auth from "../../hoc/auth";
+import BoardWritePage from "./BoardWritePage";
 
 class Board_Area extends Component {
     render() {
@@ -18,13 +20,13 @@ class Board_Area extends Component {
                     <Toolbar>
                         <NavLink to="/Home">
                             <IconButton edge="start" color="inherit" style={style}>
-                                <ArrowDropUpIcon  />
+                                <ArrowDropUpIcon/>
                             </IconButton>
                         </NavLink>
 
-                        <NavLink to="/Home/board/free_board">
+                        <NavLink to="/Home/board/CommunityBoardList">
                             <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h6" >자유게시판</Typography>
+                                <Typography variant="h6">자유게시판</Typography>
                             </Button>
                         </NavLink>
 
@@ -52,8 +54,8 @@ class Board_Area extends Component {
 
 const Board_style = {
     border: '1px solid black',
-    margin:0,
-    padding:0,
+    margin: 0,
+    padding: 0,
     top: "50px",
     position: "absolute",
     left: 0, height: "95%",

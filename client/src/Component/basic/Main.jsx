@@ -1,8 +1,5 @@
 import React, {Component} from "react";
 import main_picture from "../../img/UBD_Login_Img.jpg"
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
-import {NavLink} from "react-router-dom";
 import LoginTab from "./LoginTab";
 import Container from "@material-ui/core/Container";
 
