@@ -43,7 +43,7 @@ router.post("/writePost", (req, res) => {
 
     const post = new Post(req.body)
 
-    ost.save((err, post) => {
+    post.save((err, post) => {
         if (err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })

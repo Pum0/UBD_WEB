@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { withRouter, NavLink} from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import Input from "reactstrap/es/Input";
-import {useDispatch, useSelector} from "react-redux";
-import {writepost} from "../../_actions/user_action";
+import { useDispatch, useSelector } from "react-redux";
+import { writePost } from "../../_actions/user_action";
 
 
 function BoardWritePage(props) {
@@ -31,11 +31,11 @@ function BoardWritePage(props) {
         event.preventDefault();
         let body = {
             writer: user.userData._id,
-            title:BoardName,
-            content:BoardContent,
+            title: BoardName,
+            content: BoardContent,
         }
 
-        dispatch(writepost(body))
+        dispatch(writePost(body))
             .then(response => {
                 if (response.payload.success) {
                     props.history.push("/Home/board/BoardList")
@@ -49,11 +49,11 @@ function BoardWritePage(props) {
     return (
         <div>
             <Container style={Board_style}>
-                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
+                <Typography variant="h5" style={{ textAlign: "center" }}>자유게시판 글 쓰기</Typography>
 
-                <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
+                <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
                     <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
-                               fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
+                        fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler} />
 
                     <TextField
                         type="text"
@@ -63,14 +63,14 @@ function BoardWritePage(props) {
                         multiline
                         value={BoardContent}
                         rows={15}
-                        style={{width: "100%"}}
+                        style={{ width: "100%" }}
                         onChange={onBoardContentHandler}
                     />
 
                     {/*<Input type="file" style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/}
-                    <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
+                    <Button variant="contained" type="submit" color="inherit" style={{ margin: 5 }}>글쓰기 </Button>
                     <Button variant="contained" type="button" color="inherit"
-                            style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
+                        style={{ margin: 5, textDecoration: "none" }}> 뒤로가기 </Button>
                 </form>
             </Container>
         </div>

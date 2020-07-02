@@ -7,6 +7,7 @@ import {
     WRITE_POST
 } from './types';
 import { USER_SERVER } from '../Component/config';
+import { POST_SERVER } from '../Component/config';
 
 // 로그인 액션
 export function loginUser(dataToSubmit) {
@@ -61,9 +62,9 @@ export function logoutUser() {
 }
 
 // 게시글 작성 액션
-export function writepost(dataToSubmit) {
+export function writePost(dataToSubmit) {
 
-    const request = axios.post(`/api/Posts/writepost`, dataToSubmit)
+    const request = axios.post(`${POST_SERVER}/writePost`, dataToSubmit)
         .then(response => response.data)
 
     return {
