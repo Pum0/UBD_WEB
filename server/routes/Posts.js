@@ -39,7 +39,7 @@ router.post("/uploadfiles", (req, res) => {
 });
 
 
-router.post("/writePost", (req, res) => {
+router.post("/writepost", (req, res) => {
 
     const post = new Post(req.body)
 
