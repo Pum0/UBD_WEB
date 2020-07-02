@@ -43,7 +43,7 @@ router.post("/writePost", (req, res) => {
 
     const post = new Post(req.body)
 
-    post.save((err, post) => {
+    ost.save((err, post) => {
         if (err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })
@@ -67,7 +67,7 @@ router.post("/getPost", (req, res) => {
         .populate('writer')
         .exec((err, post) => {
             if (err) return res.status(400).send(err);
-            res.status(200).json({ success: true, video })
+            res.status(200).json({ success: true, post })
         })
 })
 
