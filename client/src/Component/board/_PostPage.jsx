@@ -10,11 +10,6 @@ function _PostPage() {
             </header>
             
             
-            <Body>
-                
-            </Body>
-            
-            
             <footer>
                 
             </footer>

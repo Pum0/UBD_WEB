@@ -6,6 +6,7 @@ import {Route, Switch} from "react-router-dom";
 import Auth from "../../hoc/auth";
 import BoardList from "../board/BoardList";
 import BoardWritePage from "../board/BoardWritePage";
+import _PostPage from "../board/_PostPage";
 
 
 class ContentRouter extends Component {
@@ -21,6 +22,8 @@ class ContentRouter extends Component {
                     <Route path="/Home/board/BoardList" component={Auth(BoardList, true)}/>
                     <Route path="/Home/board/share_board" component={Auth(Sharing_Board, true)}/>
                     <Route path="/Home/board/BoardWritePage" component={Auth(BoardWritePage,true )}/>
+                    <Route path="/Home/board/BoardList/:post_id" component={Auth(_PostPage, true)}/>
+
                 </Switch>
             </div>
 

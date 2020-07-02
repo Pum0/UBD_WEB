@@ -1,67 +1,86 @@
-import React, {Component, useState} from "react";
+import React, {Component, useState, useEffect} from "react";
 import {NavLink, withRouter, useParams} from "react-router-dom";
-import {Button} from "@material-ui/core";
+import {Button, Container} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import axios from "axios";
+import moment from "moment";
 
-function BoardList(props) {
-    var Board = [];
+// import {POST_SERVER} from "../config";
+
+function BoardList() {
+    // var Board = [];
+    //
+    // for (var i = 0; i < Board.length; i++) {
+    //     var title = [];
+    //
+    //     title.push()
+    //
+    //     var Writer = [];
+    //
+    //     Writer.push()
+    //
+    //     Board.push(
+    //         <tr  style={{border: "1px solid black"}}>
+    //             <td>{title[i]}</td>
+    //             <td>{Writer[i]}</td>
+    //             <td>{Date.now()}</td>
+    //             <td>0</td>
+    //         </tr>
+    //     )
+    // }
+    // var params = useParams();
+    // var Board_id = params.Board_id;
+    // const [BoardTitle, setBoardTitle] = useState("")
+    // const [BoardWriter, setBoardWriter] = useState("")
+    // const [CreationDate, setCreationDate] = useState("")
+    // const [ViewCount, setViewCount] = useState("")
+
+    const [Posts, setPosts] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/posts/getPosts')
+            .then(response => {
+                if (response.data.success) {
+                    console.log(response.data.posts)
+                    setPosts(response.data.posts)
+                } else {
+                    alert('게시물을 불러오는데 실패했습니다.')
+                }
+            })
+    }, [])
 
 
-    for (var i = 0; i < Board.length; i++) {
-        var title = [];
-
-        title.push()
-
-        var Writer = [];
-
-        Writer.push()
+    const renderTableRows = Posts.map((post, index) => {
 
 
+        return <div style={{margin: 5, position: 'relative', border: "1px soild black"}}>
+            <Container>
+            <Typography variant="subtitle2">
+                <a href={`/Home/board/BoardList/${post._id}`}>
+                <span style={{width:"5"}}>
+                    {post.title}
+                </span>
 
 
+                </a>
+                <span>{post.writer.name} </span>
+
+                <span> {moment(post.created).format("MMM Do YYYY")} </span>
+                <span style={{marginLeft: '3rem'}}> {post.viewcount}</span>
+            </Typography>
+            </Container>
+        </div>
 
 
-        Board.push(
-            <tr  style={{border: "1px solid black"}}>
-                <td>{title[i]}</td>
-                <td>{Writer[i]}</td>
-                <td>{Date.now()}</td>
-                <td>0</td>
-            </tr>
-        )
-    }
-
-    var params = useParams();
-    var Board_id = params.Board_id;
-
-    console.log('params', params, params.Board_id);
-
-    const [BoardTitle, setBoardTitle] = useState("")
-    const [BoardWriter, setBoardWriter] = useState("")
-    const [CreationDate, setCreationDate] = useState("")
-    const [ViewCount, setViewCount] = useState("")
+    })
 
 
     return (
         <div style={Board_style}>
 
-            <table style={{border: "1px solid black", width: "100%"}}>
-                <thead style={{border: "1px solid black"}}>
-                <tr>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>날짜</th>
-                    <th>조회수</th>
-                </tr>
-                </thead>
-                <tbody>
-                {Board}
-                </tbody>
-
-            </table>
-
+            {renderTableRows}
             <NavLink to="/Home/board/BoardWritePage">
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin:5}}>
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                     <Typography variant="subtitle2">글쓰기</Typography>
                 </Button>
             </NavLink>
@@ -78,7 +97,7 @@ const Board_style = {
     position: "absolute",
     left: 0, height: "92%",
     width: "96%",
-    backgroundColor: "pink",
+    backgroundColor: "white",
     zIndex: 451
 }
 

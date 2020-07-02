@@ -3,13 +3,14 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {NavLink} from "react-router-dom";
+import {withRouter, NavLink} from "react-router-dom";
 import Input from "reactstrap/es/Input";
-import {useDispatch} from "react-redux";
-import {writepost} from "../../_actions/user_action";
-import {withRouter} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {writePost} from "../../_actions/user_action";
+
 
 function BoardWritePage(props) {
+    const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
 
@@ -26,15 +27,14 @@ function BoardWritePage(props) {
     const onSubmitHandler = (event) => {
 
 
-
         event.preventDefault();
         let body = {
-            title:BoardName,
-            content:BoardContent,
-            created:Date.now()
+            writer: user.userData._id,
+            title: BoardName,
+            content: BoardContent,
         }
 
-        dispatch(writepost(body))
+        dispatch(writePost(body))
             .then(response => {
                 if (response.payload.success) {
                     props.history.push("/Home/board/BoardList")
