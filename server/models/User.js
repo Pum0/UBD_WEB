@@ -21,14 +21,14 @@ const userSchema = mongoose.Schema({
     },
     birth: {
         type: Date,
-        default:Date.now
+        default:moment()
     },
     weight: {
         type: Number
     },
     created: {
         type: Date,
-        default:Date.now
+        default:moment()
     },
     role: {
         type: Number,

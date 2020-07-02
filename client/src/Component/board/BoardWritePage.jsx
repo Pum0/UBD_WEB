@@ -6,7 +6,8 @@ import Button from "@material-ui/core/Button";
 import {NavLink} from "react-router-dom";
 import Input from "reactstrap/es/Input";
 import {useDispatch} from "react-redux";
-import {writepost} from "../../_actions/post_action";
+import {writepost} from "../../_actions/user_action";
+import {withRouter} from 'react-router-dom';
 
 function BoardWritePage(props) {
     const dispatch = useDispatch();
@@ -84,4 +85,4 @@ const Board_style = {
     width: "96%",
     zIndex: 451
 }
-export default BoardWritePage;
+export default withRouter(BoardWritePage);

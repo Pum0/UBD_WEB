@@ -2,7 +2,8 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    WRITE_POST
 } from '../_actions/types';
 
 
@@ -20,11 +21,15 @@ export default function (state = {}, action) {
         case AUTH_USER:
             return { ...state, userData: action.payload }
             break;
-            
+
         case LOGOUT_USER:
-            return { ...state}
+            return { ...state }
             break;
-            
+
+        case WRITE_POST:
+            return { ...state, postData: action.payload }
+            break;
+
         default:
             return state;
     }

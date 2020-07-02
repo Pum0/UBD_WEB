@@ -61,9 +61,9 @@ export function logoutUser() {
 }
 
 // 게시글 작성 액션
-export function writepost(variables) {
+export function writepost(dataToSubmit) {
 
-    const request = axios.post(`${USER_SERVER}/writepost`, variables)
+    const request = axios.post(`/api/Posts/writepost`, dataToSubmit)
         .then(response => response.data)
 
     return {

@@ -39,11 +39,11 @@ router.post("/uploadfiles", (req, res) => {
 });
 
 
-router.post("/writepost", (req, res) => {
+router.post("/writePost", (req, res) => {
 
     const post = new Post(req.body)
 
-    Post.save((err, post) => {
+    post.save((err, post) => {
         if (err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })
@@ -55,7 +55,7 @@ router.get("/getPosts", (req, res) => {
     Post.find()
         .populate('writer')
         .exec((err, posts) => {
-            if(err) return res.status(400).send(err);
+            if (err) return res.status(400).send(err);
             res.status(200).json({ success: true, Posts })
         })
 
@@ -63,12 +63,12 @@ router.get("/getPosts", (req, res) => {
 
 router.post("/getPost", (req, res) => {
 
-    Post.findOne({ "_id" : req.body.postId })
-    .populate('writer')
-    .exec((err, post) => {
-        if(err) return res.status(400).send(err);
-        res.status(200).json({ success: true, video })
-    })
+    Post.findOne({ "_id": req.body.postId })
+        .populate('writer')
+        .exec((err, post) => {
+            if (err) return res.status(400).send(err);
+            res.status(200).json({ success: true, video })
+        })
 })
 
 

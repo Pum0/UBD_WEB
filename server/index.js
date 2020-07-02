@@ -30,6 +30,7 @@ app.use(helmet())
 app.use(morgan('dev'));
 
 app.use('/api/users', require('./routes/users'));
+app.use('/api/posts', require('./routes/posts'));
 
 app.use('/uploads', express.static('uploads'));
 
