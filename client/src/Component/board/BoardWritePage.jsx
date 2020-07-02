@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {writePost} from "../../_actions/user_action";
 
 
+
 function BoardWritePage(props) {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
