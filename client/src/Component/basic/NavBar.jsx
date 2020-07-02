@@ -10,7 +10,6 @@ import axios from "axios";
 import {USER_SERVER} from "../config";
 
 
-
 function NavBar(props) {
     const onClickHandler = () => {
         axios.get(`${USER_SERVER}/logout`)
@@ -27,7 +26,7 @@ function NavBar(props) {
         <div>
             <AppBar color="inherit" style={Main_Nav}>
                 <Toolbar>
-                    <NavLink to="/Home/board" >
+                    <NavLink to="/Home/board">
                         <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
 
                             <ArrowDropDownIcon/>
@@ -40,7 +39,8 @@ function NavBar(props) {
                     </Typography>
 
 
-                    <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}} onClick={onClickHandler}>
+                    <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}}
+                                onClick={onClickHandler}>
                         <MeetingRoomIcon/>
                     </IconButton>
                 </Toolbar>
@@ -53,7 +53,6 @@ function NavBar(props) {
 
 
 const style = {
-
     flexGrow: 1,
     marginBottom: '12px'
 }

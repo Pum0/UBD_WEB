@@ -1,30 +1,41 @@
 import React, {Component, useState} from "react";
 import {NavLink, withRouter, useParams} from "react-router-dom";
 import {Button} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
-function CommunityBoardList(props) {
+function BoardList(props) {
     var Board = [];
-    var BoardId = 1;
-    for (var i = 0; i < 12; i++) {
-        var title = ["메이플 하고싶다", "존나 자고싶다", "ㅇㅎ) 와.."];
+
+
+    for (var i = 0; i < Board.length; i++) {
+        var title = [];
+
+        title.push()
+
+        var Writer = [];
+
+        Writer.push()
+
+
+
+
+
+
         Board.push(
-            <tr style={{border: "1px solid black"}}>
+            <tr  style={{border: "1px solid black"}}>
                 <td>{title[i]}</td>
-                <td>정진규</td>
-                <td>2020-07-02</td>
+                <td>{Writer[i]}</td>
+                <td>{Date.now()}</td>
                 <td>0</td>
             </tr>
         )
     }
-
-
 
     var params = useParams();
     var Board_id = params.Board_id;
 
     console.log('params', params, params.Board_id);
 
-    const [BoardNumber, setBoardNumber] = useState("0")
     const [BoardTitle, setBoardTitle] = useState("")
     const [BoardWriter, setBoardWriter] = useState("")
     const [CreationDate, setCreationDate] = useState("")
@@ -49,7 +60,11 @@ function CommunityBoardList(props) {
 
             </table>
 
-            <NavLink to="/Home/board/BoardWritePage"><Button>글쓰기</Button></NavLink>
+            <NavLink to="/Home/board/BoardWritePage">
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin:5}}>
+                    <Typography variant="subtitle2">글쓰기</Typography>
+                </Button>
+            </NavLink>
         </div>
     );
 
@@ -68,4 +83,4 @@ const Board_style = {
 }
 
 
-export default withRouter(CommunityBoardList);
+export default withRouter(BoardList);

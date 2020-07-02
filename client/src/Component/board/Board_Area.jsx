@@ -24,7 +24,7 @@ class Board_Area extends Component {
                             </IconButton>
                         </NavLink>
 
-                        <NavLink to="/Home/board/CommunityBoardList">
+                        <NavLink to="/Home/board/BoardList">
                             <Button edge="start" color="inherit" style={style}>
                                 <Typography variant="h6">자유게시판</Typography>
                             </Button>

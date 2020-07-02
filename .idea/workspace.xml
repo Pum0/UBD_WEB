@@ -20,14 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change afterPath="$PROJECT_DIR$/client/src/Component/board/CommunityBoardList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/font/GmarketSansTTFBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/font/GmarketSansTTFLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/font/GmarketSansTTFMedium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/npm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Community_Board.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/CommunityBoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/RouterComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-prac" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,6 +78,7 @@
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\font" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\Component\route" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\Component\basic" />
     </key>
@@ -91,7 +99,7 @@
       <workItem from="1593421500664" duration="161000" />
       <workItem from="1593520117754" duration="582000" />
       <workItem from="1593612885318" duration="21522000" />
-      <workItem from="1593672100572" duration="1756000" />
+      <workItem from="1593672100572" duration="19322000" />
     </task>
     <task id="LOCAL-00001" summary="react 초기구성">
       <created>1591780441438</created>
@@ -181,38 +189,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1591779487045" />
-    <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593085788490">
+    <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593699006470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593085788490" />
+    <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593699006470" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593163335273">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593163335273" />
-    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593628960557">
+    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593677185379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593628960557" />
-    <state width="1591" height="279" key="GridCell.Tab.0.bottom" timestamp="1593156168093">
+    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593677185379" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1593698848392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1591" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593156168093" />
-    <state width="1591" height="279" key="GridCell.Tab.0.center" timestamp="1593156168092">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1593698848392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1591" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593156168092" />
-    <state width="1591" height="279" key="GridCell.Tab.0.left" timestamp="1593156168092">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1593698848392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1591" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593156168092" />
-    <state width="1591" height="279" key="GridCell.Tab.0.right" timestamp="1593156168092">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1593698848392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1591" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593156168092" />
-    <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593177008486">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
+    <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593676860838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593177008486" />
+    <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593676860838" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593182165418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -229,5 +237,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="150" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593160860261" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/_actions/user_action.js</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

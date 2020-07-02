@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import Community_Board from "../board/CommunityBoardList";
+import Community_Board from "../board/BoardList";
 import Sharing_Board from "../board/Sharing_Board";
 import My_Record from "../board/My_Record";
 import {Route, Switch} from "react-router-dom";
 import Auth from "../../hoc/auth";
-import CommunityBoardList from "../board/CommunityBoardList";
+import BoardList from "../board/BoardList";
 import BoardWritePage from "../board/BoardWritePage";
 
 
@@ -18,7 +18,7 @@ class ContentRouter extends Component {
             <div>
                 <Switch>
                     <Route path="/Home/board/my_record" component={Auth(My_Record, true)}/>
-                    <Route path="/Home/board/CommunityBoardList" component={Auth(CommunityBoardList, true)}/>
+                    <Route path="/Home/board/BoardList" component={Auth(BoardList, true)}/>
                     <Route path="/Home/board/share_board" component={Auth(Sharing_Board, true)}/>
                     <Route path="/Home/board/BoardWritePage" component={Auth(BoardWritePage,true )}/>
                 </Switch>
