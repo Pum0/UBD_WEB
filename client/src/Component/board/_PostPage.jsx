@@ -4,25 +4,25 @@ import axios from 'axios';
 
 function _PostPage(props) {
 
-    const postId = props.match.params.postId
-    const [Post, setPost] = useState([])
-    // const [CommentLists, setCommentLists] = useState([])
+//     const postId = props.match.params.postId
+//     const [Post, setPost] = useState([])
+//     // const [CommentLists, setCommentLists] = useState([])
 
-    const PostVariable = {
-        PostId: PostId
-    }
+//     const PostVariable = {
+//         PostId: PostId
+//     }
 
-    useEffect(() => {
-        axios.post(`${POST_SERVER}/getPost`, PostVariable)
-            .then(response => {
-                if (response.data.success) {
-                    console.log(response.data.post)
-                    setPost(response.data.post)
-                } else {
-                    alert('Failed to get video Info')
-                }
-            })
-    }, [])
+//     useEffect(() => {
+//         axios.post(`${POST_SERVER}/getPost`, PostVariable)
+//             .then(response => {
+//                 if (response.data.success) {
+//                     console.log(response.data.post)
+//                     setPost(response.data.post)
+//                 } else {
+//                     alert('Failed to get video Info')
+//                 }
+//             })
+//     }, [])
 
     // const updateComment = (newComment) => {
     //     setCommentLists(CommentLists.concat(newComment))
