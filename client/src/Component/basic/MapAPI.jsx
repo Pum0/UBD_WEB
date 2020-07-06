@@ -18,10 +18,12 @@ class MapAPI extends Component {
     panToNaver() {
         this.setState({center: {lat: 37.3595704, lng: 127.105399}})
     }
+
     render() {
 
         return (
             <div>
+
                 <RenderAfterNavermapsLoaded
                     ncpClientId={'erm7wdyl9d'}
                     error={<p>Maps Load Error</p>}
@@ -32,17 +34,23 @@ class MapAPI extends Component {
                         style={{
                             position: "absolute",
                             width: '100%',
-                            height: '100%'
+                            height: '100%',
                         }}
                         defaultCenter={{lat: 35.896500, lng: 128.622062}}
                         defaultZoom={17}
-                    ><Marker
-                        key={1}
-                        position={{lat: 35.896500, lng: 127.105399}}
-                        animation={2}
-                        onClick={() => {alert('여기는 N서울타워입니다.');}}
+
                     >
-                    </Marker>
+                        <Marker
+                            position={{lat: 35.896500, lng: 128.622062}}
+                            animation={1}
+                            onClick={(e) => {
+                                Marker.setPosition(e.coords)
+                                alert("안녕하세요.")
+                            }}
+
+                        >
+                        </Marker>
+
                     </NaverMap>
                 </RenderAfterNavermapsLoaded>
             </div>

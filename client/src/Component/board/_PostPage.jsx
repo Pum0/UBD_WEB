@@ -58,10 +58,11 @@ function _PostPage(props) {
                     </Button>
                 </NavLink>
 
-
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
-                    <Typography variant="subtitle2">수정</Typography>
-                </Button>
+                <NavLink to="/Home/board/BoardUpdatePage">
+                    <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                        <Typography variant="subtitle2">수정</Typography>
+                    </Button>
+                </NavLink>
 
 
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>

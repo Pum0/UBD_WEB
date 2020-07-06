@@ -8,6 +8,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
 import {USER_SERVER} from "../config";
+import {Paper, TableContainer} from "@material-ui/core";
 
 
 function NavBar(props) {
@@ -24,7 +25,7 @@ function NavBar(props) {
 
     return (
         <div>
-            <AppBar color="inherit" style={Main_Nav}>
+            <AppBar color="inherit" style={Main_Nav}  component={Paper}>
                 <Toolbar>
                     <NavLink to="/Home/board">
                         <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
@@ -59,7 +60,7 @@ const style = {
 
 const Main_Nav = {
     position: "absolute",
-    border: '1px solid black',
+    // border: '1px solid black',
     height: '50px'
 }
 

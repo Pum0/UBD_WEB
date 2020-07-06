@@ -7,6 +7,7 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ContentRouter from "../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import {Paper, TableContainer} from "@material-ui/core";
 
 class Board_Area extends Component {
     render() {
@@ -14,7 +15,7 @@ class Board_Area extends Component {
             <div style={Board_style}>
 
 
-                <AppBar color="inherit" style={Board_Nav}>
+                <AppBar color="inherit" style={Board_Nav} component={Paper}>
                     <Toolbar>
                         <NavLink to="/Home">
                             <IconButton edge="start" color="inherit" style={style}>
@@ -45,13 +46,14 @@ class Board_Area extends Component {
                 </AppBar>
 
                 <ContentRouter></ContentRouter>
+
             </div>
         );
     }
 }
 
 const Board_style = {
-    border: '1px solid black',
+    // border: '1px solid black',
     margin: 0,
     padding: 0,
     top: "50px",
@@ -70,7 +72,7 @@ const style = {
 
 const Board_Nav = {
     position: "absolute",
-    border: '1px solid black',
+    // border: '1px solid black',
     height: '50px'
 }
 

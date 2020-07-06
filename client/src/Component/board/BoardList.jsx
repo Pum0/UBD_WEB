@@ -25,8 +25,7 @@ function BoardList(props) {
 
 
     const renderTableRows = Posts.map((post, index) => {
-
-
+        if(post.writer){
         return <TableBody>
             <TableRow>
                 <TableCell component="th" scope="row"><NavLink to={`/Home/board/${post._id}`} key={`${post._id}`}><Typography
@@ -36,6 +35,11 @@ function BoardList(props) {
                 <TableCell align="right" style={{textAlign: "center"}}>{post.viewcount}</TableCell>
             </TableRow>
         </TableBody>
+        }else{
+            return(<div>
+                Loading...
+            </div>)
+        }
     })
 
 
@@ -73,6 +77,7 @@ function BoardList(props) {
 }
 
 const Board_style = {
+
     margin: 10,
     padding: 0,
     top: "50px",
