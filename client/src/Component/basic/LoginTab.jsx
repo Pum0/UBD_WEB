@@ -5,6 +5,7 @@ import Axios from 'axios'
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../_actions/user_action';
 import {withRouter, NavLink} from 'react-router-dom';
+import Typography from "@material-ui/core/Typography";
 
 
 function LoginTab(props) {
@@ -69,12 +70,12 @@ function LoginTab(props) {
                     <Grid container justify="center" style={{marginTop: '10px'}}>
                         <Button type="submit" variant="outlined" color="primary"
                                 style={{textTransform: "none", marginTop: 20, marginRight: 70}}>
-                            Login
+                            <Typography variant="subtitle2"> Login </Typography>
                         </Button>
 
                         <Button variant="outlined" color="primary"
                                 style={{textTransform: "none", marginTop: 20}}>
-                            <NavLink to="/signup"> Sign up </NavLink>
+                            <NavLink to="/signup"> <Typography variant="subtitle2"> Sign up </Typography> </NavLink>
                         </Button>
                     </Grid>
                 </form>

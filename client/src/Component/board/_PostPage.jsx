@@ -29,36 +29,52 @@ function _PostPage(props) {
             })
     }, [])
 
+    if (postPage.writer) {
+        return (
 
-    return (
+
+            <div style={Board_style}>
+
+                <TableContainer component={Paper}>
+                    <Table aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>{postPage.title}</TableCell>
+                                <TableCell>{moment(postPage.created).format("MM.DD HH:mm")}</TableCell>
+                                <TableCell>{postPage.writer.name}</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>{postPage.content}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+
+                <NavLink to="/Home/board/BoardList">
+                    <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                        <Typography variant="subtitle2">뒤로가기</Typography>
+                    </Button>
+                </NavLink>
 
 
-        <div style={Board_style}>
-
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>{postPage.title}</TableCell>
-                            <TableCell>{moment(postPage.created).format("MM.DD.HH")}</TableCell>
-                            <TableCell></TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell>{postPage.content}</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
-
-            <NavLink to="/Home/board/BoardList">
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
-                    <Typography variant="subtitle2">뒤로가기</Typography>
+                    <Typography variant="subtitle2">수정</Typography>
                 </Button>
-            </NavLink>
-        </div>
-    )
+
+
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                    <Typography variant="subtitle2">삭제</Typography>
+                </Button>
+
+            </div>
+        )
+    } else {
+        return (
+            <div> Loading... </div>
+        )
+    }
 }
 
 

@@ -20,6 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/LoginTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,14 +194,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593699006470" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593732663020">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594016648813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593732663020" />
-    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593677185379">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594016648813" />
+    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1594001127272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593677185379" />
+    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594001127272" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1593698848392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

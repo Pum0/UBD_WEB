@@ -73,7 +73,6 @@ function BoardList(props) {
 }
 
 const Board_style = {
-    border: '1px solid black',
     margin: 10,
     padding: 0,
     top: "50px",
