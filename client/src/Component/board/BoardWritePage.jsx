@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {withRouter, NavLink} from "react-router-dom";
-import Input from "reactstrap/es/Input";
+import {withRouter} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {writePost} from "../../_actions/user_action";
-
 
 
 function BoardWritePage(props) {
