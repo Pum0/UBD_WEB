@@ -1,19 +1,18 @@
-import React, {Component, useState, useEffect} from "react";
-import {NavLink, withRouter, useParams} from "react-router-dom";
-import {Button, Container} from "@material-ui/core";
+import React, {useEffect, useState} from "react";
+import {NavLink, withRouter} from "react-router-dom";
+import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import moment from "moment";
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 
 // import {POST_SERVER} from "../config";
 
-function BoardList() {
+function BoardList(props) {
 
     const [Posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get('/api/posts/getPosts')
+        axios.get('/api/Posts/getPosts')
             .then(response => {
                 if (response.data.success) {
                     console.log(response.data.posts)
@@ -30,10 +29,11 @@ function BoardList() {
 
         return <TableBody>
             <TableRow>
-                <TableCell component="th" scope="row" ><a href={`/Home/board/BoardList/${post._id}`}> <Typography variant={"subtitle2"}>{post.title}</Typography></a></TableCell>
+                <TableCell component="th" scope="row"><NavLink to={`/Home/board/${post._id}`} key={`${post._id}`}><Typography
+                    variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
                 <TableCell align="right">{post.writer.name}</TableCell>
                 <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
-                <TableCell align="right" style={{textAlign:"center"}}>{post.viewcount}</TableCell>
+                <TableCell align="right" style={{textAlign: "center"}}>{post.viewcount}</TableCell>
             </TableRow>
         </TableBody>
     })
@@ -61,6 +61,12 @@ function BoardList() {
                     <Typography variant="subtitle2">글쓰기</Typography>
                 </Button>
             </NavLink>
+            <NavLink to="/Home/board">
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                    <Typography variant="subtitle2">뒤로가기</Typography>
+                </Button>
+            </NavLink>
+
         </div>
     );
 
