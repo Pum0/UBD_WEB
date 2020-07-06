@@ -20,21 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/ReplyComment.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/SingleComment.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Comment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/comments.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

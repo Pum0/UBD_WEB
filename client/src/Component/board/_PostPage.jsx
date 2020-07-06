@@ -7,7 +7,6 @@ import moment from "moment";
 
 
 function _PostPage(props) {
-
     const post_id = props.match.params.post_id
     const [postPage, setPost] = useState([])
 
@@ -61,36 +60,6 @@ function _PostPage(props) {
         </div>
     )
 }
-
-//     if (Video.writer) {
-//         return (
-//             <Row>
-//                 <Col lg={18} xs={24}>
-//                     <div className="postPage" style={{ width: '100%', padding: '3rem 4em' }}>
-
-//                         <List.Item
-//                             actions={[<LikeDislikes video videoId={videoId} userId={localStorage.getItem('userId')}  />,
-//                             ]}
-//                         >
-//                             <List.Item.Meta
-//                                 avatar={<Avatar src={Video.writer && Video.writer.image} />}
-//                                 title={<a href="https://ant.design">{Video.title}</a>}
-//                                 description={Video.description}
-//                             />
-//                             <div></div>
-//                         </List.Item>
-
-//                     </div>
-//                 </Col>
-//
-//             </Row>
-//         )
-
-//     } else {
-//         return (
-//             <div>Loading...</div>
-//         )
-//     }
 
 
 const Board_style = {
