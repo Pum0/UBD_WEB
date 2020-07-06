@@ -18,7 +18,7 @@ const connect = mongoose.connect(config.mongoURI, {
 
 
 //application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 //application/json
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -30,8 +30,7 @@ app.use(helmet())
 app.use(morgan('dev'));
 
 app.use('/api/users', require('./routes/users'));
-app.use('/api/posts', require('./routes/posts'));
-app.use('/api/comments', require('./routes/comments'));
+app.use('/api/posts', require('./routes/Posts'));
 
 app.use('/uploads', express.static('uploads'));
 

@@ -1,14 +1,12 @@
 import React, {Component} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {NavLink, Route, Switch, withRouter} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ContentRouter from "../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Auth from "../../hoc/auth";
-import BoardWritePage from "./BoardWritePage";
 
 class Board_Area extends Component {
     render() {

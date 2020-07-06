@@ -20,16 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change afterPath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Component/board/Sections/ReplyComment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Component/board/Sections/SingleComment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/comments.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +58,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -180,6 +172,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="react front + node.js backend test&#10;Content router init config Completed" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="693" y="228" key="#JavaScript" timestamp="1593738590890">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="693" y="228" key="#JavaScript/0.0.1920.1040@0.0.1920.1040" timestamp="1593738590890" />
+    <state x="845" y="382" key="#Notifications" timestamp="1593738596842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="382" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1593738596842" />
     <state x="440" y="94" key="#Project_Structure" timestamp="1591779487045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -188,10 +188,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593699006470" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593163335273">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593732663020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593163335273" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593732663020" />
     <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1593677185379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -216,6 +216,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593718740334" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1593738611211">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593738611211" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593182165418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
