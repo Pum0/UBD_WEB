@@ -68,17 +68,17 @@ router.post("/getPost", (req, res) => {
         .populate('writer')
         .exec((err, post) => {
             if (err) return res.status(400).json({ success: false, err });
-            if (!post) return res.json({ success: false, message: "불러 올 게시물를 찾을 수 없습니다." });
+            if (!post) return res.json({ success: false, message: "불러 올 게시물을 찾을 수 없습니다." });
             res.status(200).json({ success: true, post })
         })
 })
 
 router.post("/updatePost", (req, res) => {
 
-    Post.findOneAndUpdate( {"_id": req.body.post_id}, {"title": req.body.title, "content": req.body.content} )
+    Post.findOneAndUpdate( {"post_Id": req.body.post_id}, {"title": req.body.title, "content": req.body.content} )
         .exec((err, doc) => {
             if (err) return res.status(400).json({ success: false, err });
-            if (!post) return res.json({ success: false, message: "수정할 데이터를 찾을 수 없습니다." });
+            if (!post) return res.json({ success: false, message: "수정할 게시물을 찾을 수 없습니다." });
             res.status(200).json({ success: true, doc })
         })
 });

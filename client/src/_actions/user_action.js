@@ -20,7 +20,7 @@ export function loginUser(dataToSubmit) {
         type: LOGIN_USER,
         payload: request
     }
-}
+}   
 
 // 회원가입 액션
 export function registerUser(dataToSubmit) {
@@ -69,6 +69,18 @@ export function writePost(dataToSubmit) {
 
     return {
         type: WRITE_POST,
+        payload: request
+    }
+}
+
+// 게시글 수정 액션
+export function updatePost(dataToSubmit) {
+
+    const request = axios.post(`${POST_SERVER}/updatePost`, dataToSubmit)
+        .then(response => response.data)
+
+    return {
+        type: UPDATE_POST,
         payload: request
     }
 }

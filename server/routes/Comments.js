@@ -35,6 +35,16 @@ router.post("/getComments", (req, res) => {
 
 });
 
+router.post("/updateComments", (req, res) => {
+
+    Post.findOneAndUpdate({ "post_Id": req.body.post_id, "content": req.body.content })
+        .exec((err, doc) => {
+            if (err) return res.status(400).json({ success: false, err });
+            if (!post) return res.json({ success: false, message: "수정할 댓글를 찾을 수 없습니다." });
+            res.status(200).json({ success: true, doc })
+        })
+});
+
 
 
 
