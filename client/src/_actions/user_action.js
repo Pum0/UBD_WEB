@@ -4,7 +4,8 @@ import {
     REGISTER_USER,
     AUTH_USER,
     LOGOUT_USER,
-    WRITE_POST
+    WRITE_POST,
+    UPDATE_POST
 } from './types';
 import { USER_SERVER } from '../Component/config';
 import { POST_SERVER } from '../Component/config';

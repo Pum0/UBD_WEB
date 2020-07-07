@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/DD.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardUpdatePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardUpdatePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/user/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/user/RegisterPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/_actions/user_action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/user_action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +54,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-prac" />
@@ -233,13 +238,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591780598866" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594085415909">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594090749819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594085415909" />
-    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1593160860261">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594090749819" />
+    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1594107112478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593160860261" />
+    <state x="150" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594107112478" />
   </component>
 </project>

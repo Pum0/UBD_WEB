@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, Route, Switch, withRouter} from "react-router-dom";
 import {
-    TextField,
     Button,
     Paper,
     Table,
@@ -10,15 +9,18 @@ import {
     TableCell,
     TableContainer,
     TableHead,
-    TableRow
+    TableRow,
+    TextField
 } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
+import Auth from "../../hoc/auth";
+import BoardUpdatePage from "./BoardUpdatePage";
 
 
 function _PostPage(props) {
     const post_id = props.match.params.post_id
-    const [postPage, setPost] = useState([])
+    const [Post, setPost] = useState([])
     const [comment, setComment] = useState("")
 
     const onCommentHandler = (e) => {
@@ -39,12 +41,12 @@ function _PostPage(props) {
                     console.log(response.data.post)
                     setPost(response.data.post)
                 } else {
-                    alert('Failed to get video Info')
+                    alert('')
                 }
             })
     }, [])
 
-    if (postPage.writer) {
+    if (Post.writer) {
         return (
 
 
@@ -54,14 +56,14 @@ function _PostPage(props) {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>{postPage.title}</TableCell>
-                                <TableCell>{moment(postPage.created).format("MM.DD HH:mm")}</TableCell>
-                                <TableCell>{postPage.writer.name}</TableCell>
+                                <TableCell>{Post.title}</TableCell>
+                                <TableCell>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
+                                <TableCell>{Post.writer.name}</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableCell>{postPage.content}</TableCell>
+                                <TableCell>{Post.content}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
@@ -82,7 +84,7 @@ function _PostPage(props) {
                     </Button>
                 </NavLink>
 
-                <NavLink to="/Home/board/BoardUpdatePage">
+                <NavLink to={`/Home/board/${Post._id}/BoardUpdatePage`}>
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                         <Typography variant="subtitle2">수정</Typography>
                     </Button>
@@ -93,6 +95,9 @@ function _PostPage(props) {
                     <Typography variant="subtitle2">삭제</Typography>
                 </Button>
 
+                <Switch>
+                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                </Switch>
             </div>
         )
     } else {
