@@ -22,11 +22,10 @@
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardUpdatePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardUpdatePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/user/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/user/RegisterPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,22 +201,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594001127272" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1593698848392">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1594085036383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1593698848392">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594085036383" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1594085036383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1593698848392">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594085036383" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1594085036383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1593698848392">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594085036383" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1594085036383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593698848392" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594085036383" />
     <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593718740334">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,10 +233,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591780598866" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1592903765945">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594085415909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592903765945" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594085415909" />
     <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1593160860261">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

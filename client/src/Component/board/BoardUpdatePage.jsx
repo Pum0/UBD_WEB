@@ -47,7 +47,7 @@ function BoardUpdatePage(props) {
     return (
         <div>
             <Container style={Board_style}>
-                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
+                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 수정</Typography>
 
                 <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
                     <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."

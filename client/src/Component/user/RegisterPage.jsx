@@ -84,7 +84,7 @@ function RegisterPage(props) {
                     <TextField type="text" placeholder="이름을 입력해주세요."
                                fullWidth margin="normal" value={Name} onChange={onNameHandler}/>
 
-                    <TextField placeholder="생년월일을 입력해주세요. ex)2020-01-01"
+                    <TextField placeholder="생년월일을 입력해주세요. ex)20200101"
                                fullWidth margin="normal" value={Birth} onChange={onBirthDayHandler}/>
 
                     <TextField type="number" placeholder="체중을 입력해주세요."

@@ -10,6 +10,9 @@ import moment from "moment";
 function BoardList(props) {
 
     const [Posts, setPosts] = useState([])
+    var BoardList = []
+    var descendingOrder = [];
+
 
     useEffect(() => {
         axios.get('/api/Posts/getPosts')
@@ -26,22 +29,25 @@ function BoardList(props) {
 
     const renderTableRows = Posts.map((post, index) => {
         if(post.writer){
-        return <TableBody>
+        BoardList.push(<TableBody>
             <TableRow>
+                <TableCell>{post.seq} </TableCell>
                 <TableCell component="th" scope="row"><NavLink to={`/Home/board/${post._id}`} key={`${post._id}`}><Typography
                     variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
                 <TableCell align="right">{post.writer.name}</TableCell>
                 <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
                 <TableCell align="right" style={{textAlign: "center"}}>{post.viewcount}</TableCell>
             </TableRow>
-        </TableBody>
+        </TableBody>)
         }else{
             return(<div>
                 Loading...
             </div>)
         }
     })
-
+    for(var i = BoardList.length; i >=0; i--){
+        descendingOrder.push(BoardList[i]);
+    }
 
     return (
         <div style={Board_style}>
@@ -49,6 +55,7 @@ function BoardList(props) {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell>번호</TableCell>
                             <TableCell>제목</TableCell>
                             <TableCell align="right">작성자</TableCell>
                             <TableCell align="right">작성일자</TableCell>
@@ -56,7 +63,8 @@ function BoardList(props) {
 
                         </TableRow>
                     </TableHead>
-                    {renderTableRows}
+                    {/*{renderTableRows}*/}
+                    {descendingOrder}
                 </Table>
             </TableContainer>
 

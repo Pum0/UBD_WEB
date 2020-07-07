@@ -1,7 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {NavLink, withRouter} from "react-router-dom";
-import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import {
+    TextField,
+    Button,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow
+} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 
@@ -9,6 +19,11 @@ import moment from "moment";
 function _PostPage(props) {
     const post_id = props.match.params.post_id
     const [postPage, setPost] = useState([])
+    const [comment, setComment] = useState("")
+
+    const onCommentHandler = (e) => {
+        setComment(e.currentTarget.value)
+    }
 
     // const [CommentLists, setCommentLists] = useState([])
 
@@ -51,6 +66,15 @@ function _PostPage(props) {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <form>
+                    <TextField type="text" placeholder="댓글을 입력하세요."
+                               fullWidth margin="normal" value={comment} onChange={onCommentHandler}
+                               style={{width: "83%"}}/>
+                    <Button type="submit" size="medium " variant="contained" edge="start" color="default"
+                            style={{margin: 10, textAlign: "center"}}>
+                        <Typography variant="button">입력</Typography>
+                    </Button>
+                </form>
 
                 <NavLink to="/Home/board/BoardList">
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
