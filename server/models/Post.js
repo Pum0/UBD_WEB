@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const moment = require('moment');
+const config = require("../config/key");
 
 const autoIncrement = require('mongoose-auto-increment');
-const connection = mongoose.createConnection("mongodb+srv://Jin:1q2w3e4r@ubd-higbl.mongodb.net/ubd?retryWrites=true&w=majority")
+const connection = mongoose.createConnection(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
 
-autoIncrement.initialize(connection,{ useNewUrlParser: true });
+autoIncrement.initialize(connection, { useNewUrlParser: true });
 
 const postSchema = mongoose.Schema({
     writer: {
