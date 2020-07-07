@@ -3,7 +3,8 @@ import {
     REGISTER_USER,
     AUTH_USER,
     LOGOUT_USER,
-    WRITE_POST
+    WRITE_POST,
+    UPDATE_POST
 } from '../_actions/types';
 
 
@@ -28,6 +29,10 @@ export default function (state = {}, action) {
 
         case WRITE_POST:
             return { ...state, postData: action.payload }
+            break;
+
+        case UPDATE_POST:
+            return { ...state, updateData: action.payload }
             break;
 
         default:

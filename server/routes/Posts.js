@@ -75,7 +75,7 @@ router.post("/getPost", (req, res) => {
 
 router.post("/updatePost", (req, res) => {
 
-    Post.findOneAndUpdate({"post_id": req.body.writer.post_id}, {"title": req.body.title, "content": req.body.content})
+    Post.findOneAndUpdate({_id: req.body.post_id}, {$set:{"title": req.body.title, "content": req.body.content}})
         .exec((err, doc) => {console.log("reqPostId : "+req.post_id +" title : "+req.body.title + "content : " + req.body.content + "  " + doc)
             if (err) return res.status(400).json({success: false, err});
             // if (!post) return res.json({ success: false, message: "수정할 게시물을 찾을 수 없습니다." });

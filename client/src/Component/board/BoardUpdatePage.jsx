@@ -50,11 +50,12 @@ function BoardUpdatePage(props) {
 
         event.preventDefault();
         let body = {
-            writer: post_id,
+            post_id: post_id,
             title: BoardName,
             content: BoardContent,
             created: moment()
         }
+
 
         dispatch(updatePost(body))
             .then(response => {
