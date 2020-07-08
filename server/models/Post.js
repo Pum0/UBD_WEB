@@ -24,10 +24,6 @@ const postSchema = mongoose.Schema({
         required: [true, '제목을 입력해주세요.']
     },
 
-    // number: {
-    //     type: Number,
-    // },
-
     content: {
         type: String,
         maxlength: 500,
@@ -37,7 +33,7 @@ const postSchema = mongoose.Schema({
     viewcount: {
         type: Number,
         default: 0
-    },
+    }, 
 
     images: {
         type: Array,
@@ -47,7 +43,12 @@ const postSchema = mongoose.Schema({
     created: {
         type: Date,
         default: moment()
-    }
+    },
+
+    
+    filePath: {
+        type: String,
+    },
 
 
 })
