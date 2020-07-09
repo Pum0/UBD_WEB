@@ -100,6 +100,7 @@ function BoardWritePage(props) {
                         style={{width: "100%"}}
                         onChange={onBoardContentHandler}
                     />
+                    <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
                     <Dropzone onDrop={onDrop}
                               multiple={false}
                               maxSize={8000000}
@@ -122,7 +123,8 @@ function BoardWritePage(props) {
                     </Dropzone>
                     {FilePath !== "" &&
                     <div>
-                        <img src={`http://localhost:5000/${FilePath}`} alt="image"/>
+
+                        <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{width:"100%", border:"1px solid black"}}/>
                     </div>
                     }
                     {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>

@@ -21,12 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
