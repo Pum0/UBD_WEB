@@ -92,7 +92,7 @@ export function updatePost(dataToSubmit) {
 }
 
 // 게시글 삭제 액션
-export function deletePost(dataTosubmit) {
+export function deletePost(dataToSubmit) {
 
     const request = axios.post(`${POST_SERVER}/deletePost`, dataToSubmit)
         .then(response => response.data)
@@ -104,9 +104,9 @@ export function deletePost(dataTosubmit) {
 }
 
 // 댓글 작성 액션
-export function writeComment(dataTosubmit) {
+export function writeComment(dataToSubmit) {
 
-    const request = axios.post(`${COMMENT_SERVER}/writeComment`, dataTosubmit)
+    const request = axios.post(`${COMMENT_SERVER}/writeComment`, dataToSubmit)
         .then(response => response.data)
 
     return {
@@ -116,9 +116,9 @@ export function writeComment(dataTosubmit) {
 }
 
 // 댓글 수정 액션
-export function updateComment(dataTosubmit) {
+export function updateComment(dataToSubmit) {
 
-    const request = axios.post(`${COMMENT_SERVER}/updateComment`, datatTosubmit)
+    const request = axios.post(`${COMMENT_SERVER}/updateComment`, dataToSubmit)
         .then(response => response.data)
 
     return {
@@ -130,7 +130,7 @@ export function updateComment(dataTosubmit) {
 // 댓글 삭제 액션
 export function deleteComment(dataToSubmit) {
 
-    const request = axios.post(`${COMMENT_SERVER}/deleteComment`, dataTosubmit)
+    const request = axios.post(`${COMMENT_SERVER}/deleteComment`, dataToSubmit)
         .then(response => response.data)
 
     return {

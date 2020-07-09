@@ -98,7 +98,7 @@ router.post("/deletePost", (req, res) => {
     Post.deleteOne({ _id: req.body.post_id } )
     .exec((err, doc) => {
         if(err) return res.status(400).json({ success: false, err});
-        res.status(200),json({ success: true, doc})
+        res.status(200).json({ success: true, doc})
     })
 });
 
