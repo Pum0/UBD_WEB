@@ -4,3 +4,7 @@ export const AUTH_USER = 'auth_user';
 export const LOGOUT_USER = 'logout_user';
 export const WRITE_POST = 'write_post';
 export const UPDATE_POST = 'update_post';
+export const DELETE_POST = 'delete_post';
+export const write_COMMENT = 'write_comment';
+export const UPDATE_COMMENT = 'update_comment';
+export const DELETE_COMMENT = 'delete_comment';

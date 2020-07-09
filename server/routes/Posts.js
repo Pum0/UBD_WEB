@@ -27,6 +27,7 @@ var upload = multer({ storage: storage }).single("file")
 //             Posts
 //=================================
 
+// 파일 업로드 
 router.post("/uploadfiles", (req, res) => {
 
     upload(req, res, err => {
@@ -39,6 +40,7 @@ router.post("/uploadfiles", (req, res) => {
 });
 
 
+// 게시물 작성
 router.post("/writePost", (req, res) => {
 
     const post = new Post(req.body)
@@ -50,6 +52,8 @@ router.post("/writePost", (req, res) => {
 
 })
 
+
+// 게시물 목록 불러오기
 router.get("/getPosts", (req, res) => {
 
     Post.find()
@@ -62,6 +66,7 @@ router.get("/getPosts", (req, res) => {
 
 })
 
+// 게시물 불러오기
 router.post("/getPost", (req, res) => {
 
     Post.findOne({ "_id": req.body.post_id })
@@ -73,6 +78,8 @@ router.post("/getPost", (req, res) => {
         })
 })
 
+
+// 게시물 수정
 router.post("/updatePost", (req, res) => {
 
     Post.findOneAndUpdate({ _id: req.body.post_id }, { $set: { "title": req.body.title, "content": req.body.content } })
@@ -85,6 +92,7 @@ router.post("/updatePost", (req, res) => {
         })
 });
 
+// 게시물 삭제
 router.post("/deletePost", (req, res) => {
 
     Post.deleteOne({ _id: req.body.post_id } )
@@ -93,10 +101,6 @@ router.post("/deletePost", (req, res) => {
         res.status(200),json({ success: true, doc})
     })
 });
-
-// router.post("/removePost", (req, res) => {
-//     Post.findOneAndRemove({ _id: req.body._id })
-// })
 
 
 module.exports = router;

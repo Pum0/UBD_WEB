@@ -6,8 +6,8 @@ const { Comment } = require("../models/Comment");
 //             Comment
 //=================================
 
-
-router.post("/saveComment", (req, res) => {
+// 댓글 작성
+router.post("/writeComment", (req, res) => {
 
     const comment = new Comment(req.body)
 
@@ -24,6 +24,7 @@ router.post("/saveComment", (req, res) => {
 
 })
 
+// 댓글 불러오기
 router.post("/getComments", (req, res) => {
 
     Comment.find({ "post_Id": req.body.post_Id })
@@ -35,13 +36,25 @@ router.post("/getComments", (req, res) => {
 
 });
 
-router.post("/updateComments", (req, res) => {
 
-    Post.findOneAndUpdate({ "post_Id": req.body.post_id, "content": req.body.content })
+// 댓글 수정
+router.post("/updateComment", (req, res) => {
+
+    Comment.findOneAndUpdate({ "post_Id": req.body.comment_id, "content": req.body.content })
         .exec((err, doc) => {
             if (err) return res.status(400).json({ success: false, err });
-            if (!post) return res.json({ success: false, message: "수정할 댓글를 찾을 수 없습니다." });
+            // if (!post) return res.json({ success: false, message: "수정할 댓글를 찾을 수 없습니다." });
             res.status(200).json({ success: true, doc })
+        })
+});
+
+// 댓글 삭제
+router.post("/deleteComment", (req, res) => {
+
+    Comment.deleteOne({ _id: req.body.comment_id })
+        .exec((err, doc) => {
+            if (err) return res.status(400).json({ success: false, err });
+            res.status(200), json({ success: true, doc })
         })
 });
 
