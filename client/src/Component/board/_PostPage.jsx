@@ -64,7 +64,9 @@ function _PostPage(props) {
                             <TableRow>
                                 <TableCell>{Post.content}</TableCell>
                             </TableRow>
-
+                            <div>
+                                <img src={`http://localhost:5000/${Post.images[0]}`} alt="image" style={{width:"100%", border:"1px solid black"}}/>
+                            </div>
                         </TableBody>
 
 

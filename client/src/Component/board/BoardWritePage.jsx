@@ -36,7 +36,8 @@ function BoardWritePage(props) {
         let body = {
             writer: user.userData._id,
             title: BoardName,
-            content: BoardContent
+            content: BoardContent,
+            images:FilePath
         }
 
         dispatch(writePost(body))
@@ -58,7 +59,7 @@ function BoardWritePage(props) {
         }
         formData.append("file", files[0])
 
-        // console.log(files)
+
 
 
         Axios.post('/api/posts/uploadfiles', formData, config)
@@ -102,7 +103,7 @@ function BoardWritePage(props) {
                     />
                     <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
                     <Dropzone onDrop={onDrop}
-                              multiple={false}
+                              multiple={true}
                               maxSize={8000000}
                     >{({getRootProps, getInputProps}) => (
                         <div style={{
@@ -123,8 +124,8 @@ function BoardWritePage(props) {
                     </Dropzone>
                     {FilePath !== "" &&
                     <div>
-
-                        <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{width:"100%", border:"1px solid black"}}/>
+                        미리보기<br/>
+                        <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{width:"50%", border:"1px solid black"}}/>
                     </div>
                     }
                     {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>
