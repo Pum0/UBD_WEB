@@ -17,7 +17,6 @@ import moment from "moment";
 import Auth from "../../hoc/auth";
 import BoardUpdatePage from "./BoardUpdatePage";
 
-
 function _PostPage(props) {
     const post_id = props.match.params.post_id
     const [Post, setPost] = useState([])
@@ -65,9 +64,15 @@ function _PostPage(props) {
                             <TableRow>
                                 <TableCell>{Post.content}</TableCell>
                             </TableRow>
+
                         </TableBody>
+
+
+                            <TableCell>댓글이 들어갈 테이블 공간</TableCell>
+
                     </Table>
                 </TableContainer>
+
                 <form>
                     <TextField type="text" placeholder="댓글을 입력하세요."
                                fullWidth margin="normal" value={comment} onChange={onCommentHandler}

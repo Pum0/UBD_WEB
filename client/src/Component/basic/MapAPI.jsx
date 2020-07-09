@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Marker, NaverMap, RenderAfterNavermapsLoaded,Overlay } from "react-naver-maps";
+import {Marker, NaverMap, RenderAfterNavermapsLoaded,Polyline } from "react-naver-maps";
 
 
 function MapAPI() {

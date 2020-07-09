@@ -6,6 +6,10 @@ import Button from "@material-ui/core/Button";
 import {withRouter} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {writePost} from "../../_actions/user_action";
+import {Input} from "@material-ui/core";
+import Dropzone, {useDropzone} from "react-dropzone";
+import Axios from "axios";
+import AddIcon from '@material-ui/icons/Add';
 
 
 function BoardWritePage(props) {
@@ -15,6 +19,8 @@ function BoardWritePage(props) {
 
     const [BoardName, setBoardName] = useState("")
     const [BoardContent, setBoardContent] = useState("")
+    const [FilePath, setFilePath] = useState("")
+
 
     const onBoardNameHandler = (event) => {
         setBoardName(event.currentTarget.value)
@@ -30,7 +36,7 @@ function BoardWritePage(props) {
         let body = {
             writer: user.userData._id,
             title: BoardName,
-            content: BoardContent,
+            content: BoardContent
         }
 
         dispatch(writePost(body))
@@ -44,14 +50,44 @@ function BoardWritePage(props) {
 
     }
 
+    const onDrop = (files) => {
+        let formData = new FormData;
+        ;
+        const config = {
+            header: {'content-type': 'multipart/form-data'}
+        }
+        formData.append("file", files[0])
+
+        // console.log(files)
+
+
+        Axios.post('/api/posts/uploadfiles', formData, config)
+            .then(response => {
+                if (response.data.success) {
+                    let variable = {
+                        filePath: response.data.filePath,
+                        fileName: response.data.fileName
+                    }
+
+                    console.log(response.data)
+                    setFilePath(response.data.filePath)
+                } else {
+                    alert("이미지 업로드를 실패했습니다.")
+                }
+
+            })
+
+
+    }
+
     return (
         <div>
             <Container style={Board_style}>
-                <Typography variant="h5" style={{ textAlign: "center" }}>자유게시판 글 쓰기</Typography>
+                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
 
-                <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
+                <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
                     <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
-                        fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler} />
+                               fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
 
                     <TextField
                         type="text"
@@ -61,14 +97,38 @@ function BoardWritePage(props) {
                         multiline
                         value={BoardContent}
                         rows={15}
-                        style={{ width: "100%" }}
+                        style={{width: "100%"}}
                         onChange={onBoardContentHandler}
                     />
+                    <Dropzone onDrop={onDrop}
+                              multiple={false}
+                              maxSize={8000000}
+                    >{({getRootProps, getInputProps}) => (
+                        <div style={{
+                            marginTop:10,
+                            margin:"0 auto",
+                            width: '96%',
+                            height: '100px',
+                            border: '1px solid lightgray',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }} {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <AddIcon style={{fontSize: '3rem'}}/>
 
-                    {/*<Input type="file" style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/}
-                    <Button variant="contained" type="submit" color="inherit" style={{ margin: 5 }}>글쓰기 </Button>
+                        </div>
+                    )}
+                    </Dropzone>
+                    {FilePath !== "" &&
+                    <div>
+                        <img src={`http://localhost:5000/${FilePath}`} alt="image"/>
+                    </div>
+                    }
+                    {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>
+                    <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
                     <Button variant="contained" type="button" color="inherit"
-                        style={{ margin: 5, textDecoration: "none" }}> 뒤로가기 </Button>
+                            style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
                 </form>
             </Container>
         </div>

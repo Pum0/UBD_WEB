@@ -3,18 +3,18 @@ const router = express.Router();
 const multer = require('multer');
 
 const {Post} = require('../models/Post');
-
+const moment = require('moment');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'uploads/images/')
     },
     filename: function (req, file, cb) {
         cb(null, `${Date.now()}_${file.originalname}`)
     },
     fileFilter: (req, file, cb) => {
         const ext = path.extname(file.originalname)
-        if (ext !== '.jpg' || '.png') {
+        if (ext !== '.jpg' || ext !== '.png') {
             return cb(res.status(400).end('only jpg, png is allowed'), false);
         }
         cb(null, true)
@@ -37,6 +37,8 @@ router.post("/uploadfiles", (req, res) => {
     })
 
 });
+
+router.post("/preView")
 
 
 router.post("/writePost", (req, res) => {
@@ -83,6 +85,7 @@ router.post("/updatePost", (req, res) => {
 
         })
 });
+
 
 // router.post("/removePost", (req, res) => {
 //     Post.findOneAndRemove({ _id: req.body._id })
