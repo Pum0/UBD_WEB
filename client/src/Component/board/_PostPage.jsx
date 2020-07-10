@@ -1,25 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {NavLink, Route, Switch, withRouter} from "react-router-dom";
-import {
-    Button,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    TextField,
-    Modal,
-    makeStyles
-} from "@material-ui/core";
+import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import Auth from "../../hoc/auth";
 import BoardUpdatePage from "./BoardUpdatePage";
 import {deletePost} from "../../_actions/user_action";
 import {useDispatch} from "react-redux";
+import Comments from "./Sections/Comments";
 
 function _PostPage(props) {
     const dispatch = useDispatch();
@@ -27,15 +16,14 @@ function _PostPage(props) {
 
     const post_id = props.match.params.post_id
     const [Post, setPost] = useState([])
-    const [comment, setComment] = useState("")
 
     // 삭제버튼 클릭 시 Modal이 열릴 수 있도록 기본 값을 false로 지정한 스테이트
     const [open, setOpen] = useState(false);
 
 
-    const onCommentHandler = (e) => {
-        setComment(e.currentTarget.value)
-    }
+    // 댓글 부분
+    const [Coments, setComents] = useState([])
+
 
     const postVariable = {
         post_id: post_id
@@ -51,6 +39,8 @@ function _PostPage(props) {
                 }
             })
     }, [])
+
+
 
     const onDeleteHandler = (event) => {
 
@@ -82,8 +72,8 @@ function _PostPage(props) {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>{Post.title}</TableCell>
-                                <TableCell>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
+                                <TableCell style={{width:"60%"}}>{Post.title}</TableCell>
+                                <TableCell>{moment(Post.created).format("YY.MM.DD HH:mm분")}</TableCell>
                                 <TableCell>{Post.writer.name}</TableCell>
                             </TableRow>
                         </TableHead>
@@ -91,7 +81,7 @@ function _PostPage(props) {
                             <TableRow>
                                 <TableCell>{Post.content}</TableCell>
                             </TableRow>
-                            {Post.images[0] !== "" &&
+                               {Post.images[0] !== "" &&
                             <div>
                                 <img src={`http://localhost:5000/${Post.images[0]}`} alt="image"
                                      style={{width: "100%", border: "1px solid black"}}/>
@@ -100,20 +90,12 @@ function _PostPage(props) {
                         </TableBody>
 
 
-                        <TableCell>댓글이 들어갈 테이블 공간</TableCell>
+                        <TableCell><Comments postId={post_id} /></TableCell>
 
                     </Table>
                 </TableContainer>
 
-                <form>
-                    <TextField type="text" placeholder="댓글을 입력하세요."
-                               fullWidth margin="normal" value={comment} onChange={onCommentHandler}
-                               style={{width: "83%"}}/>
-                    <Button type="submit" size="medium " variant="contained" edge="start" color="default"
-                            style={{margin: 10, textAlign: "center"}}>
-                        <Typography variant="button">입력</Typography>
-                    </Button>
-                </form>
+
 
 
                 {/*뒤로가기버튼*/}

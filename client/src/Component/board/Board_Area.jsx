@@ -7,7 +7,7 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ContentRouter from "../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {Paper, TableContainer} from "@material-ui/core";
+import {Paper} from "@material-ui/core";
 
 class Board_Area extends Component {
     render() {
@@ -59,7 +59,7 @@ const Board_style = {
     top: "50px",
     position: "absolute",
     left: 0, height: "95%",
-    width: "28%",
+    width: "35%",
     backgroundColor: "white",
     zIndex: 450
 }

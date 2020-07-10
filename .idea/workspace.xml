@@ -21,10 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/user_action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/user_action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
@@ -223,10 +222,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593718740334" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1593738611211">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1594364434636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593738611211" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594364434636" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593182165418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
