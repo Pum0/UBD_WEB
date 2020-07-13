@@ -18,9 +18,10 @@ function MapAPI() {
                     defaultZoom={17}
 
                     style={{
-                        position: "absolute",
+                        position:"relative",
                         width: '100%',
                         height: '100%',
+
                     }}
                 >
                     <Marker

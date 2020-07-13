@@ -12,7 +12,7 @@ class Sharing_Board extends Component {
 
     render() {
         return (
-            <div style={Board_style}>
+            <div>
 
                 <h2> Sharing Board</h2>
                 공유 게시판
@@ -20,16 +20,5 @@ class Sharing_Board extends Component {
         );
     }
 
-}
-const Board_style = {
-    border: '1px solid black',
-    margin:0,
-    padding:0,
-    top: "50px",
-    position: "absolute",
-    left: 0, height: "95%",
-    width: "100%",
-    backgroundColor: "magenta",
-    zIndex: 451
 }
 export default Sharing_Board;

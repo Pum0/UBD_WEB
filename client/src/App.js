@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router} from "react-router-dom";
 
-import AppRouter from "./Component/route/RouterComponent"
+import AppRouter from "./Component/Views/route/RouterComponent"
 
 
 function App() {

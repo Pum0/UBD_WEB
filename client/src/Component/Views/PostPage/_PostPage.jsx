@@ -4,9 +4,9 @@ import {NavLink, Route, Switch, withRouter} from "react-router-dom";
 import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
-import Auth from "../../hoc/auth";
-import BoardUpdatePage from "./BoardUpdatePage";
-import {deletePost} from "../../_actions/user_action";
+import Auth from "../../../hoc/auth";
+import PostUpdatePage from "./PostUpdatePage";
+import {deletePost} from "../../../_actions/user_action";
 import {useDispatch} from "react-redux";
 import Comments from "./Sections/Comments";
 
@@ -66,10 +66,10 @@ function _PostPage(props) {
         return (
 
 
-            <div style={Board_style}>
+            <div>
 
                 <TableContainer component={Paper}>
-                    <Table aria-label="simple table">
+                    <Table aria-label="simple table" >
                         <TableHead>
                             <TableRow>
                                 <TableCell style={{width:"60%"}}>{Post.title}</TableCell>
@@ -106,7 +106,7 @@ function _PostPage(props) {
                 </NavLink>
 
                 {/*수정버튼*/}
-                <NavLink to={`/Home/board/${Post._id}/BoardUpdatePage`}>
+                <NavLink to={`/Home/board/${Post._id}/PostUpdatePage`}>
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                         <Typography variant="subtitle2">수정</Typography>
                     </Button>
@@ -121,7 +121,7 @@ function _PostPage(props) {
 
                 {/*글 수정 페이지로 라우팅*/}
                 <Switch>
-                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/board/:post_id/PostUpdatePage" component={Auth(PostUpdatePage, true)}/>
                 </Switch>
             </div>
         )
@@ -133,13 +133,4 @@ function _PostPage(props) {
 }
 
 
-const Board_style = {
-    margin: 10,
-    padding: 0,
-    top: "50px",
-    position: "absolute",
-    left: 0, height: "92%",
-    width: "96%",
-    zIndex: 451
-}
 export default withRouter(_PostPage);

@@ -1,19 +1,17 @@
 import axios from 'axios';
 import {
-    LOGIN_USER,
-    REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER,
-    WRITE_POST,
-    UPDATE_POST,
+    DELETE_COMMENT,
     DELETE_POST,
-    WRITE_COMMENT,
+    LOGIN_USER,
+    LOGOUT_USER,
+    REGISTER_USER,
     UPDATE_COMMENT,
-    DELETE_COMMENT
+    UPDATE_POST,
+    WRITE_COMMENT,
+    WRITE_POST
 } from './types';
-import { USER_SERVER } from '../Component/config';
-import { POST_SERVER } from '../Component/config';
-import { COMMENT_SERVER } from '../Component/config';
+import {COMMENT_SERVER, POST_SERVER, USER_SERVER} from '../Component/config';
 
 // 로그인 액션
 export function loginUser(dataToSubmit) {

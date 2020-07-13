@@ -3,7 +3,7 @@ import {Button, TextField} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../../_actions/user_action";
+import {writePost} from "../../../../_actions/user_action";
 import SingleComment from "./SingleComment";
 
 function Comments(props) {
@@ -53,10 +53,8 @@ function Comments(props) {
             <form onSubmit={onSubmitHandler}>
 
                 <TextField type="text" placeholder="댓글을 입력하세요."
-                           fullWidth margin="normal" value={CommentValue} onChange={onCommentHandler}
-                           style={{width: "83%"}}/>
-                <Button type="submit" size="medium " variant="contained" edge="start" color="default"
-                        style={{margin: 10, textAlign: "center"}}>
+                           fullWidth margin="normal" value={CommentValue} onChange={onCommentHandler}/>
+                <Button type="submit" size="medium " variant="contained" edge="start" color="default">
 
                     <Typography variant="button">입력</Typography>
 

@@ -5,14 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {withRouter} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../_actions/user_action";
-import {Input} from "@material-ui/core";
-import Dropzone, {useDropzone} from "react-dropzone";
+import {writePost} from "../../../_actions/user_action";
+import Dropzone from "react-dropzone";
 import Axios from "axios";
 import AddIcon from '@material-ui/icons/Add';
 
 
-function BoardWritePage(props) {
+function PostWritePage(props) {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -83,10 +82,10 @@ function BoardWritePage(props) {
 
     return (
         <div>
-            <Container style={Board_style}>
-                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
+            <Container >
+                <Typography variant="h5" >자유게시판 글 쓰기</Typography>
 
-                <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
+                <form onSubmit={onSubmitHandler}>
                     <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
                                fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
 
@@ -98,7 +97,6 @@ function BoardWritePage(props) {
                         multiline
                         value={BoardContent}
                         rows={15}
-                        style={{width: "100%"}}
                         onChange={onBoardContentHandler}
                     />
                     <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
@@ -106,16 +104,7 @@ function BoardWritePage(props) {
                               multiple={true}
                               maxSize={8000000}
                     >{({getRootProps, getInputProps}) => (
-                        <div style={{
-                            marginTop:10,
-                            margin:"0 auto",
-                            width: '96%',
-                            height: '100px',
-                            border: '1px solid lightgray',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }} {...getRootProps()}>
+                        <div {...getRootProps()}>
                             <input {...getInputProps()} />
                             <AddIcon style={{fontSize: '3rem'}}/>
 
@@ -129,22 +118,11 @@ function BoardWritePage(props) {
                     </div>
                     }
                     {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>
-                    <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
-                    <Button variant="contained" type="button" color="inherit"
-                            style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
+                    <Button variant="contained" type="submit" color="inherit" >글쓰기 </Button>
+                    <Button variant="contained" type="button" color="inherit"> 뒤로가기 </Button>
                 </form>
             </Container>
         </div>
     );
 }
-
-const Board_style = {
-    margin: 10,
-    padding: 0,
-    top: "50px",
-    position: "absolute",
-    left: 0, height: "92%",
-    width: "96%",
-    zIndex: 451
-}
-export default withRouter(BoardWritePage);
+export default withRouter(PostWritePage);

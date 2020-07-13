@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
-import {USER_SERVER} from "../config";
+import {USER_SERVER} from "../../config";
 import {Paper, TableContainer} from "@material-ui/core";
 
 
@@ -25,23 +25,22 @@ function NavBar(props) {
 
     return (
         <div>
-            <AppBar color="inherit" style={Main_Nav}  component={Paper}>
+            <AppBar color="inherit" component={Paper}>
                 <Toolbar>
                     <NavLink to="/Home/board">
-                        <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
+                        <IconButton edge="start" color="inherit" aria-label="Menu">
 
                             <ArrowDropDownIcon/>
 
                         </IconButton>
                     </NavLink>
 
-                    <Typography variant="h4" style={style}>
+                    <Typography variant="h4">
                         UBD
                     </Typography>
 
 
-                    <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}}
-                                onClick={onClickHandler}>
+                    <IconButton color="inherit" aria-label="Menu" onClick={onClickHandler}>
                         <MeetingRoomIcon/>
                     </IconButton>
                 </Toolbar>
@@ -52,17 +51,6 @@ function NavBar(props) {
     );
 }
 
-
-const style = {
-    flexGrow: 1,
-    marginBottom: '12px'
-}
-
-const Main_Nav = {
-    position: "absolute",
-    // border: '1px solid black',
-    height: '50px'
-}
 
 
 export default withRouter(NavBar);

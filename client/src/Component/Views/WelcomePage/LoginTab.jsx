@@ -3,7 +3,7 @@ import {Face, Fingerprint} from '@material-ui/icons';
 import React, {Component, useState} from 'react'
 import Axios from 'axios'
 import {useDispatch} from 'react-redux';
-import {loginUser} from '../../_actions/user_action';
+import {loginUser} from '../../../_actions/user_action';
 import {withRouter, NavLink} from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
 
@@ -43,8 +43,8 @@ function LoginTab(props) {
 
 
     return (
-        <Paper variant="outlined" square style={{padding: 20}}>
-            <div style={{margin: 15}}>
+        <Paper variant="outlined" square>
+            <div>
                 <form
                     onSubmit={onSubmitHandler}
                 >
@@ -67,14 +67,12 @@ function LoginTab(props) {
                         </Grid>
                     </Grid>
 
-                    <Grid container justify="center" style={{marginTop: '10px'}}>
-                        <Button type="submit" variant="outlined" color="primary"
-                                style={{textTransform: "none", marginTop: 20, marginRight: 70}}>
+                    <Grid container justify="center">
+                        <Button type="submit" variant="outlined" color="primary">
                             <Typography variant="subtitle2"> Login </Typography>
                         </Button>
 
-                        <Button variant="outlined" color="primary"
-                                style={{textTransform: "none", marginTop: 20}}>
+                        <Button variant="outlined" color="primary">
                             <NavLink to="/signup"> <Typography variant="subtitle2"> Sign up </Typography> </NavLink>
                         </Button>
                     </Grid>
