@@ -9,6 +9,8 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
 import {USER_SERVER} from "../../config";
 import {Paper, TableContainer} from "@material-ui/core";
+import {Tabs} from "antd";
+
 
 
 function NavBar(props) {
@@ -45,7 +47,6 @@ function NavBar(props) {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-
 
         </div>
     );

@@ -11,16 +11,29 @@ class Main extends Component {
         return (
             <div>
                 <Typography>
-                <img src={main_picture} alt="Logo"/>
-                <Container>
-                    <LoginTab></LoginTab>
-                </Container>
+                    <img src={main_picture} alt="Logo" style={img_size}/>
+                    <Container style={login_tab}>
+                        <LoginTab></LoginTab>
+                    </Container>
                 </Typography>
             </div>
         );
     }
+}
 
+const login_tab = {
+    width: "500px",
+    height: "350px",
+    position: "absolute",
+    zIndex:99,
+    left:"36%",
+    top:"65%"
+}
 
+const img_size = {
+    width: "100%",
+    height:"100%",
+    position: "absolute"
 }
 
 

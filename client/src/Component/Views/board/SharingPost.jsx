@@ -8,12 +8,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 
-class Sharing_Board extends Component {
+class SharingPost extends Component {
 
     render() {
         return (
             <div>
-
                 <h2> Sharing Board</h2>
                 공유 게시판
             </div>
@@ -21,4 +20,4 @@ class Sharing_Board extends Component {
     }
 
 }
-export default Sharing_Board;
+export default SharingPost;

@@ -5,18 +5,16 @@ import Board_Area from "../board/BoardArea";
 import {Route, Switch, withRouter} from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import {Grid, Paper} from "@material-ui/core";
+import BoardArea from "../board/BoardArea";
 
 function Home() {
     return (
-        <div>
+        <div style={{position:"static"}}>
             <NavBar/>
             <MapAPI></MapAPI>
 
-            {/*<useMapApi></useMapApi>*/}
-
-
             <Switch>
-                <Route path="/Home/board" component={Auth(Board_Area, true)}/>
+                <Route path="/Home/board" component={Auth(BoardArea, true)}/>
             </Switch>
 </div>
 );

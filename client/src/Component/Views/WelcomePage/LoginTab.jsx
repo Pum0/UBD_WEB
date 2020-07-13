@@ -43,8 +43,8 @@ function LoginTab(props) {
 
 
     return (
-        <Paper variant="outlined" square>
-            <div>
+        <Paper variant="outlined" square style={{padding: 20 , border:"1.3px solid gray"}}>
+            <div style={{margin: 15}}>
                 <form
                     onSubmit={onSubmitHandler}
                 >
@@ -67,12 +67,14 @@ function LoginTab(props) {
                         </Grid>
                     </Grid>
 
-                    <Grid container justify="center">
-                        <Button type="submit" variant="outlined" color="primary">
+                    <Grid container justify="center" style={{marginTop: '10px'}}>
+                        <Button type="submit" variant="outlined" color="primary"
+                                style={{textTransform: "none", marginTop: 20, marginRight: 70}}>
                             <Typography variant="subtitle2"> Login </Typography>
                         </Button>
 
-                        <Button variant="outlined" color="primary">
+                        <Button variant="outlined" color="primary"
+                                style={{textTransform: "none", marginTop: 20}}>
                             <NavLink to="/signup"> <Typography variant="subtitle2"> Sign up </Typography> </NavLink>
                         </Button>
                     </Grid>
