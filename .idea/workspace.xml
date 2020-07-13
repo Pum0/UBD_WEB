@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,14 +61,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\uploads\images" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\font" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\Component\route" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\Component\basic" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
     </key>
   </component>
   <component name="SvnConfiguration">
