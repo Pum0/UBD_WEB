@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import {NavLink, withRouter} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,10 +10,12 @@ import axios from "axios";
 import {USER_SERVER} from "../../config";
 import {Paper, TableContainer} from "@material-ui/core";
 import {Tabs} from "antd";
-
+import BoardNav from "./NavSections/BoardNav";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
 
 function NavBar(props) {
+
     const onClickHandler = () => {
         axios.get(`${USER_SERVER}/logout`)
             .then(response => {
@@ -25,20 +27,41 @@ function NavBar(props) {
             })
     }
 
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onOpenHandler = () => {
+        setIsOpen(!isOpen)
+        console.log(isOpen)
+    }
+
+
+    const ArrowImage = () => {
+        if (isOpen) {
+            return (
+                <IconButton edge="start" color="inherit" aria-label="Menu"
+                            onClick={onOpenHandler}>
+                    <ArrowDropUpIcon/>
+                </IconButton>
+            );
+        } else {
+            return (
+                <IconButton edge="start" color="inherit" aria-label="Menu"
+                            onClick={onOpenHandler}>
+                    <ArrowDropDownIcon/>
+                </IconButton>
+            )
+        }
+    }
+
     return (
         <div>
-            <AppBar color="inherit" component={Paper}>
+            <AppBar color="inherit" component={Paper} style={{display: "flex"}}>
                 <Toolbar>
-                    <NavLink to="/Home/board">
-                        <IconButton edge="start" color="inherit" aria-label="Menu">
-
-                            <ArrowDropDownIcon/>
-
-                        </IconButton>
-                    </NavLink>
+                    <ArrowImage />
 
                     <Typography variant="h4">
-                        UBD
+                        UBD Map
                     </Typography>
 
 
@@ -46,12 +69,14 @@ function NavBar(props) {
                         <MeetingRoomIcon/>
                     </IconButton>
                 </Toolbar>
+                <BoardNav isOpen={isOpen}/>
+
             </AppBar>
+
 
         </div>
     );
 }
-
 
 
 export default withRouter(NavBar);

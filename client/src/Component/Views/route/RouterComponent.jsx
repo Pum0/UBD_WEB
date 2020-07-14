@@ -4,7 +4,6 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Home from "../MainPage/Home";
 import Main from "../WelcomePage/Main";
 import Auth from "../../../hoc/auth";
-import BoardArea from "../board/BoardArea";
 
 class AppRouter extends Component {
     // option
@@ -18,7 +17,7 @@ class AppRouter extends Component {
                     <Switch>
                         <Route exact path="/" component={Auth(Main, false)}/>
                         <Route exact path="/signup" component={Auth(RegisterPage, false)}/>
-                        <Route  path="/Home" component={Auth(Home, true)}/>
+                        <Route  path="/home" component={Auth(Home, true)}/>
                     </Switch>
 
 

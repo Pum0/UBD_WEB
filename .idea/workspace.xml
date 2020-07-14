@@ -20,14 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Map/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Map/MapAPI.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/LoginTab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/BoardArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/BoardArea.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/SharingPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/SharingPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/BoardArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSections/BoardNav.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/route/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/RouterComponent.jsx" afterDir="false" />
     </list>
@@ -72,15 +72,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\Navbar\NavSections" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\PostPage" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\PostListPage" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\MainPage" />
-      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\WelcomePage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -185,6 +185,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="react front + node.js backend test&#10;Content router init config Completed" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1594691244441">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1594691244441" />
     <state x="693" y="228" key="#JavaScript" timestamp="1593738590890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

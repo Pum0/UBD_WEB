@@ -6,7 +6,7 @@ import Auth from "./hoc/auth";
 import Main from "./Component/Views/WelcomePage/Main";
 import RegisterPage from "./Component/Views/RegisterPage/RegisterPage";
 import Home from "./Component/Views/MainPage/Home";
-import BoardArea from "./Component/Views/board/BoardArea";
+import BoardArea from "./Component/Views/Navbar/NavSections/BoardNav";
 import RecordPage from "./Component/Views/board/RecordPage";
 import BoardList from "./Component/Views/PostListPage/BoardList";
 import Sharing_Board from "./Component/Views/board/SharingPost";
