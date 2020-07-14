@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Marker, NaverMap, RenderAfterNavermapsLoaded,Polyline } from "react-naver-maps";
-
+const config = require('./MapAPIKey')
 
 function MapAPI() {
 
@@ -8,7 +8,7 @@ function MapAPI() {
         <div>
 
             <RenderAfterNavermapsLoaded
-                ncpClientId={'erm7wdyl9d'}
+                ncpClientId={config.ncpClientId}
                 error={<p>Maps Load Error</p>}
                 loading={<p>Maps Loading...</p>}
             >
