@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {withRouter} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../_actions/user_action";
+import {writePost} from "../../_actions/post_action";
 import {Input} from "@material-ui/core";
 import Dropzone, {useDropzone} from "react-dropzone";
 import Axios from "axios";

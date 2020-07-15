@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import Auth from "../../hoc/auth";
 import BoardUpdatePage from "./BoardUpdatePage";
-import {deletePost} from "../../_actions/user_action";
+import {deletePost} from "../../_actions/post_action";
 import {useDispatch} from "react-redux";
 import Comments from "./Sections/Comments";
 
