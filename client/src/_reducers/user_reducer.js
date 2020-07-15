@@ -2,13 +2,7 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER,
-    WRITE_POST,
-    UPDATE_POST,
-    DELETE_POST,
-    WRITE_COMMENT,
-    UPDATE_COMMENT,
-    DELETE_COMMENT
+    LOGOUT_USER
 } from '../_actions/types';
 
 
@@ -29,30 +23,6 @@ export default function (state = {}, action) {
 
         case LOGOUT_USER:
             return { ...state }
-            break;
-
-        case WRITE_POST:
-            return { ...state, postData: action.payload }
-            break;
-
-        case UPDATE_POST:
-            return { ...state, updateData: action.payload }
-            break;
-
-        case DELETE_POST:
-            return { ...state, deleteData: action.payload }
-            break;
-
-        case WRITE_COMMENT:
-            return { ...state, commentData: action.payload }
-            break;
-
-        case UPDATE_COMMENT:
-            return { ...state, updataDate: action.payload }
-            break;
-
-        case DELETE_COMMENT:
-            return { ...state, deleteDate: action.payload }
             break;
 
         default:
