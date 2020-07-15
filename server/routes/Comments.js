@@ -42,8 +42,7 @@ router.post("/updateComment", (req, res) => {
 
     Comment.findOneAndUpdate({ "post_Id": req.body.comment_id, "content": req.body.content })
         .exec((err, doc) => {
-            if (err) return res.status(400).json({ success: false, err });
-            // if (!post) return res.json({ success: false, message: "수정할 댓글를 찾을 수 없습니다." });
+            if (err) return res.status(400).json({ success: false, message: "수정할 댓글를 찾을 수 없습니다.", err });
             res.status(200).json({ success: true, doc })
         })
 });

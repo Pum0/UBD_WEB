@@ -32,7 +32,7 @@ router.post("/uploadfiles", (req, res) => {
 
     upload(req, res, err => {
         if (err) {
-            return res.json({ success: false, err })
+            return res.json({ success: false, message: "파일을 업로드 할 수 없습니다.", err })
         }
         return res.json({ success: true, filePath: res.req.file.path, fileName: res.req.file.filename })
     })
@@ -46,7 +46,7 @@ router.post("/writePost", (req, res) => {
     const post = new Post(req.body)
 
     post.save((err, post) => {
-        if (err) return res.status(400).json({ success: false, err })
+        if (err) return res.status(400).json({ success: false, message: "게시물을 작성할 수 없습니다.", err })
         return res.status(200).json({ success: true })
     })
 
@@ -59,8 +59,7 @@ router.get("/getPosts", (req, res) => {
     Post.find()
         .populate('writer')
         .exec((err, posts) => {
-            if (err) return res.status(400).json({ success: false, err });
-            // if (!post) return res.json({ success: false, message: "불러 올 목록을 찾을 수 없습니다." });
+            if (err) return res.status(400).json({ success: false, message: "게시물 목록을 불러올 수 없습니다.", err });
             res.status(200).json({ success: true, posts })
         })
 
@@ -72,8 +71,7 @@ router.post("/getPost", (req, res) => {
     Post.findOne({ "_id": req.body.post_id })
         .populate('writer')
         .exec((err, post) => {
-            if (err) return res.status(400).json({ success: false, err });
-            // if (!post) return res.json({ success: false, message: "불러 올 게시물을 찾을 수 없습니다." });
+            if (err) return res.status(400).json({ success: false, message: "불러 올 게시물을 찾을 수 없습니다.", err });
             res.status(200).json({ success: true, post })
         })
 })
@@ -85,8 +83,7 @@ router.post("/updatePost", (req, res) => {
     Post.findOneAndUpdate({ _id: req.body.post_id }, { $set: { "title": req.body.title, "content": req.body.content } })
         .exec((err, doc) => {
             console.log("reqPostId : " + req.post_id + " title : " + req.body.title + "content : " + req.body.content + "  " + doc)
-            if (err) return res.status(400).json({ success: false, err });
-            // if (!post) return res.json({ success: false, message: "수정할 게시물을 찾을 수 없습니다." });
+            if (err) return res.status(400).json({ success: false, message: "수정할 게시물을 찾을 수 없습니다.", err });
             res.status(200).json({ success: true, doc })
 
         })
