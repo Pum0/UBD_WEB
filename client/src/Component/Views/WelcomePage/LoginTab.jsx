@@ -3,7 +3,7 @@ import {Face, Fingerprint} from '@material-ui/icons';
 import React, {Component, useState} from 'react'
 import Axios from 'axios'
 import {useDispatch} from 'react-redux';
-import {loginUser} from '../../_actions/user_action';
+import {loginUser} from '../../../_actions/user_action';
 import {withRouter, NavLink} from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
 

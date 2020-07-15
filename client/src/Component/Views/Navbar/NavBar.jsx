@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
-import {USER_SERVER} from "../config";
+import {USER_SERVER} from "../../config";
 import {Paper, TableContainer} from "@material-ui/core";
 
 

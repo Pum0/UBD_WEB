@@ -4,12 +4,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import {NavLink, withRouter} from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import ContentRouter from "../route/ContentRouter";
+import ContentRouter from "../../route/ContentRouter";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {Paper} from "@material-ui/core";
+import {Paper, Grid} from "@material-ui/core";
 
-class Board_Area extends Component {
+class PostNav extends Component {
     render() {
         return (
             <div style={Board_style}>
@@ -23,26 +23,26 @@ class Board_Area extends Component {
                             </IconButton>
                         </NavLink>
 
-                        <NavLink to="/Home/board/BoardList">
-                            <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h6">자유게시판</Typography>
-                            </Button>
-                        </NavLink>
+                            <NavLink to="/Home/board/BoardList">
+                                <Button edge="start" color="inherit" style={style}>
+                                    <Typography variant="h6">자유게시판</Typography>
+                                </Button>
+                            </NavLink>
 
-                        <NavLink to="/Home/board/share_board">
-                            <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h6">공유게시판</Typography>
-                            </Button>
-                        </NavLink>
+                            <NavLink to="/Home/board/share_board">
+                                <Button edge="start" color="inherit" style={style}>
+                                    <Typography variant="h6">공유게시판</Typography>
+                                </Button>
+                            </NavLink>
 
 
-                        <NavLink to="/Home/board/my_record">
-                            <Button edge="start" color="inherit" style={style}>
-                                <Typography variant="h6">나의기록</Typography>
-                            </Button>
-                        </NavLink>
-
+                            <NavLink to="/Home/board/my_record">
+                                <Button edge="start" color="inherit" style={style}>
+                                    <Typography variant="h6">나의기록</Typography>
+                                </Button>
+                            </NavLink>
                     </Toolbar>
+
                 </AppBar>
 
                 <ContentRouter></ContentRouter>
@@ -65,7 +65,8 @@ const Board_style = {
 }
 
 const style = {
-
+    position: "relative",
+    width: "auto",
     flexGrow: 1,
     marginBottom: '12px'
 }
@@ -76,4 +77,4 @@ const Board_Nav = {
     height: '50px'
 }
 
-export default withRouter(Board_Area);
+export default withRouter(PostNav);

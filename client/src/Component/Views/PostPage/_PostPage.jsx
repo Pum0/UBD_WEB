@@ -4,9 +4,9 @@ import {NavLink, Route, Switch, withRouter} from "react-router-dom";
 import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
-import Auth from "../../hoc/auth";
+import Auth from "../../../hoc/auth";
 import BoardUpdatePage from "./BoardUpdatePage";
-import {deletePost} from "../../_actions/post_action";
+import {deletePost} from "../../../_actions/post_action";
 import {useDispatch} from "react-redux";
 import Comments from "./Sections/Comments";
 

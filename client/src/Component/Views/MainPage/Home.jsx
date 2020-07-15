@@ -1,9 +1,9 @@
 import React from "react";
-import MapAPI from "./MapAPI";
-import NavBar from "./NavBar";
-import Board_Area from "../board/Board_Area";
+import MapAPI from "../Map/MapAPI";
+import NavBar from "../Navbar/NavBar";
+import Board_Area from "../Navbar/NavSection/PostNav";
 import {Route, Switch, withRouter} from "react-router-dom";
-import Auth from "../../hoc/auth";
+import Auth from "../../../hoc/auth";
 
 function Home() {
     return (

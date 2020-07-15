@@ -3,7 +3,7 @@ import {Button, TextField} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../../_actions/user_action";
+import {writePost} from "../../../../_actions/user_action";
 import SingleComment from "./SingleComment";
 
 function Comments(props) {

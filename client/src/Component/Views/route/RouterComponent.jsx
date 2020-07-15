@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import RegisterPage from "../user/RegisterPage";
-import Home from "../basic/Home";
-import Main from "../basic/Main";
-import Auth from "../../hoc/auth";
+import Home from "../MainPage/Home";
+import Main from "../WelcomePage/Main";
+import Auth from "../../../hoc/auth";
 
 class AppRouter extends Component {
     // option

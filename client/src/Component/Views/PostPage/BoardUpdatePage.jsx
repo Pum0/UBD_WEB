@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {NavLink, withRouter} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {updatePost} from "../../_actions/post_action";
+import {updatePost} from "../../../_actions/post_action";
 import moment from "moment";
 import axios from "axios";
 
