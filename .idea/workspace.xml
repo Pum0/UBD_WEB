@@ -21,24 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/LoginTab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Map/MapAPI.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/basic/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardUpdatePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardUpdatePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Board_Area.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/My_Record.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/My_Record.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sections/SingleComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/Sharing_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/Sharing_Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/board/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/route/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/RouterComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/user/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/user/RegisterPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/_actions/comment.action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/comment_action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Comments.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591780598866" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594272187941">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594888718547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594272187941" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594888718547" />
     <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1594107112478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

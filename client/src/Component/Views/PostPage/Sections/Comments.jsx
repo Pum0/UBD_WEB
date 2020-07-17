@@ -3,7 +3,6 @@ import {Button, TextField} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
-import {writePost} from "../../../../_actions/user_action";
 import SingleComment from "./SingleComment";
 
 function Comments(props) {
@@ -11,9 +10,6 @@ function Comments(props) {
     const dispatch = useDispatch();
     const postId = props.post_id
 
-    const onChangeHandler = (e) => {
-
-    }
     const [CommentValue, setCommentValue] = useState("")
 
 
@@ -25,7 +21,7 @@ function Comments(props) {
         e.preventDefault();
 
         const variables = {
-            content: Comment,
+            content: CommentValue,
             writer: user.userData._id,
             postId: props.postId
         }
@@ -43,18 +39,21 @@ function Comments(props) {
 
     }
 
+
+
+
     return (
         <div>
 
             {/* Comment Lists */}
-            <SingleComment />
+            {/*<SingleComment />*/}
 
             {/* Root Comment Form */}
             <form onSubmit={onSubmitHandler}>
 
                 <TextField type="text" placeholder="댓글을 입력하세요."
                            fullWidth margin="normal" value={CommentValue} onChange={onCommentHandler}
-                           style={{width: "83%"}}/>
+                           style={{width: "100%"}}/>
                 <Button type="submit" size="medium " variant="contained" edge="start" color="default"
                         style={{margin: 10, textAlign: "center"}}>
 

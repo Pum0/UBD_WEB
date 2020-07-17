@@ -9,7 +9,7 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
 import {USER_SERVER} from "../../config";
 import {Paper, TableContainer} from "@material-ui/core";
-
+import MenuIcon from "@material-ui/icons/Menu"
 
 function NavBar(props) {
     const onClickHandler = () => {
@@ -30,7 +30,7 @@ function NavBar(props) {
                     <NavLink to="/Home/board">
                         <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
 
-                            <ArrowDropDownIcon/>
+                            <MenuIcon/>
 
                         </IconButton>
                     </NavLink>

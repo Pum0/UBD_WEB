@@ -59,7 +59,7 @@ const Board_style = {
     top: "50px",
     position: "absolute",
     left: 0, height: "95%",
-    width: "35%",
+    width: "31%",
     backgroundColor: "white",
     zIndex: 450
 }

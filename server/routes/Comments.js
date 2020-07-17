@@ -25,7 +25,7 @@ router.post("/writeComment", (req, res) => {
 })
 
 // 댓글 불러오기
-router.post("/getComments", (req, res) => {
+router.get("/getComments", (req, res) => {
 
     Comment.find({ "post_Id": req.body.post_Id })
         .populate('writer')
@@ -53,7 +53,7 @@ router.post("/deleteComment", (req, res) => {
     Comment.deleteOne({ _id: req.body.comment_id })
         .exec((err, doc) => {
             if (err) return res.status(400).json({ success: false, err });
-            res.status(200), json({ success: true, doc })
+            res.status(200).json({ success: true, doc })
         })
 });
 
