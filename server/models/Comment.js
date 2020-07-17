@@ -14,6 +14,10 @@ const commentSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    created: {
+        type: Date,
+        default: moment()
+    },
     content: {
         type: String
     }

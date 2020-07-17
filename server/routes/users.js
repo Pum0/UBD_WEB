@@ -23,6 +23,23 @@ router.post("/register", (req, res) => {
     })
 })
 
+// 이메일 중복체크
+router.post("/emailCheck", (req, res) => {    // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
+    User.findOne({ email: req.body.email }, (err, user) => {
+        if (user)
+            return res.json({
+                loginCheck: true,
+                message: "중복되는 이메일 입니다."
+            })
+        else {
+            return res.json({
+                loginCheck: false,
+                message: "사용 가능한 이메일 입니다."
+            })
+        }
+        })
+    })
+
 // 로그인
 router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
     User.findOne({ email: req.body.email }, (err, user) => {
