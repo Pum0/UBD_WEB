@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 const Schema = mongoose.Schema;
 
 const commentSchema = mongoose.Schema({
@@ -13,6 +14,10 @@ const commentSchema = mongoose.Schema({
     responseTo: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    created: {
+        type: Date,
+        default: moment()
     },
     content: {
         type: String
