@@ -21,14 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/comment.action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/comment_action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/My_Record.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/RecordPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/Sharing_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/SharingPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,11 +75,11 @@
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\frontend\my-app\src\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\PostPage" />
+      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\PostPage\Sections" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\Navbar\NavSection" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views" />
-      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\PostPage" />
       <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\PostListPage" />
-      <recent name="C:\Users\DD\IdeaProjects\UBD_WEB\client\src\Component\Views\MainPage" />
     </key>
   </component>
   <component name="SvnConfiguration">

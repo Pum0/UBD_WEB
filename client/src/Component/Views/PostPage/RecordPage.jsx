@@ -1,14 +1,13 @@
 import React, {Component} from "react";
 
 
-class My_Record extends Component {
+class RecordPage extends Component {
 
     render() {
         return (
             <div style={Board_style}>
 
                 <h2> My Record</h2>
-                나의 기록
             </div>
         );
 
@@ -28,4 +27,4 @@ const Board_style = {
     zIndex: 451
 }
 
-export default My_Record;
+export default RecordPage;

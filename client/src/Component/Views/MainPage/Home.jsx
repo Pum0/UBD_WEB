@@ -11,7 +11,6 @@ function Home() {
             <NavBar></NavBar>
             <MapAPI></MapAPI>
 
-            {/*<useMapApi></useMapApi>*/}
 
 
             <Switch>

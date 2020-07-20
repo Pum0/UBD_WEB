@@ -8,7 +8,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import axios from "axios";
 import {USER_SERVER} from "../../config";
-import {Paper, TableContainer} from "@material-ui/core";
+import {Paper, TableContainer, Grid} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu"
 
 function NavBar(props) {
@@ -24,8 +24,8 @@ function NavBar(props) {
     }
 
     return (
-        <div>
-            <AppBar color="inherit" style={Main_Nav}  component={Paper}>
+        <Grid>
+            <AppBar color="inherit" style={Main_Nav} component={Paper}>
                 <Toolbar>
                     <NavLink to="/Home/board">
                         <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
@@ -48,7 +48,7 @@ function NavBar(props) {
             </AppBar>
 
 
-        </div>
+        </Grid>
     );
 }
 

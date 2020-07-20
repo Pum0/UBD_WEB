@@ -37,7 +37,7 @@ function BoardWritePage(props) {
             writer: user.userData._id,
             title: BoardName,
             content: BoardContent,
-            images:FilePath
+            images: FilePath
         }
 
         dispatch(writePost(body))
@@ -60,8 +60,6 @@ function BoardWritePage(props) {
         formData.append("file", files[0])
 
 
-
-
         Axios.post('/api/posts/uploadfiles', formData, config)
             .then(response => {
                 if (response.data.success) {
@@ -82,58 +80,59 @@ function BoardWritePage(props) {
     }
 
     return (
-        <div>
-            <Container style={Board_style}>
-                <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
+        <div style={Board_style}>
 
-                <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
-                    <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
-                               fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
+            <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 쓰기</Typography>
 
-                    <TextField
-                        type="text"
-                        variant="filled"
-                        label="내용"
-                        placeholder="글의 내용을 입력하세요."
-                        multiline
-                        value={BoardContent}
-                        rows={15}
-                        style={{width: "100%"}}
-                        onChange={onBoardContentHandler}
-                    />
-                    <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
-                    <Dropzone onDrop={onDrop}
-                              multiple={true}
-                              maxSize={8000000}
-                    >{({getRootProps, getInputProps}) => (
-                        <div style={{
-                            marginTop:10,
-                            margin:"0 auto",
-                            width: '96%',
-                            height: '100px',
-                            border: '1px solid lightgray',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }} {...getRootProps()}>
-                            <input {...getInputProps()} />
-                            <AddIcon style={{fontSize: '3rem'}}/>
+            <form style={{height: "96%"}} onSubmit={onSubmitHandler}>
+                <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
+                           fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler}/>
 
-                        </div>
-                    )}
-                    </Dropzone>
-                    {FilePath !== "" &&
-                    <div>
-                        미리보기<br/>
-                        <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{width:"50%", border:"1px solid black"}}/>
+                <TextField
+                    type="text"
+                    variant="filled"
+                    label="내용"
+                    placeholder="글의 내용을 입력하세요."
+                    multiline
+                    value={BoardContent}
+                    rows={15}
+                    style={{width: "100%"}}
+                    onChange={onBoardContentHandler}
+                />
+                <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
+                <Dropzone onDrop={onDrop}
+                          multiple={true}
+                          maxSize={8000000}
+                >{({getRootProps, getInputProps}) => (
+                    <div style={{
+                        marginTop: 10,
+                        margin: "0 auto",
+                        width: '96%',
+                        height: '100px',
+                        border: '1px solid lightgray',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} {...getRootProps()}>
+                        <input {...getInputProps()} />
+                        <AddIcon style={{fontSize: '3rem'}}/>
+
                     </div>
-                    }
-                    {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>
-                    <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
-                    <Button variant="contained" type="button" color="inherit"
-                            style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
-                </form>
-            </Container>
+                )}
+                </Dropzone>
+                {FilePath !== "" &&
+                <div>
+                    미리보기<br/>
+                    <img src={`http://localhost:5000/${FilePath}`} alt="image"
+                         style={{width: "50%", border: "1px solid black"}}/>
+                </div>
+                }
+                {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br/>
+                <Button variant="contained" type="submit" color="inherit" style={{margin: 5}}>글쓰기 </Button>
+                <Button variant="contained" type="button" color="inherit"
+                        style={{margin: 5, textDecoration: "none"}}> 뒤로가기 </Button>
+            </form>
+
         </div>
     );
 }

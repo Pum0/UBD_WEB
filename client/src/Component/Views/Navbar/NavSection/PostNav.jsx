@@ -12,42 +12,37 @@ import {Paper, Grid} from "@material-ui/core";
 class PostNav extends Component {
     render() {
         return (
-            <div style={Board_style}>
+            <AppBar color="inherit" style={Board_Nav} component={Paper}>
+                <Toolbar>
+                    <NavLink to="/Home">
+                        <IconButton edge="start" color="inherit" style={style}>
+                            <ArrowDropUpIcon/>
+                        </IconButton>
+                    </NavLink>
+
+                    <NavLink to="/Home/board/BoardList">
+                        <Button edge="start" color="inherit" style={style}>
+                            <Typography variant="h6">자유게시판</Typography>
+                        </Button>
+                    </NavLink>
+
+                    <NavLink to="/Home/board/share_board">
+                        <Button edge="start" color="inherit" style={style}>
+                            <Typography variant="h6">공유게시판</Typography>
+                        </Button>
+                    </NavLink>
 
 
-                <AppBar color="inherit" style={Board_Nav} component={Paper}>
-                    <Toolbar>
-                        <NavLink to="/Home">
-                            <IconButton edge="start" color="inherit" style={style}>
-                                <ArrowDropUpIcon/>
-                            </IconButton>
-                        </NavLink>
-
-                            <NavLink to="/Home/board/BoardList">
-                                <Button edge="start" color="inherit" style={style}>
-                                    <Typography variant="h6">자유게시판</Typography>
-                                </Button>
-                            </NavLink>
-
-                            <NavLink to="/Home/board/share_board">
-                                <Button edge="start" color="inherit" style={style}>
-                                    <Typography variant="h6">공유게시판</Typography>
-                                </Button>
-                            </NavLink>
-
-
-                            <NavLink to="/Home/board/my_record">
-                                <Button edge="start" color="inherit" style={style}>
-                                    <Typography variant="h6">나의기록</Typography>
-                                </Button>
-                            </NavLink>
-                    </Toolbar>
-
-                </AppBar>
+                    <NavLink to="/Home/board/my_record">
+                        <Button edge="start" color="inherit" style={style}>
+                            <Typography variant="h6">나의기록</Typography>
+                        </Button>
+                    </NavLink>
+                </Toolbar>
 
                 <ContentRouter></ContentRouter>
 
-            </div>
+            </AppBar>
         );
     }
 }

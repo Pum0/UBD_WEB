@@ -8,14 +8,13 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 
-class Sharing_Board extends Component {
+class SharingPage extends Component {
 
     render() {
         return (
             <div style={Board_style}>
 
                 <h2> Sharing Board</h2>
-                공유 게시판
             </div>
         );
     }
@@ -32,4 +31,4 @@ const Board_style = {
     backgroundColor: "magenta",
     zIndex: 451
 }
-export default Sharing_Board;
+export default SharingPage;

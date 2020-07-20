@@ -86,12 +86,12 @@ function BoardList(props) {
 
 const Board_style = {
 
-    margin: 10,
+    margin: 0,
     padding: 0,
     top: "50px",
     position: "absolute",
     left: 0, height: "92%",
-    width: "96%",
+    width: "50%",
     backgroundColor: "white",
     zIndex: 451
 }
