@@ -68,7 +68,7 @@ function BoardList(props) {
                 </Table>
             </TableContainer>
 
-            <NavLink to="/Home/board/BoardWritePage">
+            <NavLink to="/Home/board/PostWritePage">
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                     <Typography variant="subtitle2">글쓰기</Typography>
                 </Button>

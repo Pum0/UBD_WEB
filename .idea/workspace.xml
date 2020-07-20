@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/My_Record.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/RecordPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/Sharing_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/SharingPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,22 +198,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594272339292" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1594170058254">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1595205062085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594170058254" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1594170058254">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595205062085" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1595205062081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594170058254" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1594170058254">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595205062081" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1595205062080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594170058254" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1594170058254">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595205062080" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1595205062083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594170058254" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595205062083" />
     <state x="735" y="221" key="RollbackChangesDialog" timestamp="1593718740334">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -240,10 +230,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591780598866" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594888718547">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1595204840723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594888718547" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595204840723" />
     <state x="150" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1594107112478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

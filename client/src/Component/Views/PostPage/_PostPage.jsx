@@ -15,7 +15,7 @@ import {
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import Auth from "../../../hoc/auth";
-import BoardUpdatePage from "./BoardUpdatePage";
+import PostUpdatePage from "./PostUpdatePage";
 import {deletePost} from "../../../_actions/post_action";
 import {useDispatch} from "react-redux";
 import Comments from "./Sections/Comments";
@@ -176,7 +176,7 @@ function _PostPage(props) {
                 </NavLink>
 
                 {/*수정버튼*/}
-                <NavLink to={`/Home/board/${Post._id}/BoardUpdatePage`}>
+                <NavLink to={`/Home/board/${Post._id}/PostUpdatePage`}>
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                         <Typography variant="subtitle2">수정</Typography>
                     </Button>
@@ -191,7 +191,7 @@ function _PostPage(props) {
 
                 {/*글 수정 페이지로 라우팅*/}
                 <Switch>
-                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/board/:post_id/PostUpdatePage" component={Auth(PostUpdatePage, true)}/>
                 </Switch>
             </div>
         )

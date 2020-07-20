@@ -12,7 +12,7 @@ import Axios from "axios";
 import AddIcon from '@material-ui/icons/Add';
 
 
-function BoardWritePage(props) {
+function PostWritePage(props) {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -146,4 +146,4 @@ const Board_style = {
     width: "96%",
     zIndex: 451
 }
-export default withRouter(BoardWritePage);
+export default withRouter(PostWritePage);

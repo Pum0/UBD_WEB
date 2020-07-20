@@ -5,9 +5,9 @@ import RecordPage from "../PostPage/RecordPage";
 import {Route, Switch} from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import BoardList from "../PostListPage/BoardList";
-import BoardWritePage from "../PostPage/BoardWritePage";
+import PostWritePage from "../PostPage/PostWritePage";
 import _PostPage from "../PostPage/_PostPage";
-import BoardUpdatePage from "../PostPage/BoardUpdatePage";
+import PostUpdatePage from "../PostPage/PostUpdatePage";
 
 
 class ContentRouter extends Component {
@@ -22,9 +22,9 @@ class ContentRouter extends Component {
                     <Route path="/Home/board/my_record" component={Auth(RecordPage, true)}/>
                     <Route path="/Home/board/BoardList" component={Auth(BoardList, true)}/>
                     <Route path="/Home/board/share_board" component={Auth(SharingPage, true)}/>
-                    <Route path="/Home/board/BoardWritePage" component={Auth(BoardWritePage, true)}/>
+                    <Route path="/Home/board/PostWritePage" component={Auth(PostWritePage, true)}/>
                     <Route exact path="/Home/board/:post_id" component={Auth(_PostPage, true)}/>
-                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/board/:post_id/PostUpdatePage" component={Auth(PostUpdatePage, true)}/>
                 </Switch>
             </div>
 

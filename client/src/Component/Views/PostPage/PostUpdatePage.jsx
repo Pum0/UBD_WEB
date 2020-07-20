@@ -10,7 +10,7 @@ import moment from "moment";
 import axios from "axios";
 
 
-function BoardUpdatePage(props) {
+function PostUpdatePage(props) {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -121,4 +121,4 @@ const Board_style = {
     width: "96%",
     zIndex: 451
 }
-export default withRouter(BoardUpdatePage);
+export default withRouter(PostUpdatePage);
