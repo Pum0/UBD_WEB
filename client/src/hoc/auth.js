@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../_actions/user_action';
+// import { headersConfig } from '../Component/config';
 export default function (SpecificComponent, option, adminRoute = null) {
 
     // option
@@ -31,15 +31,15 @@ export default function (SpecificComponent, option, adminRoute = null) {
                         // props.history.push('/Home')
                     } else {
                         if (option === false)
-                        alert('비정상적인 접근입니다.')
-                            // props.history.push('/Home')
+                            alert('비정상적인 접근입니다.')
+                        // props.history.push('/Home')
                     }
                 }
             })
         }, [dispatch, props.history])
 
         return (
-            <SpecificComponent />
+            <SpecificComponent/>
         )
     }
     return AuthenticationCheck

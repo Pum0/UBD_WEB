@@ -11,11 +11,9 @@ export default function (state = {}, action) {
     switch (action.type) {
         case LOGIN_USER:
             return { ...state, loginSuccess: action.payload }
-            break;
 
         case REGISTER_USER:
             return { ...state, register: action.payload }
-            break;
 
         case AUTH_USER:
             return { ...state, userData: action.payload }
@@ -23,7 +21,6 @@ export default function (state = {}, action) {
 
         case LOGOUT_USER:
             return { ...state }
-            break;
 
         default:
             return state;
