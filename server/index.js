@@ -12,13 +12,17 @@ const config = require("./config/key");
 
 const mongoose = require('mongoose')
 const connect = mongoose.connect(config.mongoURI, {
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
-}).then(() => console.log("MongoDb Conneted.."))
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+})
+    .then(() => console.log("MongoDb Conneted.."))
     .catch(err => console.log(err))
 
 
 //application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 //application/json
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -32,6 +36,7 @@ app.use(morgan('dev'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/posts', require('./routes/Posts'));
 app.use('/api/comments', require('./routes/Comments'));
+app.use('/api/rideinfo', require('./routes/RideInfoes'))
 
 app.use('/uploads', express.static('uploads'));
 

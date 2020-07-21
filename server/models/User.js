@@ -101,7 +101,7 @@ userSchema.statics.findByToken = function (token, cb) {
 }
 
 
-userSchema.methods.generateResetToken = function (cb) {
+userSchema.methods.generateRefreshToken = function (cb) {
     var user = this;
 
     crypto.randomBytes(20, function (err, buffer) {

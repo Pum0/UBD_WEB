@@ -32,56 +32,56 @@ function NavBar(props) {
 
 
     return (
-        // <AppBar color="inherit" style={Main_Nav}  component={Paper}>
-        //     <Toolbar>
-        //         <NavLink to="/Home/board">
-        //             <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
+        <AppBar color="inherit" style={Main_Nav}  component={Paper}>
+            <Toolbar>
+                <NavLink to="/Home/board">
+                    <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
 
-        //                 <MenuIcon/>
+                        <MenuIcon/>
 
-        //             </IconButton>
-        //         </NavLink>
+                    </IconButton>
+                </NavLink>
 
-        //         <Typography variant="h4" style={style}>
-        //             UBD
-        //         </Typography>
-
-
-        //         <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}}
-        //                     onClick={onClickHandler}>
-        //             <MeetingRoomIcon/>
-        //         </IconButton>
-        //     </Toolbar>
-        // </AppBar>
+                <Typography variant="h4" style={style}>
+                    UBD
+                </Typography>
 
 
-        <Layout className="layout">
-            <Header>
-                <Button type="default" shape="circle"> 버튼 </Button>
-                {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                    <Menu.Item key="1">nav 1</Menu.Item>
-                    <Menu.Item key="2">nav 2</Menu.Item>
-                    <Menu.Item key="3">nav 3</Menu.Item>
-                </Menu> */}
-            </Header>
+                <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}}
+                            onClick={onClickHandler}>
+                    <MeetingRoomIcon/>
+                </IconButton>
+            </Toolbar>
+        </AppBar>
 
-        </Layout>
+
+        // <Layout className="layout">
+        //     <Header>
+        //         <Button type="default" shape="circle"> 버튼 </Button>
+        //         {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+        //             <Menu.Item key="1">nav 1</Menu.Item>
+        //             <Menu.Item key="2">nav 2</Menu.Item>
+        //             <Menu.Item key="3">nav 3</Menu.Item>
+        //         </Menu> */}
+        //     </Header>
+
+        // </Layout>
 
 
     );
 }
 
 
-// const style = {
-//     flexGrow: 1,
-//     marginBottom: '12px'
-// }
+const style = {
+    flexGrow: 1,
+    marginBottom: '12px'
+}
 
-// const Main_Nav = {
-//     position: "absolute",
-//     // border: '1px solid black',
-//     height: '50px'
-// }
+const Main_Nav = {
+    position: "absolute",
+    // border: '1px solid black',
+    height: '50px'
+}
 
 
 export default withRouter(NavBar);

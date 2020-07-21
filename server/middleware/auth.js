@@ -23,7 +23,9 @@ let auth = (req, res, next) => {
         if (tokenExp < now) return res.json({
             isAuth: false, error: true, message : '토큰이 만료되었습니다.'
         })
-
+        
+        console.log(now);
+        console.log(tokenExp)
         req.tokenExp = tokenExp;
         req.token = token;
         req.user = user;
