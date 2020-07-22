@@ -19,12 +19,13 @@ class ContentRouter extends Component {
         return (
             <div>
                 <Switch>
-                    <Route path="/Home/board/my_record" component={Auth(My_Record, true)}/>
-                    <Route path="/Home/board/BoardList" component={Auth(BoardList, true)}/>
-                    <Route path="/Home/board/share_board" component={Auth(Sharing_Board, true)}/>
-                    <Route path="/Home/board/BoardWritePage" component={Auth(BoardWritePage, true)}/>
-                    <Route exact path="/Home/board/:post_id" component={Auth(_PostPage, true)}/>
-                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/my_record" component={Auth(My_Record, true)}/>
+                    <Route path="/Home/BoardList" component={Auth(BoardList, true)}/>
+                    <Route path="/Home/share_board" component={Auth(Sharing_Board, true)}/>
+
+                    <Route path="/Home/BoardWritePage" component={Auth(BoardWritePage, true)}/>
+                    <Route exact path="/Home/:post_id" component={Auth(_PostPage, true)}/>
+                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
                 </Switch>
             </div>
 

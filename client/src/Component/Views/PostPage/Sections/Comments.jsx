@@ -30,8 +30,7 @@ function Comments(props) {
             .then(response => {
                 if (response.data.success) {
                     console.log(response.data.result)
-
-
+                    
                 } else {
                     alert('Failed to save Comment')
                 }

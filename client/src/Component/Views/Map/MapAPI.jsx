@@ -1,8 +1,24 @@
-import React, {Component} from "react";
-import {Marker, NaverMap, RenderAfterNavermapsLoaded,Polyline } from "react-naver-maps";
+import React, { Component, useState } from "react";
+import { Marker, NaverMap, RenderAfterNavermapsLoaded, Polyline } from "react-naver-maps";
+
+
 const config = require('./MapAPIKey')
 
-function MapAPI() {
+function MapAPI(props) {
+
+    // const [mapStyle, setMapStyle] = useState([
+    //     {
+    //         position: "absolute",
+    //         width: '100%',
+    //         height: '100%'
+    //     }
+    // ])
+
+    const mapStyle = {
+        position: "absolute",
+            width: '100%',
+            height: '100%'
+    }
 
     return (
         <div>
@@ -14,19 +30,15 @@ function MapAPI() {
             >
                 <NaverMap
                     mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-                    defaultCenter={{lat: 35.896500, lng: 128.622062}}
+                    defaultCenter={{ lat: 35.896500, lng: 128.622062 }}
                     defaultZoom={17}
 
-                    style={{
-                        position: "absolute",
-                        width: '100%',
-                        height: '100%',
-                    }}
+                    style={mapStyle}
                 >
                     <Marker
                         lat={Marker.lat}
                         lng={Marker.lng}
-                        position={{lat:35.896500, lng:128.622062}}
+                        position={{ lat: 35.896500, lng: 128.622062 }}
                         animation={2}
                         onClick={(e) => {
                             alert("안녕하세요.")

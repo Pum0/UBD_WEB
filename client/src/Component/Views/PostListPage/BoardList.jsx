@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {NavLink, withRouter} from "react-router-dom";
-import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { NavLink, withRouter } from "react-router-dom";
+import {LoadingOutlined} from "@ant-design/icons"
 
 // import {POST_SERVER} from "../config";
 
@@ -31,8 +32,8 @@ function BoardList(props) {
         if(post.writer){
         BoardList.push(<TableBody>
             <TableRow>
-                <TableCell>{post.seq} </TableCell>
-                <TableCell component="th" scope="row"><NavLink to={`/Home/board/${post._id}`} key={`${post._id}`}><Typography
+                {/* <TableCell>{post.seq} </TableCell> */}
+                <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} key={`${post._id}`}><Typography
                     variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
                 <TableCell align="right">{post.writer.name}</TableCell>
                 <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
@@ -41,7 +42,7 @@ function BoardList(props) {
         </TableBody>)
         }else{
             return(<div>
-                Loading...
+                <LoadingOutlined />
             </div>)
         }
     })
@@ -50,12 +51,12 @@ function BoardList(props) {
     }
 
     return (
-        <div style={Board_style}>
+        <div>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>번호</TableCell>
+                            {/* <TableCell>번호</TableCell> */}
                             <TableCell>제목</TableCell>
                             <TableCell align="right">작성자</TableCell>
                             <TableCell align="right">작성일자</TableCell>
@@ -84,17 +85,7 @@ function BoardList(props) {
 
 }
 
-const Board_style = {
 
-    margin: 10,
-    padding: 0,
-    top: "50px",
-    position: "absolute",
-    left: 0, height: "92%",
-    width: "96%",
-    backgroundColor: "white",
-    zIndex: 451
-}
 
 
 export default withRouter(BoardList);

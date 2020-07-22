@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios';
-import {NavLink, Route, Switch, withRouter} from "react-router-dom";
+import { LoadingOutlined } from "@ant-design/icons";
 import {
     Button,
     Paper,
@@ -12,16 +10,18 @@ import {
     TableHead,
     TableRow
 } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import moment from "moment";
-import Auth from "../../../hoc/auth";
-import BoardUpdatePage from "./BoardUpdatePage";
-import {deletePost} from "../../../_actions/post_action";
-import {useDispatch} from "react-redux";
-import Comments from "./Sections/Comments";
-import ClearIcon from "@material-ui/icons/Clear"
 import IconButton from "@material-ui/core/IconButton";
-import {deleteComment} from "../../../_actions/comment_action"
+import Typography from "@material-ui/core/Typography";
+import ClearIcon from "@material-ui/icons/Clear";
+import axios from 'axios';
+import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { NavLink, Route, Switch, withRouter } from "react-router-dom";
+import Auth from "../../../hoc/auth";
+import { deletePost } from "../../../_actions/post_action";
+import BoardUpdatePage from "./BoardUpdatePage";
+import Comments from "./Sections/Comments";
 
 function _PostPage(props) {
 
@@ -176,7 +176,7 @@ function _PostPage(props) {
                 </NavLink>
 
                 {/*수정버튼*/}
-                <NavLink to={`/Home/board/${Post._id}/BoardUpdatePage`}>
+                <NavLink to={`/Home/${Post._id}/BoardUpdatePage`}>
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
                         <Typography variant="subtitle2">수정</Typography>
                     </Button>
@@ -191,13 +191,13 @@ function _PostPage(props) {
 
                 {/*글 수정 페이지로 라우팅*/}
                 <Switch>
-                    <Route path="/Home/board/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
                 </Switch>
             </div>
         )
     } else {
         return (
-            <div> Loading... </div>
+            <div><LoadingOutlined /> </div>
         )
     }
 }

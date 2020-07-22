@@ -20,15 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e301ffc1-4d19-454d-b5fc-9f7bee9246c7" name="Default Changelist" comment="react front + node.js backend test&#10;Content router init config Completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/MainPage/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Map/MapAPI.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Map/MapAPI.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/Comments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/Sections/SingleComment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/_PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/comment.action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/comment_action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/Comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/Navbar/NavSection/PostNav.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostListPage/BoardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/PostPage/BoardWritePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/LoginTab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/LoginTab.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/WelcomePage/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/My_Record.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/My_Record.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/board/Sharing_Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/board/Sharing_Board.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Component/Views/route/ContentRouter.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +103,7 @@
       <workItem from="1593520117754" duration="582000" />
       <workItem from="1593612885318" duration="21522000" />
       <workItem from="1593672100572" duration="19322000" />
+      <workItem from="1595387915424" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="react 초기구성">
       <created>1591780441438</created>

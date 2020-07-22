@@ -1,20 +1,18 @@
-import React, { Component } from "react";
-import { NavLink, withRouter } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import { Layout, Menu } from 'antd';
 import axios from "axios";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { NavLink, withRouter } from "react-router-dom";
 import { USER_SERVER } from "../../config";
-import { Paper, TableContainer } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu"
-import { Layout, Menu, Breadcrumb,Button } from 'antd';
-
-
+import { Drawer } from "antd";
+import BoardList from "../PostListPage/BoardList"
+import { MessageOutlined } from "@ant-design/icons"
 
 function NavBar(props) {
+    const user = useSelector(state => state.user);
+
+    const drawerSize = '33%'
+
     const onClickHandler = () => {
         axios.get(`${USER_SERVER}/logout`)
             .then(response => {
@@ -26,62 +24,44 @@ function NavBar(props) {
             })
     }
 
+    // drawer visible
+    const [visible, setVisible] = useState(false);
 
+    const { Sider } = Layout;
+    const showDrawer = () => {
+        setVisible(true);
+    };
 
-    const { Header, Content, Footer } = Layout;
+    const onClose = () => {
+        setVisible(false);
+    };
 
 
     return (
-        // <AppBar color="inherit" style={Main_Nav}  component={Paper}>
-        //     <Toolbar>
-        //         <NavLink to="/Home/board">
-        //             <IconButton edge="start" color="inherit" aria-label="Menu" style={style}>
+        <Sider style={{minWidth:"55px", maxWidth:"55px"}}>
+            <Menu style={{ width: "250px" }} theme="light" mode="inline" defaultSelectedKeys={['1']}>
+                <Menu.Item key="1" onClick={showDrawer} icon={<MessageOutlined />}> 자유게시판  </Menu.Item>
+                <Menu.Item key="2"><NavLink to="/Home/share_board" />공유게시판</Menu.Item>
+                <Menu.Item key="3"> <NavLink to="/Home/my_record" />나의기록</Menu.Item>
+            </Menu> 
 
-        //                 <MenuIcon/>
+            <Drawer
+                title="Basic Drawer"
+                placement="left"
+                closable={true}
+                mask={false}
+                maskClosable={false}
+                onClose={onClose}
+                visible={visible}
+                width="500px"
+            >
+                <BoardList />
+            </Drawer>
 
-        //             </IconButton>
-        //         </NavLink>
-
-        //         <Typography variant="h4" style={style}>
-        //             UBD
-        //         </Typography>
-
-
-        //         <IconButton color="inherit" aria-label="Menu" style={{marginBottom: '12px'}}
-        //                     onClick={onClickHandler}>
-        //             <MeetingRoomIcon/>
-        //         </IconButton>
-        //     </Toolbar>
-        // </AppBar>
-
-
-        <Layout className="layout">
-            <Header>
-                <Button type="default" shape="circle"> 버튼 </Button>
-                {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                    <Menu.Item key="1">nav 1</Menu.Item>
-                    <Menu.Item key="2">nav 2</Menu.Item>
-                    <Menu.Item key="3">nav 3</Menu.Item>
-                </Menu> */}
-            </Header>
-
-        </Layout>
-
+        </Sider>
 
     );
 }
-
-
-// const style = {
-//     flexGrow: 1,
-//     marginBottom: '12px'
-// }
-
-// const Main_Nav = {
-//     position: "absolute",
-//     // border: '1px solid black',
-//     height: '50px'
-// }
 
 
 export default withRouter(NavBar);

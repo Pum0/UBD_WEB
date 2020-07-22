@@ -1,23 +1,31 @@
+import { Layout } from "antd";
 import React from "react";
+import { Switch, withRouter } from "react-router-dom";
 import MapAPI from "../Map/MapAPI";
 import NavBar from "../Navbar/NavBar";
-import Board_Area from "../Navbar/NavSection/PostNav";
-import {Route, Switch, withRouter} from "react-router-dom";
-import Auth from "../../../hoc/auth";
+import ContentRouter from "../route/ContentRouter";
 
 function Home() {
+    const { Header, Content, Footer } = Layout;
+
+
+
     return (
-        <div>
-            <NavBar></NavBar>
-            <MapAPI></MapAPI>
 
-            {/*<useMapApi></useMapApi>*/}
+        <Layout>
 
+            <NavBar />
+            {/* == <Sider> 내용 </Sider> */}
+
+            <Content><MapAPI /></Content>
 
             <Switch>
-                <Route path="/Home/board" component={Auth(Board_Area, true)}/>
+                <ContentRouter />
             </Switch>
-        </div>
+
+        </Layout>
+
+
     );
 }
 
