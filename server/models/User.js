@@ -37,8 +37,8 @@ const userSchema = mongoose.Schema({
     image: String,
     token: String,
     tokenExp: Number,
-    resetToken: String,
-    resetTokenExp: Number
+    refreshoken: String,
+    refreshTokenExp: Number
 
 })
 
@@ -109,8 +109,8 @@ userSchema.methods.generateRefreshToken = function (cb) {
         var today = moment().startOf('day').valueOf();
         var tomorrow = moment(today).endOf('day').valueOf();
 
-        user.resetToken = token;    
-        user.resetTokenExp = tomorrow;
+        user.refreshToken = token;    
+        user.refreshTokenExp = tomorrow;
         user.save(function (err, user) {
             if (err) return cb(err);
             cb(null, user);
