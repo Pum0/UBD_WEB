@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const app = express()
-
 const { auth } = require("../middleware/auth");
 const { User } = require("../models/User");
 
@@ -37,8 +35,8 @@ router.post("/emailCheck", (req, res) => {    // 요청된 이메일을 데이�
                 message: "사용 가능한 이메일 입니다."
             })
         }
-        })
     })
+})
 
 // 로그인
 router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
@@ -67,8 +65,9 @@ router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베�
                 // 토큰을 저장한다. 으디에? 쿠키
                 res
                     .cookie("x_auth", user.token)
-                    .status(200)
-                    .json({ loginSuccess: true, userId: user._id });
+                    .status(200).json({
+                        loginSuccess: true, userID: user._id
+                    });
             });
         });
     });
@@ -83,23 +82,22 @@ router.get("/auth", auth, (req, res) => {
         isAuth: true,
         email: req.user.email,
         name: req.user.name,
-        lastname: req.user.lastname,
         role: req.user.role,
         image: req.user.image
     })
 })
 
 // 로그아웃 
-router.get("/logout", auth, (req, res) => {
-    User.findOneAndUpdate({ _id: req.user._id },
-        { token: "", tokenExp: "" }
-        , (err, userInfo) => {
-            if (err) return res.json({ success: false, message: "로그아웃 할 수 없습니다.", err });
-            return res.status(200).send({
-                success: true
-            })
-        })
-})
+router.get("/logout", auth, async (req, res) => {
+    try {
+        await User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" })
+        return res.status(200).send({
+            success: true
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
 
 // 비밀번호 변경
 router.post("/updatePassword", (req, res) => {
