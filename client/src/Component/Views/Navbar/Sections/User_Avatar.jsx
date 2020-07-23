@@ -9,13 +9,13 @@ import { USER_SERVER } from "../../../config";
 function User_Avatar(props) {
 
     const text = (
-        <div>
+        <div style={{height:"100px", Width:"200px"}}>
             <Avatar size={64} icon={<UserOutlined />} />
-            <span>Title</span>
+            <span></span>
         </div>
     );
     const content = (
-        <div>
+        <div style={{height:"50px", Width:"200px"}}>
             <p>Content</p>
             <p>Content</p>
         </div>
