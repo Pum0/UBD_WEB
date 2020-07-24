@@ -47,7 +47,7 @@ function _PostPage(props) {
     useEffect(() => {
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
-                if (response.data.success) {
+                if (response.data.getPostSuccess) {
 
                     console.log(response.data.post)
                     setPost(response.data.post)
@@ -58,7 +58,7 @@ function _PostPage(props) {
 
         axios.get('/api/comments/getComments')
             .then(response => {
-                if (response.data.success) {
+                if (response.data.getCommentsSuccess) {
                     console.log(response.data.comments)
                     setComents(response.data.comments)
                 } else {
@@ -132,7 +132,7 @@ function _PostPage(props) {
 
         dispatch(deletePost(body))
             .then(response => {
-                if (response.payload.success) {
+                if (response.payload.deletePostSuccess) {
                     props.history.push("/Home/board/BoardList")
                 } else {
                     alert('삭제실패')

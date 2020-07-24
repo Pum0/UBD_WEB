@@ -11,6 +11,11 @@ const userSchema = mongoose.Schema({
         trim: true,
         unique: 1
     },
+    nickname:{
+        type: String,
+        trim: true,
+        unique: 1
+    },
     name: {
         type: String,
         maxlength: 50

@@ -17,8 +17,14 @@ router.post("/writeComment", (req, res) => {
         Comment.find({ '_id': comment._id })
             .populate('writer')
             .exec((err, result) => {
-                if (err) return res.json({ success: false, err })
-                return res.status(200).json({ success: true, result })
+                if (err) return res.json({
+                    writeCommentSuccess: false,
+                    err
+                })
+                return res.status(200).json({
+                    writeCommentSuccess: true,
+                    result
+                })
             })
     })
 
@@ -31,7 +37,10 @@ router.get("/getComments", (req, res) => {
         .populate('writer')
         .exec((err, comments) => {
             if (err) return res.status(400).send(err)
-            res.status(200).json({ success: true, comments })
+            res.status(200).json({
+                getCommentsSuccess: true,
+                comments
+            })
         })
 
 });
@@ -42,8 +51,14 @@ router.post("/updateComment", (req, res) => {
 
     Comment.findOneAndUpdate({ "post_Id": req.body.comment_id, "content": req.body.content })
         .exec((err, doc) => {
-            if (err) return res.status(400).json({ success: false, message: "수정할 댓글를 찾을 수 없습니다.", err });
-            res.status(200).json({ success: true, doc })
+            if (err) return res.status(400).json({
+                updateCommentSuccess: false,
+                message: "수정할 댓글를 찾을 수 없습니다.", err
+            });
+            res.status(200).json({
+                updateCommentSuccess: true,
+                doc
+            })
         })
 });
 
@@ -52,8 +67,12 @@ router.post("/deleteComment", (req, res) => {
 
     Comment.deleteOne({ _id: req.body.comment_id })
         .exec((err, doc) => {
-            if (err) return res.status(400).json({ success: false, err });
-            res.status(200).json({ success: true, doc })
+            if (err) return res.status(400).json({
+                deleteCommentSuccess: false, err
+            });
+            res.status(200).json({
+                deleteCommentSuccess: true, doc
+            })
         })
 });
 

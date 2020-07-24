@@ -27,7 +27,7 @@ function Comments(props) {
 
         Axios.post('/api/comments/writeComment', variables)
             .then(response => {
-                if (response.data.success) {
+                if (response.data.writeCommentSuccess) {
                     console.log(response.data.result)
                     
                 } else {

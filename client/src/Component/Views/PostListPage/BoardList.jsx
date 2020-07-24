@@ -20,7 +20,7 @@ function BoardList(props) {
     useEffect(() => {
         axios.get('/api/Posts/getPosts')
             .then(response => {
-                if (response.data.success) {
+                if (response.data.getPostsSuccess) {
                     console.log(response.data.posts)
                     setPosts(response.data.posts)
                 } else {

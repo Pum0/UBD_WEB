@@ -56,7 +56,7 @@ function RegisterPage(props) {
 
         dispatch(registerUser(body))
             .then(response => {
-                if (response.payload.success) {
+                if (response.payload.registerSuccess) {
                     props.history.push("/")
                 } else {
                     alert('회원가입 실패')

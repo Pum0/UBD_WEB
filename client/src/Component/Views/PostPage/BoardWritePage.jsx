@@ -42,7 +42,7 @@ function BoardWritePage(props) {
 
         dispatch(writePost(body))
             .then(response => {
-                if (response.payload.success) {
+                if (response.payload.writePostSuccess) {
                     props.history.push("/Home")
                 } else {
                     alert('저장실패')
@@ -64,7 +64,7 @@ function BoardWritePage(props) {
 
         Axios.post('/api/posts/uploadfiles', formData, config)
             .then(response => {
-                if (response.data.success) {
+                if (response.data.uploadfilesSuccess) {
                     let variable = {
                         filePath: response.data.filePath,
                         fileName: response.data.fileName

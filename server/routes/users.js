@@ -14,9 +14,11 @@ router.post("/register", (req, res) => {
     const user = new User(req.body)
 
     user.save((err, userInfo) => {
-        if (err) return require.json({ success: false, err })
+        if (err) return require.json({ 
+            registerSuccess: false, 
+            err })
         return res.status(200).json({
-            success: true
+            registerSuccess: true
         })
     })
 })
@@ -38,6 +40,23 @@ router.post("/emailCheck", (req, res) => {    // 요청된 이메일을 데이�
     })
 })
 
+// 닉네임 중복체크
+router.post("/nicknameCheck", (req, res) => {    // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
+    User.findOne({ nickname: req.body.nickname }, (err, user) => {
+        if (user)
+            return res.json({
+                nicknameCheck: true,
+                message: "중복되는 닉네임 입니다."
+            })
+        else {
+            return res.json({
+                nicknameCheck: false,
+                message: "사용 가능한 닉네임 입니다."
+            })
+        }
+    })
+})
+
 // 로그인
 router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
     User.findOne({ email: req.body.email }, (err, user) => {
@@ -45,8 +64,6 @@ router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베�
             return res.json({
                 loginSuccess: false,
                 message: "제공된 이메일에 해당하는 유저가 없습니다."
-
-
             });
 
 
@@ -81,6 +98,7 @@ router.get("/auth", auth, (req, res) => {
         isAdmin: req.user.role === 0 ? false : true, //role이 0이 아니면 admin, 0이면 일반유저
         isAuth: true,
         email: req.user.email,
+        nickname: req.user.nickname,
         name: req.user.name,
         role: req.user.role,
         image: req.user.image
@@ -89,24 +107,50 @@ router.get("/auth", auth, (req, res) => {
 
 // 로그아웃 
 router.get("/logout", auth, async (req, res) => {
-    try {
-        await User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" })
-        return res.status(200).send({
-            success: true
-        });
-    } catch (error) {
-        console.log(error)
-    }
+    await User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" })
+    if (err) res.status(400).json({
+        logoutSuccess: false,
+        message: "로그아웃에 실패했습니다."
+    });
+    return res.status(200).send({
+        logoutSuccess: true,
+        message: "로그아웃 되었습니다."
+    });
 });
+
 
 // 비밀번호 변경
 router.post("/updatePassword", (req, res) => {
 
     Post.findOneAndUpdate({ _id: req.body.user_id }, { $set: { "password": req.body.password } })
         .exec((err, doc) => {
-            // console.log("reqPostId : " + req.post_id + " title : " + req.body.title + "content : " + req.body.content + "  " + doc)
-            if (err) return res.status(400).json({ success: false, message: "변경할 비밀번호를 찾을 수 없습니다.", err });
-            res.status(200).json({ success: true, doc })
+            if (err) return res.status(400).json({
+                updatePasswordSuccess: false,
+                message: "변경할 비밀번호를 찾을 수 없습니다.", err
+            });
+            res.status(200).json({
+                updatePasswordSuccess: true,
+                message: "비밀번호가 성공적으로 변경되었습니다.",
+                doc
+            })
+
+        })
+});
+
+// 회원정보 수정
+router.post("/updateUser", (req, res) => {
+
+    Post.findOneAndUpdate({ _id: req.body.user_id }, { $set: { "title": req.body.title, "content": req.body.content } })
+        .exec((err, doc) => {
+            if (err) return res.status(400).json({
+                updateUserSuccess: false,
+                message: "회원정보를 찾을 수 없습니다.", err
+            });
+            res.status(200).json({
+                updateUserSuccess: true,
+                message: "회원정보가 성공적으로 변경되었습니다.",
+                doc
+            })
 
         })
 });
@@ -116,8 +160,15 @@ router.post("/deleteUser", (req, res) => {
 
     Post.deleteOne({ _id: req.body.user_id })
         .exec((err, doc) => {
-            if (err) return res.status(400).json({ success: false, message: "회원탈퇴 할 수 없습니다.", err });
-            res.status(200).json({ success: true, doc })
+            if (err) return res.status(400).json({
+                deleteUserSuccess: false,
+                message: "회원탈퇴 할 수 없습니다.", err
+            });
+            res.status(200).json({
+                deleteUserSuccess: true,
+                message: "회원탈퇴가 성공적으로 되었습니다.",
+                doc
+            })
         })
 });
 

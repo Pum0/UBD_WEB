@@ -28,7 +28,7 @@ function BoardUpdatePage(props) {
     useEffect(() => {
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
-                if (response.data.success) {
+                if (response.data.getPostSuccess) {
                     console.log(response.data.post)
                     setPostContent(response.data.post)
                 } else {
@@ -59,7 +59,7 @@ function BoardUpdatePage(props) {
 
         dispatch(updatePost(body))
             .then(response => {
-                if (response.payload.success) {
+                if (response.payload.updatePostSuccess) {
                     props.history.push("/Home/board/BoardList")
                 } else {
                     alert('저장실패')
