@@ -4,7 +4,9 @@ import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import {LoadingOutlined} from "@ant-design/icons"
+import { LoadingOutlined } from "@ant-design/icons"
+import { Drawer} from "antd";
+import _PostPage from "../PostPage/_PostPage";
 
 // import {POST_SERVER} from "../config";
 
@@ -27,26 +29,37 @@ function BoardList(props) {
             })
     }, [])
 
+    // drawer visible
+    const [visible, setVisible] = useState(false);
+
+    const onPostCloseHandler = (e) => {
+        setVisible(false);
+    };
+
+    const onPostOpenHandler = (e) => {
+        setVisible(true);
+    }
+
 
     const renderTableRows = Posts.map((post, index) => {
-        if(post.writer){
-        BoardList.push(<TableBody>
-            <TableRow>
-                {/* <TableCell>{post.seq} </TableCell> */}
-                <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} key={`${post._id}`}><Typography
-                    variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
-                <TableCell align="right">{post.writer.name}</TableCell>
-                <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
-                <TableCell align="right" style={{textAlign: "center"}}>{post.viewcount}</TableCell>
-            </TableRow>
-        </TableBody>)
-        }else{
-            return(<div>
+        if (post.writer) {
+            BoardList.push(<TableBody>
+                <TableRow>
+                    {/* <TableCell>{post.seq} </TableCell> */}
+                    <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} onClick={onPostOpenHandler}>
+                        <Typography variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
+                    <TableCell align="right">{post.writer.name}</TableCell>
+                    <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
+                    <TableCell align="right" style={{ textAlign: "center" }}>{post.viewcount}</TableCell>
+                </TableRow>
+            </TableBody>)
+        } else {
+            return (<div>
                 <LoadingOutlined />
             </div>)
         }
     })
-    for(var i = BoardList.length; i >=0; i--){
+    for (var i = BoardList.length; i >= 0; i--) {
         descendingOrder.push(BoardList[i]);
     }
 
@@ -69,16 +82,22 @@ function BoardList(props) {
                 </Table>
             </TableContainer>
 
-            <NavLink to="/Home/board/BoardWritePage">
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+
+       
+
+            <NavLink to="/Home/BoardWritePage">
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
                     <Typography variant="subtitle2">글쓰기</Typography>
                 </Button>
             </NavLink>
-            <NavLink to="/Home/board">
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+            <NavLink to="/Home">
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
                     <Typography variant="subtitle2">뒤로가기</Typography>
                 </Button>
             </NavLink>
+
+               {/* <_PostPage postId={postId}> */}
+            
 
         </div>
     );

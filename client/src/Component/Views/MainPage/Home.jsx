@@ -3,7 +3,9 @@ import React from "react";
 import { Switch, withRouter } from "react-router-dom";
 import MapAPI from "../Map/MapAPI";
 import NavBar from "../Navbar/NavBar";
+import User_Avatar from "../Navbar/Sections/User_Avatar";
 import ContentRouter from "../route/ContentRouter";
+
 
 function Home() {
     const { Header, Content, Footer } = Layout;
@@ -13,11 +15,12 @@ function Home() {
     return (
 
         <Layout>
+            {/* <User_Avatar /> */}
 
             <NavBar />
             {/* == <Sider> 내용 </Sider> */}
 
-            <Content><MapAPI /></Content>
+            <MapAPI />
 
             <Switch>
                 <ContentRouter />

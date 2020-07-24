@@ -5,17 +5,19 @@ import { NavLink, withRouter } from "react-router-dom";
 import { Avatar, Popover } from 'antd';
 
 import { USER_SERVER } from "../../../config";
+import { UserOutlined } from "@ant-design/icons";
+
 
 function User_Avatar(props) {
 
     const text = (
-        <div style={{height:"100px", Width:"200px"}}>
-            <Avatar size={64} icon={<UserOutlined />} />
+        <div style={{height: "100px", Width: "100px" }}>
+            <Avatar size={48} icon={<UserOutlined />} />
             <span></span>
         </div>
     );
     const content = (
-        <div style={{height:"50px", Width:"200px"}}>
+        <div style={{ height: "50px", Width: "200px" }}>
             <p>Content</p>
             <p>Content</p>
         </div>

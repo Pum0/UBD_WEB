@@ -22,6 +22,7 @@ import Auth from "../../../hoc/auth";
 import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
+import { Drawer } from "antd";
 
 function _PostPage(props) {
 
@@ -88,22 +89,32 @@ function _PostPage(props) {
     //         })
     // }
 
+    const [visible, setVisible] = useState(false);
+
+
+    const showDrawer = () => {
+        setVisible(true);
+    };
+
+    const onClose = () => {
+        setVisible(false);
+    };
 
 
 
     const randerComments = Coments.map((comment, index) => {
         if (post_id === comment.postId)
             return (
-                <TableRow>
+                <TableRow style={{ margin: 0, padding: 0 }}>
 
-                    <TableCell style={{width: "15%", padding: 0}}>{comment.writer.name}
+                    <TableCell style={{ padding: 0, margin: 0 }}>{comment.writer.name}
                     </TableCell>
-                    <TableCell> {comment.content}
+                    <TableCell style={{ padding: 0, margin: 0 }}> {comment.content}
                     </TableCell>
-                    <TableCell>
+                    <TableCell style={{ padding: 0, margin: 0 }}>
                         <IconButton edge="start" color="inherit" aria-label="del_comment"
-                        >
-                            <ClearIcon/>
+                        style={{padding: 0, margin:0 }}>
+                            <ClearIcon />
                         </IconButton>
                     </TableCell>
                 </TableRow>
@@ -132,32 +143,40 @@ function _PostPage(props) {
 
     if (Post.writer) {
         return (
-
-
-            <div style={Board_style}>
+            <Drawer
+                placement="left"
+                closable={true}
+                mask={false}
+                maskClosable={false}
+                onClose={onClose}
+                visible={true}
+                width="500px"
+            >
 
                 <TableContainer component={Paper}>
-                    <Table aria-label="simple table">
+                    <Table style={{ margin: 0, padding: 0 }}>
                         <TableHead>
-                            <TableCell>{Post.title}</TableCell>
-                            <TableCell>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
-                            <TableCell>{Post.writer.name}</TableCell>
+                            <TableCell style={{padding: 0, margin:0 }}>{Post.title}</TableCell>
+                            <TableCell style={{padding: 0, margin:0 }}>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
+                            <TableCell style={{padding: 0, margin:0 }}>{Post.writer.name}</TableCell>
                         </TableHead>
-                        <TableBody>
-                            {/* 게시글의 내용 */}
-                            {Post.content}
-                            {/* 업로드 한 사진이 보여지는 부분 */}
-                            {Post.images[0] !== "" &&
-                            <img src={`http://localhost:5000/${Post.images[0]}`} alt="image"
-                                 style={{width: "100%", border: "1px solid black"}}/>
-                            }
-
-
+                        <TableBody style={{ width: "100%" }}>
+                            <TableRow>
+                                <TableCell>
+                                    {/* 게시글의 내용 */}
+                                    {Post.content}
+                                    {/* 업로드 한 사진이 보여지는 부분 */}
+                                    {Post.images[0] !== "" &&
+                                        <img src={`http://localhost:5000/${Post.images[0]}`} alt="image"
+                                            style={{ width: "100%", border: "1px solid black" }} />
+                                    }
+                                </TableCell>
+                            </TableRow>
                         </TableBody>
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <TableCell><Comments postId={post_id}/></TableCell>
+                            <TableRow><Comments postId={post_id} /></TableRow>
 
                             {/* 게시글 안의 댓글 리스트 */}
                             {randerComments}
@@ -169,31 +188,32 @@ function _PostPage(props) {
 
 
                 {/*뒤로가기버튼*/}
-                <NavLink to="/Home/board/BoardList">
-                    <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                <NavLink to="/Home/BoardList">
+                    <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
                         <Typography variant="subtitle2">뒤로가기</Typography>
                     </Button>
                 </NavLink>
 
                 {/*수정버튼*/}
                 <NavLink to={`/Home/${Post._id}/BoardUpdatePage`}>
-                    <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}>
+                    <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
                         <Typography variant="subtitle2">수정</Typography>
                     </Button>
                 </NavLink>
 
                 {/*삭제버튼*/}
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{margin: 5}}
-                        onClick={onDeleteHandler}>
+                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}
+                    onClick={onDeleteHandler}>
                     <Typography variant="subtitle2">삭제</Typography>
                 </Button>
 
 
                 {/*글 수정 페이지로 라우팅*/}
                 <Switch>
-                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)} />
                 </Switch>
-            </div>
+
+            </Drawer>
         )
     } else {
         return (
@@ -202,14 +222,4 @@ function _PostPage(props) {
     }
 }
 
-
-const Board_style = {
-    margin: 10,
-    padding: 0,
-    top: "50px",
-    position: "absolute",
-    left: 0, height: "92%",
-    width: "96%",
-    zIndex: 451
-}
 export default withRouter(_PostPage);

@@ -1,9 +1,8 @@
-import React, {useState} from "react"
-import {Button, TextField} from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
-import SingleComment from "./SingleComment";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function Comments(props) {
     const user = useSelector(state => state.user);
@@ -52,7 +51,7 @@ function Comments(props) {
 
                 <TextField type="text" placeholder="댓글을 입력하세요."
                            fullWidth margin="normal" value={CommentValue} onChange={onCommentHandler}
-                           style={{width: "100%"}}/>
+                       />
                 <Button type="submit" size="medium " variant="contained" edge="start" color="default"
                         style={{margin: 10, textAlign: "center"}}>
 

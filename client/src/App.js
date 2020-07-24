@@ -13,7 +13,6 @@ function App() {
             <div>
 
                 <AppRouter />
-                <ContentRouter />
             </div>
         </Router>
     );
