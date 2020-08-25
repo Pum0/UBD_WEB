@@ -10,6 +10,7 @@ import { Input } from "@material-ui/core";
 import Dropzone, { useDropzone } from "react-dropzone";
 import Axios from "axios";
 import AddIcon from '@material-ui/icons/Add';
+import {Drawer} from "antd";
 
 
 function BoardWritePage(props) {
@@ -20,6 +21,19 @@ function BoardWritePage(props) {
     const [BoardName, setBoardName] = useState("")
     const [BoardContent, setBoardContent] = useState("")
     const [FilePath, setFilePath] = useState("")
+
+
+    const [visible, setVisible] = useState(false);
+
+
+    const showDrawer = () => {
+        setVisible(true);
+    };
+
+    const onClose = () => {
+        setVisible(false);
+    };
+
 
 
     const onBoardNameHandler = (event) => {
@@ -82,7 +96,15 @@ function BoardWritePage(props) {
     }
 
     return (
-        <div>
+        <Drawer
+        placement="left"
+        closable={true}
+        mask={false}
+        maskClosable={false}
+        onClose={onClose}
+        visible={true}
+        width="650px"
+    >
             <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
                 <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
                     fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler} />
@@ -95,7 +117,7 @@ function BoardWritePage(props) {
                     multiline
                     value={BoardContent}
                     rows={15}
-                    // style={{ width: "100%" }}
+                    style={{ width: "100%" }}
                     onChange={onBoardContentHandler}
                 />
                 <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
@@ -130,7 +152,7 @@ function BoardWritePage(props) {
                 <Button variant="contained" type="button" color="inherit"
                     style={{ margin: 5, textDecoration: "none" }}> 뒤로가기 </Button>
             </form>
-        </div>
+        </Drawer>
     );
 }
 

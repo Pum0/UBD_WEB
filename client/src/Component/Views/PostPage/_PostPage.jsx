@@ -145,12 +145,12 @@ function _PostPage(props) {
         return (
             <Drawer
                 placement="left"
-                closable={true}
+                closable={false}
                 mask={false}
                 maskClosable={false}
                 onClose={onClose}
                 visible={true}
-                width="500px"
+                width="650px"
             >
 
                 <TableContainer component={Paper}>
@@ -188,7 +188,7 @@ function _PostPage(props) {
 
 
                 {/*뒤로가기버튼*/}
-                <NavLink to="/Home/BoardList">
+                <NavLink to="/Home">
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
                         <Typography variant="subtitle2">뒤로가기</Typography>
                     </Button>

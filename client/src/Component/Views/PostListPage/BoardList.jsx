@@ -4,8 +4,8 @@ import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { LoadingOutlined } from "@ant-design/icons"
-import { Drawer} from "antd";
+import { LoadingOutlined, MoreOutlined } from "@ant-design/icons"
+import { Drawer, Card, Row, Col, Button as Btn, Skeleton } from "antd";
 import _PostPage from "../PostPage/_PostPage";
 
 // import {POST_SERVER} from "../config";
@@ -43,16 +43,41 @@ function BoardList(props) {
 
     const renderTableRows = Posts.map((post, index) => {
         if (post.writer) {
-            BoardList.push(<TableBody>
-                <TableRow>
-                    {/* <TableCell>{post.seq} </TableCell> */}
-                    <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} onClick={onPostOpenHandler}>
-                        <Typography variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
-                    <TableCell align="right">{post.writer.name}</TableCell>
-                    <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
-                    <TableCell align="right" style={{ textAlign: "center" }}>{post.viewcount}</TableCell>
-                </TableRow>
-            </TableBody>)
+            // BoardList.push(<TableBody>
+            //     <TableRow>
+            //         {/* <TableCell>{post.seq} </TableCell> */}
+            //         <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} onClick={onPostOpenHandler}>
+            //             <Typography variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
+            //         <TableCell align="right">{post.writer.name}</TableCell>
+            //         <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
+            //         <TableCell align="right" style={{ textAlign: "center" }}>{post.viewcount}</TableCell>
+            //     </TableRow>
+            // </TableBody>)
+            BoardList.push(
+            <Card bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
+                <Row >
+                    <Col xs={{ span: 11, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 5 }} >
+
+                        < p >< NavLink to={`/Home/${post._id}`} ><Typography variant="subtitle2">{post.title}</Typography> </NavLink > </p>
+                        < p >{post.writer.name}</p >
+
+                        < p >{moment(post.created).format("YYYY.MM.DD HH:mm")}</p >
+
+                    </Col>
+                    {post.images[0] !== "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
+                        <img src={`http://localhost:5000/${post.images[0]}`} alt="image"style={{ width:"226px",height:"127px"}} />
+                    </Col>
+                    }
+                    {post.images[0] === "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
+                       <Skeleton.Image  style={{ width: "226px", height:"127px" }} />
+                    </Col>
+                    }
+                    {/* <Col bordered={false} xs={{ span: 5, offset: 2 }} lg={{ span: 8, offset: 2 }}>
+                    <Btn icon={<MoreOutlined />}  />
+                    </Col> */}
+                </Row>
+            </Card >
+            )
         } else {
             return (<div>
                 <LoadingOutlined />
@@ -65,25 +90,14 @@ function BoardList(props) {
 
     return (
         <div>
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            {/* <TableCell>번호</TableCell> */}
-                            <TableCell>제목</TableCell>
-                            <TableCell align="right">작성자</TableCell>
-                            <TableCell align="right">작성일자</TableCell>
-                            <TableCell align="right">조회수</TableCell>
 
-                        </TableRow>
-                    </TableHead>
-                    {/*{renderTableRows}*/}
-                    {descendingOrder}
-                </Table>
-            </TableContainer>
+            {/*{renderTableRows}*/}
+            {descendingOrder}
 
 
-       
+
+
+
 
             <NavLink to="/Home/BoardWritePage">
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
@@ -96,8 +110,8 @@ function BoardList(props) {
                 </Button>
             </NavLink>
 
-               {/* <_PostPage postId={postId}> */}
-            
+            {/* <_PostPage postId={postId}> */}
+
 
         </div>
     );

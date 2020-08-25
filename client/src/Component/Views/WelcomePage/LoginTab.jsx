@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { withRouter, NavLink } from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
+import {UserAddOutlnied} from "@ant-design/icons/UserAddOutlined";
+
 
 import { Form, Input, Button, Checkbox } from 'antd';
 
@@ -76,7 +78,7 @@ function LoginTab(props) {
 
     return (
         <div>
-            <header style={headerStyle}><h1 >UBD Map</h1></header>
+            <header style={headerStyle}></header>
             <body style={formStyle}>
 
                 <form onSubmit={onSubmitHandler}>
@@ -110,7 +112,7 @@ function LoginTab(props) {
                     </Form.Item>
 
                     <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                        <NavLink to="/signup"> ※ 회원 아이디가 없으십니까? </NavLink>
+                    <NavLink to="/signup"> ※ 회원가입 </NavLink>
                     </Form.Item>
 
                     <Form.Item {...tailLayout}>
