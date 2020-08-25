@@ -80,7 +80,7 @@ userSchema.methods.generateToken = function (cb) {
 
     // jsonwebtoken을 이용해서 토큰을 생성하기
     var token = jwt.sign(user._id.toHexString(), "OurFirstSecretKey");
-    var oneHour = moment().add(1, 'hour').valueOf();
+    var oneHour = moment().add(1, 'day').valueOf();
 
     user.tokenExp = oneHour;
     user.token = token;
