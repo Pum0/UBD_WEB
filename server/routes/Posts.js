@@ -58,7 +58,7 @@ router.post("/writePost", (req, res) => {
             message: "게시물을 작성할 수 없습니다.", err
         })
         return res.status(200).json({
-            writePostsuccess: true
+            writePostSuccess: true
         })
     })
 
