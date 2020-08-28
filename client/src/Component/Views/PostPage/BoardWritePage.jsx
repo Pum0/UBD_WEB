@@ -10,7 +10,7 @@ import { Input } from "@material-ui/core";
 import Dropzone, { useDropzone } from "react-dropzone";
 import Axios from "axios";
 import AddIcon from '@material-ui/icons/Add';
-import {Drawer} from "antd";
+import { Drawer } from "antd";
 
 
 function BoardWritePage(props) {
@@ -23,17 +23,17 @@ function BoardWritePage(props) {
     const [FilePath, setFilePath] = useState("")
 
 
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
 
-
-    const showDrawer = () => {
-        setVisible(true);
-    };
 
     const onClose = () => {
         setVisible(false);
     };
 
+
+    const showDrawer = () => {
+        setVisible(true);
+    };
 
 
     const onBoardNameHandler = (event) => {
@@ -44,9 +44,8 @@ function BoardWritePage(props) {
     }
 
     const onSubmitHandler = (event) => {
-
-
         event.preventDefault();
+
         let body = {
             writer: user.userData._id,
             title: BoardName,
@@ -63,7 +62,7 @@ function BoardWritePage(props) {
                 }
             })
 
-    }
+    } 
 
     const onDrop = (files) => {
         let formData = new FormData;
@@ -96,62 +95,61 @@ function BoardWritePage(props) {
     }
 
     return (
-        <Drawer
-        placement="left"
-        closable={true}
-        mask={false}
-        maskClosable={false}
-        onClose={onClose}
-        visible={true}
-        width="650px"
-    >
-            <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
-                <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
-                    fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler} />
+            <Drawer
+            placement="left"
+            closable={true}
+            mask={false}
+            maskClosable={false}
+            onClose={onClose}
+            visible={visible}
+            width="650px"
+        >
+        <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
+            <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
+                fullWidth margin="normal" value={BoardName} onChange={onBoardNameHandler} />
 
-                <TextField
-                    type="text"
-                    variant="filled"
-                    label="내용"
-                    placeholder="글의 내용을 입력하세요."
-                    multiline
-                    value={BoardContent}
-                    rows={15}
-                    style={{ width: "100%" }}
-                    onChange={onBoardContentHandler}
-                />
-                <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
-                <Dropzone onDrop={onDrop}
-                    multiple={true}
-                    maxSize={8000000}
-                >{({ getRootProps, getInputProps }) => (
-                    <div style={{
-                        marginTop: 10,
-                        margin: "0 auto",
-                        width: '96%',
-                        height: '100px',
-                        border: '1px solid lightgray',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }} {...getRootProps()}>
-                        <input {...getInputProps()} />
-                        <AddIcon style={{ fontSize: '3rem' }} />
+            <TextField
+                type="text"
+                variant="filled"
+                label="내용"
+                placeholder="글의 내용을 입력하세요."
+                multiline
+                value={BoardContent}
+                rows={15}
+                style={{ width: "100%" }}
+                onChange={onBoardContentHandler}
+            />
+            <Typography>※ 이미지파일 추가 (확장자 png, jpg만 업로드 가능합니다.) </Typography>
+            <Dropzone onDrop={onDrop}
+                multiple={true}
+                maxSize={8000000}
+            >{({ getRootProps, getInputProps }) => (
+                <div style={{
+                    marginTop: 10,
+                    margin: "0 auto",
+                    width: '96%',
+                    height: '100px',
+                    border: '1px solid lightgray',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }} {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <AddIcon style={{ fontSize: '3rem' }} />
 
-                    </div>
-                )}
-                </Dropzone>
-                {FilePath !== "" &&
-                    <div>
-                        미리보기<br />
-                        <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{ width: "50%", border: "1px solid black" }} />
-                    </div>
-                }
-                {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br />
-                <Button variant="contained" type="submit" color="inherit" style={{ margin: 5 }}>글쓰기 </Button>
-                <Button variant="contained" type="button" color="inherit"
-                    style={{ margin: 5, textDecoration: "none" }}> 뒤로가기 </Button>
-            </form>
+                </div>
+            )}
+            </Dropzone>
+            {FilePath !== "" &&
+                <div>
+                    미리보기<br />
+                    <img src={`http://localhost:5000/${FilePath}`} alt="image" style={{ width: "50%", border: "1px solid black" }} />
+                </div>
+            }
+            {/*<Input type="file" on style={{margin: 5, textDecoration: "none"}}></Input> <br/>*/} <br />
+            <Button variant="contained" type="submit" color="inherit" style={{ margin: 5 }}>글쓰기 </Button>
+            <Button variant="contained" type="button" color="inherit" style={{ margin: 5, textDecoration: "none" }} onClick={onClose}> 뒤로가기 </Button>
+        </form>
         </Drawer>
     );
 }

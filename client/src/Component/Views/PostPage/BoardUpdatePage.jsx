@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {updatePost} from "../../../_actions/post_action";
 import moment from "moment";
 import axios from "axios";
-
+import {Drawer} from "antd";
 
 function BoardUpdatePage(props) {
     const user = useSelector(state => state.user);
@@ -68,11 +68,28 @@ function BoardUpdatePage(props) {
     }
 
 
+
+    const [visible, setVisible] = useState(true);
+
+
+    const onClose = () => {
+        setVisible(false);
+    };
+
+
     if (PostContent.writer) {
 
         return (
 
-            <div>
+            <Drawer
+            placement="left"
+            closable={true}
+            mask={false}
+            maskClosable={false}
+            onClose={onClose}
+            visible={visible}
+            width="650px"
+        >
                 <Container style={Board_style}>
                     <Typography variant="h5" style={{textAlign: "center"}}>자유게시판 글 수정</Typography>
 
@@ -104,7 +121,7 @@ function BoardUpdatePage(props) {
                         </NavLink>
                     </form>
                 </Container>
-            </div>);
+            </Drawer>);
     } else {
         return (<div> loading... </div>
         )

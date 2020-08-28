@@ -89,7 +89,7 @@ function _PostPage(props) {
     //         })
     // }
 
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
 
 
     const showDrawer = () => {
@@ -98,9 +98,13 @@ function _PostPage(props) {
 
     const onClose = () => {
         setVisible(false);
+
     };
 
+    const onCloseAfter = () => {
+        props.history.push("/home");
 
+    };
 
     const randerComments = Coments.map((comment, index) => {
         if (post_id === comment.postId)
@@ -145,11 +149,11 @@ function _PostPage(props) {
         return (
             <Drawer
                 placement="left"
-                closable={false}
+                closable={true}
                 mask={false}
                 maskClosable={false}
                 onClose={onClose}
-                visible={true}
+                visible={visible}
                 width="650px"
             >
 
@@ -185,14 +189,6 @@ function _PostPage(props) {
 
                     </Table>
                 </TableContainer>
-
-
-                {/*뒤로가기버튼*/}
-                <NavLink to="/Home">
-                    <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
-                        <Typography variant="subtitle2">뒤로가기</Typography>
-                    </Button>
-                </NavLink>
 
                 {/*수정버튼*/}
                 <NavLink to={`/Home/${Post._id}/BoardUpdatePage`}>

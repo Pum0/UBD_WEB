@@ -7,6 +7,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import { LoadingOutlined, MoreOutlined } from "@ant-design/icons"
 import { Drawer, Card, Row, Col, Button as Btn, Skeleton } from "antd";
 import _PostPage from "../PostPage/_PostPage";
+import BoardWritePage from "../PostPage/BoardWritePage";
 
 // import {POST_SERVER} from "../config";
 
@@ -15,7 +16,7 @@ function BoardList(props) {
     const [Posts, setPosts] = useState([])
     var BoardList = []
     var descendingOrder = [];
-
+    var postCount = 0;
 
     useEffect(() => {
         axios.get('/api/Posts/getPosts')
@@ -41,6 +42,18 @@ function BoardList(props) {
     }
 
 
+    // Write drawer visible
+    const [WriteVisible, setWriteVisible] = useState(false);
+
+    const showWriteDrawer = () => {
+        setWriteVisible(true);
+    };
+
+    const onWriteClose = () => {
+        setWriteVisible(false);
+    };
+
+
     const renderTableRows = Posts.map((post, index) => {
         if (post.writer) {
             // BoardList.push(<TableBody>
@@ -54,30 +67,31 @@ function BoardList(props) {
             //     </TableRow>
             // </TableBody>)
             BoardList.push(
-            <Card bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
-                <Row >
-                    <Col xs={{ span: 11, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 5 }} >
+                <Card bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
+                    <Row >
+                        <Col xs={{ span: 11, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 5 }} >
 
-                        < p >< NavLink to={`/Home/${post._id}`} ><Typography variant="subtitle2">{post.title}</Typography> </NavLink > </p>
-                        < p >{post.writer.name}</p >
+                            < p >< NavLink to={`/Home/${post._id}`} ><Typography variant="subtitle2">{post.title}</Typography> </NavLink > </p>
+                            < p >{post.writer.name}</p >
 
-                        < p >{moment(post.created).format("YYYY.MM.DD HH:mm")}</p >
+                            < p >{moment(post.created).format("YYYY.MM.DD HH:mm")}</p >
 
-                    </Col>
-                    {post.images[0] !== "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
-                        <img src={`http://localhost:5000/${post.images[0]}`} alt="image"style={{ width:"226px",height:"127px"}} />
-                    </Col>
-                    }
-                    {post.images[0] === "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
-                       <Skeleton.Image  style={{ width: "226px", height:"127px" }} />
-                    </Col>
-                    }
-                    {/* <Col bordered={false} xs={{ span: 5, offset: 2 }} lg={{ span: 8, offset: 2 }}>
+                        </Col>
+                        {post.images[0] !== "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
+                            <img src={`http://localhost:5000/${post.images[0]}`} alt="image" style={{ width: "226px", height: "127px" }} />
+                        </Col>
+                        }
+                        {post.images[0] === "" && <Col xs={{ span: 13, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 3, marginRight: 3 }}>
+                            <Skeleton.Image style={{ width: "226px", height: "127px" }} />
+                        </Col>
+                        }
+                        {/* <Col bordered={false} xs={{ span: 5, offset: 2 }} lg={{ span: 8, offset: 2 }}>
                     <Btn icon={<MoreOutlined />}  />
                     </Col> */}
-                </Row>
-            </Card >
+                    </Row>
+                </Card >
             )
+            postCount++;
         } else {
             return (<div>
                 <LoadingOutlined />
@@ -93,7 +107,7 @@ function BoardList(props) {
 
             {/*{renderTableRows}*/}
             {descendingOrder}
-
+            {console.log(postCount)}
 
 
 
@@ -106,11 +120,25 @@ function BoardList(props) {
             </NavLink>
             <NavLink to="/Home">
                 <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
-                    <Typography variant="subtitle2">뒤로가기</Typography>
+                    <Typography variant="subtitle2" >뒤로가기</Typography>
                 </Button>
             </NavLink>
 
             {/* <_PostPage postId={postId}> */}
+
+                       
+            {/* -------------- 글 쓰기 Drawer --------------
+            <Drawer
+                placement="left"
+                closable={true}
+                mask={false}
+                maskClosable={false}
+                onClose={onWriteClose}
+                visible={WriteVisible}
+                width="650px"
+            >
+                <BoardWritePage />
+            </Drawer> */}
 
 
         </div>

@@ -24,64 +24,89 @@ function NavBar(props) {
             })
     }
     const { Sider } = Layout;
-    // drawer visible
-    const [visible, setVisible] = useState(false);
-
-
-    const showDrawer = () => {
-        setVisible(true);
+    // Board drawer visible
+    const [BoardVisible, setBoardVisible] = useState(false);
+    
+    const showBoardDrawer = () => {
+        setBoardVisible(true);
     };
 
-    const onClose = () => {
-        setVisible(false);
+    const onBoardClose = () => {
+        setBoardVisible(false);
     };
+
+    // Share drawer visible
+    const [ShareVisible, setShareVisible] = useState(false);
+
+    const showShareDrawer = () => {
+        setShareVisible(true);
+    };
+
+    const onSharClose = () => {
+        setShareVisible(false);
+    };
+
+    // Record drawer visible
+    const [RecordVisible, setRecordVisible] = useState(false);
+
+    const showRecordDrawer = () => {
+        setRecordVisible(true);
+    };
+
+    const onRecordClose = () => {
+        setRecordVisible(false);
+    };
+
 
 
     return (
         <Sider style={{ minWidth: "55px", maxWidth: "55px" }}>
             <Menu style={{ width: "250px" }} theme="light" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1" onClick={showDrawer} icon={<MessageOutlined />}> 자유게시판  </Menu.Item>
-                <Menu.Item key="2" icon={<ShareAltOutlined />}>공유게시판</Menu.Item>
-                <Menu.Item key="3"icon={<FileTextOutlined />}>나의기록</Menu.Item>
+                <Menu.Item key="1" onClick={showBoardDrawer} icon={<MessageOutlined />}> 자유게시판  </Menu.Item>
+                <Menu.Item key="2" onClick={showShareDrawer} icon={<ShareAltOutlined />}>공유게시판</Menu.Item>
+                <Menu.Item key="3" onClick={showRecordDrawer} icon={<FileTextOutlined />}>나의기록</Menu.Item>
             </Menu>
-            {/* --------------자유게시판-------------- */}
+            {/* -------------- 자유게시판 -------------- */}
             <Drawer
                 placement="left"
                 closable={true}
                 mask={false}
                 maskClosable={false}
-                onClose={onClose}
-                visible={visible}
+                onClose={onBoardClose}
+                visible={BoardVisible}
                 width="650px"
+   
             >
                 <BoardList />
             </Drawer>
 
-            {/* --------------공유게시판-------------- */}
+            {/* -------------- 공유게시판 -------------- */}
             <Drawer
                 placement="left"
                 closable={true}
                 mask={false}
                 maskClosable={false}
-                onClose={onClose}
-                visible={visible}
+                onClose={onSharClose}
+                visible={ShareVisible}
                 width="650px"
             >
                 <SharingList />
             </Drawer>
 
-            {/* --------------나의 기록-------------- */}
+            {/* -------------- 나의 기록 -------------- */}
             <Drawer
                 placement="left"
                 closable={true}
                 mask={false}
                 maskClosable={false}
-                onClose={onClose}
-                visible={visible}
+                onClose={onRecordClose}
+                visible={RecordVisible}
                 width="650px"
             >
-                <BoardList />
+                <RecordList />
             </Drawer>
+
+
 
 
         </Sider>
