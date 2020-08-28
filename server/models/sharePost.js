@@ -35,20 +35,14 @@ const sharePostSchema = mongoose.Schema({
         default: 0
     }, 
 
-    images: {
-        type: Array,
-        default: []
-    },
-
     created: {
         type: Date,
         default: moment()
     },
 
-    
     filePath: {
         type: String,
-    },
+    }
 
 
 })
