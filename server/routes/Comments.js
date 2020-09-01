@@ -48,8 +48,7 @@ router.get("/getComments", (req, res) => {
 
 // 댓글 수정
 router.post("/updateComment", (req, res) => {
-
-    Comment.findOneAndUpdate({ "post_Id": req.body.comment_id, "content": req.body.content })
+    Comment.findOneAndUpdate({ _id: req.body.comment_id }, { $set: { "content": req.body.content } })
         .exec((err, doc) => {
             if (err) return res.status(400).json({
                 updateCommentSuccess: false,
