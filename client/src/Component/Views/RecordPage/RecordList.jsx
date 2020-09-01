@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-
+import {Typography} from "@material-ui/core"
 
 
 function My_Record(props) {
     return (
         <div>
-
-            <h2> My Record</h2>
+             <Typography variant="h4"> 나의 기록 <br/></Typography>
+            
             나의 기록
         </div>
     );

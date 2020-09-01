@@ -111,14 +111,14 @@ function _PostPage(props) {
             return (
                 <TableRow style={{ margin: 0, padding: 0 }}>
 
-                    <TableCell style={{ padding: 0, margin: 0 }}>{comment.writer.name}
+                    <TableCell style={{ padding: 5, margin: 5 }}> {comment.content}
                     </TableCell>
-                    <TableCell style={{ padding: 0, margin: 0 }}> {comment.content}
+                    <TableCell width={"5%"} style={{ padding: 0, margin: 0, textAlign: "center" }}>{comment.writer.name}
                     </TableCell>
-                    <TableCell style={{ padding: 0, margin: 0 }}>
+                    <TableCell width={"2.5%"} style={{ padding: 0, margin: 0 }}>
                         <IconButton edge="start" color="inherit" aria-label="del_comment"
-                        style={{padding: 0, margin:0 }}>
-                            <ClearIcon />
+                            style={{ padding: 0, margin: 0 }}>
+                            <ClearIcon  />
                         </IconButton>
                     </TableCell>
                 </TableRow>
@@ -160,13 +160,13 @@ function _PostPage(props) {
                 <TableContainer component={Paper}>
                     <Table style={{ margin: 0, padding: 0 }}>
                         <TableHead>
-                            <TableCell style={{padding: 0, margin:0 }}>{Post.title}</TableCell>
-                            <TableCell style={{padding: 0, margin:0 }}>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
-                            <TableCell style={{padding: 0, margin:0 }}>{Post.writer.name}</TableCell>
+                            <TableCell style={{ padding: 5, margin: 5 }}>{Post.title}</TableCell>
+                            <TableCell width={"10%"} style={{ padding: 0, margin: 0 }}>{moment(Post.created).format("MM.DD HH:mm")}</TableCell>
+                            <TableCell width={"10%"} style={{ padding: 0, margin: 0 }}>{Post.writer.name}</TableCell>
                         </TableHead>
                         <TableBody style={{ width: "100%" }}>
                             <TableRow>
-                                <TableCell>
+                                <TableCell colSpan={3}>
                                     {/* 게시글의 내용 */}
                                     {Post.content}
                                     {/* 업로드 한 사진이 보여지는 부분 */}
@@ -180,7 +180,7 @@ function _PostPage(props) {
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <TableRow><Comments postId={post_id} /></TableRow>
+                            <Comments postId={post_id} />
 
                             {/* 게시글 안의 댓글 리스트 */}
                             {randerComments}

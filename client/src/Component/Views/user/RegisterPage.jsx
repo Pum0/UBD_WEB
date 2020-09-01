@@ -1,12 +1,24 @@
-import React, {Component, useState} from "react";
+import React, { Component, useState } from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/Container";
-import {registerUser} from "../../../_actions/user_action";
-import {useDispatch} from "react-redux";
+import { registerUser } from "../../../_actions/user_action";
+import { useDispatch } from "react-redux";
 import Axios from 'axios';
-import {withRouter} from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
+import { DatePicker, Space } from 'antd';
+import { Paper } from "@material-ui/core";
+
+
+// function RegisterPage(props) {
+//     return (
+//         <div>
+
+//         </div>
+
+//     );
+// }
 
 function RegisterPage(props) {
     const dispatch = useDispatch();
@@ -56,47 +68,56 @@ function RegisterPage(props) {
 
         dispatch(registerUser(body))
             .then(response => {
-                if (response.payload.registerSuccess) {
+                if (response.payload.success) {
                     props.history.push("/")
                 } else {
                     alert('회원가입 실패')
                 }
             })
     }
+    function onChange(date, dateString) {
+        console.log(date, dateString);
+        setBirth(dateString)
+    }
 
     return (
 
-        <div>
-            <Container>
-                <Typography variant="h4" style={style}>UBD 회원 가입</Typography>
+        <Container style={{ marginTop: 100, width: "500px", padding: 20 }} component={Paper}>
+            <Typography variant="h4" style={style}>UBD 회원 가입</Typography>
 
-                <form style={formContainer} onSubmit={onSubmitHandler}>
-                    {/*아이디 입력 필드*/}
-                    <TextField type="email" placeholder="아이디를 입력해주세요."
-                               fullWidth margin="normal" value={Email} onChange={onUser_IdHandler}/>
+            <form style={formContainer} onSubmit={onSubmitHandler}>
+                {/*아이디 입력 필드*/}
+                <TextField type="email" placeholder="아이디를 입력해주세요."
+                    fullWidth margin="normal" value={Email} onChange={onUser_IdHandler} />
 
-                    <TextField type="password" placeholder="비밀번호를 입력해주세요."
-                               fullWidth margin="normal" value={Password} onChange={onPasswordHandler}/>
+                <TextField type="password" placeholder="비밀번호를 입력해주세요."
+                    fullWidth margin="normal" value={Password} onChange={onPasswordHandler} />
 
-                    <TextField type="password" placeholder="비밀번호를 입력해주세요."
-                               fullWidth margin="normal" value={ConfirmPassword} onChange={onConfirmPasswordHandler}/>
+                <TextField type="password" placeholder="비밀번호를 다시 입력해주세요."
+                    fullWidth margin="normal" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
 
-                    <TextField type="text" placeholder="이름을 입력해주세요."
-                               fullWidth margin="normal" value={Name} onChange={onNameHandler}/>
-
-                    <TextField placeholder="생년월일을 입력해주세요. ex)20200101"
-                               fullWidth margin="normal" value={Birth} onChange={onBirthDayHandler}/>
-
-                    <TextField type="number" placeholder="체중을 입력해주세요."
-                               fullWidth margin="normal" value={Weight} onChange={onWeightHandler}/>
+                <TextField type="text" placeholder="이름을 입력해주세요."
+                    fullWidth margin="normal" value={Name} onChange={onNameHandler} />
 
 
-                    {/*회원정보를 저장하며 디비에 등록 하는버튼*/}
-                    <Button variant="contained" type="submit" color="inherit">회원가입</Button>
-                </form>
 
-            </Container>
-        </div>
+                <TextField type="number" placeholder="체중을 입력해주세요."
+                    fullWidth margin="normal" value={Weight} onChange={onWeightHandler} />
+
+
+                <DatePicker fullWidth margin="normal" size="middle" placeholder={"출생일 선택기"} onChange={onChange} />
+                <TextField placeholder={Birth} fullWidth margin="normal" value={Birth} />
+
+                {/*회원정보를 저장하며 디비에 등록 하는버튼*/}
+                <Button variant="contained" type="submit" color="inherit"><Typography variant="subtitle2">회원가입</Typography></Button>
+
+                <NavLink to="/">
+                    <Button variant="contained" type="Button" color="inherit" style={{ left: "10px" }}><Typography variant="subtitle2">돌아가기 </Typography> </Button>
+                </NavLink>
+
+            </form>
+
+        </Container>
     );
 
 }

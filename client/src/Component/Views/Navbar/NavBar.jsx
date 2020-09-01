@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
@@ -107,6 +107,7 @@ function NavBar(props) {
             </Drawer>
 
 
+            <Button onClick={onClickHandler}> LogOut </Button>
 
 
         </Sider>

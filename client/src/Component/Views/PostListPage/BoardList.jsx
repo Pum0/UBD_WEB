@@ -1,11 +1,11 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
+import { Button, TextField, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { LoadingOutlined, MoreOutlined } from "@ant-design/icons"
-import { Drawer, Card, Row, Col, Button as Btn, Skeleton } from "antd";
+import { Drawer, Card, Row, Col, Button as Btn, Skeleton, Pagination } from "antd";
 import _PostPage from "../PostPage/_PostPage";
 import BoardWritePage from "../PostPage/BoardWritePage";
 
@@ -17,6 +17,18 @@ function BoardList(props) {
     var BoardList = []
     var descendingOrder = [];
     var postCount = 0;
+    var postPageNum;
+    const [current, setCurrent] = useState(1);
+
+    const [searchTitle, setSearchTitle] = useState();
+
+    const onChange = page => {
+        console.log(page);
+        setCurrent(page);
+    };
+
+
+
 
     useEffect(() => {
         axios.get('/api/Posts/getPosts')
@@ -41,31 +53,15 @@ function BoardList(props) {
         setVisible(true);
     }
 
-
-    // Write drawer visible
-    const [WriteVisible, setWriteVisible] = useState(false);
-
-    const showWriteDrawer = () => {
-        setWriteVisible(true);
-    };
-
-    const onWriteClose = () => {
-        setWriteVisible(false);
-    };
+    const onSearchHandler = (e) => {
+        setSearchTitle(e.currentTarget.value);
+        console.log(e.currentTarget.value);
+    }
 
 
-    const renderTableRows = Posts.map((post, index) => {
+    const listMapping = Posts.map((post, index) => {
         if (post.writer) {
-            // BoardList.push(<TableBody>
-            //     <TableRow>
-            //         {/* <TableCell>{post.seq} </TableCell> */}
-            //         <TableCell component="th" scope="row"><NavLink to={`/Home/${post._id}`} onClick={onPostOpenHandler}>
-            //             <Typography variant={"subtitle2"}>{post.title}</Typography></NavLink></TableCell>
-            //         <TableCell align="right">{post.writer.name}</TableCell>
-            //         <TableCell align="right">{moment(post.created).format("MM.DD")}</TableCell>
-            //         <TableCell align="right" style={{ textAlign: "center" }}>{post.viewcount}</TableCell>
-            //     </TableRow>
-            // </TableBody>)
+
             BoardList.push(
                 <Card bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
                     <Row >
@@ -86,60 +82,60 @@ function BoardList(props) {
                         </Col>
                         }
                         {/* <Col bordered={false} xs={{ span: 5, offset: 2 }} lg={{ span: 8, offset: 2 }}>
-                    <Btn icon={<MoreOutlined />}  />
-                    </Col> */}
+                        <Btn icon={<MoreOutlined />}  />
+                        </Col> */}
                     </Row>
                 </Card >
             )
             postCount++;
+            postPageNum = (postCount / 4) * 10;
         } else {
             return (<div>
                 <LoadingOutlined />
             </div>)
         }
     })
-    for (var i = BoardList.length; i >= 0; i--) {
+
+
+    // 게시판 DB에 들어있는 글을 최신 순으로 정렬하기위해 역순으로 리스트에 삽입
+    for (var i = BoardList.length - 1; i >= 0; i--) {
         descendingOrder.push(BoardList[i]);
     }
 
+    var pageTest = [];
+
+    for (var i = (current - 1) * 4; i < current * 4; i++) {
+        pageTest.push(descendingOrder[i]);
+    }
+
+
+
     return (
-        <div>
+        <div >
+            <Typography variant="h4"> 자유게시판 <br/></Typography>
+            <div style={{ display: "flex" }}>
+                <NavLink to="/Home/BoardWritePage">
+                    <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 3 }}>
+                        <Typography variant="subtitle2">글쓰기</Typography>
+                    </Button>
+                </NavLink>
+                {/* 검색용 form 태그 */}
+                <form style={{ left: "70%" }}>
+                    <TextField type="text" placeholder="찾는 제목을 입력하세요."
+                        value={searchTitle} style={{ margin: 3 }} onChange={onSearchHandler} />
 
-            {/*{renderTableRows}*/}
-            {descendingOrder}
-            {console.log(postCount)}
+                    <Button  type="submit" size="medium" variant="contained" edge="start" color="inherit">
+                        <Typography variant="subtitle2"> 검색</Typography>
+                    </Button>
+                </form>
 
 
 
+            </div>
+            {/* {descendingOrder} */}
+            {pageTest}
 
-
-            <NavLink to="/Home/BoardWritePage">
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
-                    <Typography variant="subtitle2">글쓰기</Typography>
-                </Button>
-            </NavLink>
-            <NavLink to="/Home">
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
-                    <Typography variant="subtitle2" >뒤로가기</Typography>
-                </Button>
-            </NavLink>
-
-            {/* <_PostPage postId={postId}> */}
-
-                       
-            {/* -------------- 글 쓰기 Drawer --------------
-            <Drawer
-                placement="left"
-                closable={true}
-                mask={false}
-                maskClosable={false}
-                onClose={onWriteClose}
-                visible={WriteVisible}
-                width="650px"
-            >
-                <BoardWritePage />
-            </Drawer> */}
-
+            <Pagination responsive={true} current={current} onChange={onChange} total={postPageNum} style={{ margin: 3 }} />
 
         </div>
     );
