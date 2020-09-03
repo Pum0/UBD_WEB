@@ -58,6 +58,9 @@ function BoardList(props) {
         console.log(e.currentTarget.value);
     }
 
+    const UpdatePosts = (newPosts) => {
+        setPosts(Posts.concat(newPosts))
+    }
 
     const listMapping = Posts.map((post, index) => {
         if (post.writer) {

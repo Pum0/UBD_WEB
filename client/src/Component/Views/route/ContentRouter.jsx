@@ -23,8 +23,8 @@ class ContentRouter extends Component {
                     {/* <Route path="/Home/share_board" component={Auth(Sharing_Board, true)}/> */}
 
                     <Route path="/Home/BoardWritePage" component={Auth(BoardWritePage, true)}/>
-                    <Route exact path="/Home/:post_id" component={Auth(_PostPage, true)}/>
-                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
+                    <Route exact path="/Home/:postId" component={Auth(_PostPage, true)}/>
+                    <Route path="/Home/:postId/BoardUpdatePage" component={Auth(BoardUpdatePage, true)}/>
                 </Switch>
             </div>
 

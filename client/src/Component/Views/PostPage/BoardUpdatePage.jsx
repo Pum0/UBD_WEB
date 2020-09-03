@@ -15,11 +15,11 @@ function BoardUpdatePage(props) {
     const dispatch = useDispatch();
 
     // 수정할 게시물의 내용을 불러오기 위해 사용
-    const post_id = props.match.params.post_id
+    const postId = props.match.params.postId
     const [PostContent, setPostContent] = useState([])
 
     const postVariable = {
-        post_id: post_id
+        postId: postId
     }
     var [BoardName, setBoardName] = useState("")
     var [BoardContent, setBoardContent] = useState("")
@@ -50,7 +50,7 @@ function BoardUpdatePage(props) {
 
         event.preventDefault();
         let body = {
-            post_id: post_id,
+            postId: postId,
             title: BoardName,
             content: BoardContent,
             created: moment()

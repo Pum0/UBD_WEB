@@ -86,7 +86,7 @@ router.get("/getPosts", (req, res) => {
 // 게시물 불러오기
 router.post("/getPost", (req, res) => {
 
-    Post.findOne({ "_id": req.body.post_id })
+    Post.findOne({ "_id": req.body.postId })
         .populate('writer')
         .exec((err, post) => {
             if (err) return res.status(400).json({
@@ -104,9 +104,9 @@ router.post("/getPost", (req, res) => {
 // 게시물 수정
 router.post("/updatePost", (req, res) => {
 
-    Post.findOneAndUpdate({ _id: req.body.post_id }, { $set: { "title": req.body.title, "content": req.body.content } })
+    Post.findOneAndUpdate({ _id: req.body.postId }, { $set: { "title": req.body.title, "content": req.body.content } })
         .exec((err, doc) => {
-            console.log("reqPostId : " + req.post_id + " title : " + req.body.title + "content : " + req.body.content + "  " + doc)
+            console.log("reqPostId : " + req.postId + " title : " + req.body.title + "content : " + req.body.content + "  " + doc)
             if (err) return res.status(400).json({
                 updatePostSuccess: false,
                 message: "수정할 게시물을 찾을 수 없습니다.", err
@@ -122,7 +122,7 @@ router.post("/updatePost", (req, res) => {
 // 게시물 삭제
 router.post("/deletePost", (req, res) => {
 
-    Post.deleteOne({ _id: req.body.post_id })
+    Post.deleteOne({ _id: req.body.postId })
         .exec((err, doc) => {
             if (err) return res.status(400).json({
                 deletePostSuccess: false,
