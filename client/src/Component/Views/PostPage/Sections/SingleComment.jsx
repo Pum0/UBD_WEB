@@ -43,8 +43,39 @@ function SingleComment(props) {
 
     }
 
+    const onClickDelete = (e) => {
+        e.preventDefault();
+
+        const variables = {
+            content: CommentValue,
+            writer: user.userData._id,
+            postId: props.postId,
+            responseTo: props.comment._id
+        }
+
+        // 댓글 삭제
+        Axios.post('/api/comments/deleteComment', variables)
+            .then(response => {
+                if (response.data.deleteCommentSuccess) {
+                    console.log(response.data.result)
+                    props.UpdateComment(response.data.result)
+                } else {
+                    alert('Failed to delete Comment')
+                }
+            })
+    }
+
+
+
     const actions = [
         <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
+        
+    ]
+    const Delbutton = [
+        <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
+            style={{ padding: 0, margin: 0 }}>
+            <ClearIcon />
+        </IconButton>
     ]
 
     return (
@@ -54,7 +85,7 @@ function SingleComment(props) {
                 author={props.comment.writer.name}
                 avatar={<Avatar src alt />}
                 content={<p> {props.comment.content} </p>}
-   
+
             >  </Comment>
 
             {OpenReply &&
