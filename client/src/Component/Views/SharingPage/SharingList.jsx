@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Collapse, Button, Pagination } from "antd";
-import {Typography} from "@material-ui/core"
+import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
+import { withRouter } from "react-router-dom";
 
 const { Panel } = Collapse;
 
 function SharingList() {
-    const { Panel } = Collapse;
     // 공유된 주행기록
-    const [shared, setShared] = useState([]);
+    const [Shared, setShared] = useState([]);
 
-    const [s_current, setS_Current] = useState(1);
+    const [s_Current, setS_Current] = useState(1);
 
     var sharedCount = 0;
     var sharedPageNum;
@@ -22,7 +22,7 @@ function SharingList() {
     };
 
     // 공유된 주행기록 DB를 매핑
-    // const ShareListMapping
+    // const ShareListMapping = Shared.map((shared, index) => {} )
 
 
 
@@ -31,7 +31,26 @@ function SharingList() {
         ShareList.push(
             <Panel header="공유 게시판 UI 테스트" key="i">
                 <p>앙 경주부터 김해까지 개꿀띠~~</p>
-                <Button> 경로보기 </Button>
+
+                <Table component={Paper}>
+                    <TableRow>
+                        <TableCell>라이딩거리</TableCell>
+                        <TableCell>소모칼로리</TableCell>
+                        <TableCell>라이딩시간</TableCell>
+                        <TableCell>평균속도</TableCell>
+                        <TableCell>최고속도</TableCell>
+
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>12.47km</TableCell>
+                        <TableCell>721kcal</TableCell>
+                        <TableCell>2시간18분</TableCell>
+                        <TableCell>13km/h</TableCell>
+                        <TableCell>20km/h</TableCell>
+                    </TableRow>
+                </Table>
+
+                <Button style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
             </Panel>
         )
         sharedCount++;
@@ -42,16 +61,16 @@ function SharingList() {
 
     return (
         <div>
-             <Typography variant="h4"> 공유게시판 <br/></Typography>
+            <Typography variant="h4"> 공유게시판 <br /></Typography>
             <Collapse>
                 {ShareList}
 
 
             </Collapse>
 
-            <Pagination responsive={true} current={s_current} onChange={onChange} total={sharedPageNum} style={{ margin: 3 }} />
+            <Pagination responsive={true} current={s_Current} onChange={onChange} total={sharedPageNum} style={{ margin: 3 }} />
 
         </div>
     );
 }
-export default SharingList;
+export default withRouter(SharingList);

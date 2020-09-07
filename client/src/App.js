@@ -10,10 +10,8 @@ import ContentRouter from './Component/Views/route/ContentRouter';
 function App() {
     return (
         <Router>
-            <div>
 
-                <AppRouter />
-            </div>
+            <AppRouter />
         </Router>
     );
 }
