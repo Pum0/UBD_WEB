@@ -20,7 +20,7 @@ const RideInfoSchema = mongoose.Schema({
         type: String,
     },
 
-    topSpeed: {
+    kcal: {
         type: String,
     },
 

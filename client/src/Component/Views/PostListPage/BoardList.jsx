@@ -36,6 +36,7 @@ function BoardList(props) {
                 if (response.data.getPostsSuccess) {
                     console.log(response.data.posts)
                     setPosts(response.data.posts)
+                    // props.UpdatePosts(response.data.posts)
                 } else {
                     alert('게시물을 불러오는데 실패했습니다.')
                 }
@@ -58,6 +59,9 @@ function BoardList(props) {
         console.log(e.currentTarget.value);
     }
 
+    const UpdatePosts = (newPosts) => {
+        setPosts(Posts.concat(newPosts))
+    }
 
     const listMapping = Posts.map((post, index) => {
         if (post.writer) {

@@ -1,17 +1,27 @@
-import { Button, TextField, TableCell, TableRow } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import SingleComment from './SingleComment';
+import ReplyComment from './ReplyComment';
+
 function Comments(props) {
     const user = useSelector(state => state.user);
-    const dispatch = useDispatch();
-    const postId = props.post_id
-
     const [CommentValue, setCommentValue] = useState("")
+    const [CommentNumber, setCommentNumber] = useState(0)
 
+    useEffect(() => {
 
-    const onCommentHandler = (e) => {
+        let commentNumber = 0;
+
+        props.commentLists.map((comment) => {
+            if (comment.postId === props.postId) {
+                commentNumber++
+            }
+        })
+        setCommentNumber(commentNumber)
+    }, [props.commentLists])
+
+    const handleClick = (e) => {
         setCommentValue(e.currentTarget.value)
     }
 
@@ -28,7 +38,8 @@ function Comments(props) {
             .then(response => {
                 if (response.data.writeCommentSuccess) {
                     console.log(response.data.result)
-
+                    setCommentValue("")
+                    props.UpdateComment(response.data.result)
                 } else {
                     alert('Failed to save Comment')
                 }
@@ -40,26 +51,38 @@ function Comments(props) {
 
 
     return (
-        <TableRow >{/* Comment Lists */}
-            {/*<SingleComment />*/}
-            <TableCell colSpan={3} style={{ padding:5, margin: 5}}>
-                {/* Root Comment Form */}
-                <form onSubmit={onSubmitHandler}>
+        <div>
+            <br />
+            <p> {CommentNumber} 댓글 </p>
+            <hr />
 
-                    <TextField type="text" placeholder="댓글을 입력하세요."
-                        fullWidth margin="normal" value={CommentValue} onChange={onCommentHandler}
-                        style={{ rowGap: "3" }} />
-                    <Button type="submit" size="medium " variant="contained" edge="start" color="default"
-                        style={{ left:"80%" ,margin: 10, textAlign: "center" }}>
+            {/* Comment Lists */}
 
-                        <Typography variant="button">입력</Typography>
+            {props.commentLists && props.commentLists.map((comment, index) => (
+                (!comment.responseTo &&
+                    <React.Fragment>
+                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} />
+                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} commentLists={props.commentLists} postId={props.postId} />
+                    </React.Fragment>
+                )
 
-                    </Button>
+            ))}
 
-                </form>
-            </TableCell>
-        </TableRow>        
 
+            {/* Root Comment Form */}
+
+            <form style={{ display: 'flex' }} onSubmit={onSubmitHandler}>
+                <textarea
+                    style={{ width: '100%', borderRadius: '5px' }}
+                    onChange={handleClick}
+                    value={CommentValue}
+                    placeholder="댓글을 작성해 주세요"
+
+                />
+                <br />
+                <button style={{ witdh: '20%', height: '52px' }} onClick={onSubmitHandler} > Submit </button>
+            </form>
+        </div>
     )
 
 }
