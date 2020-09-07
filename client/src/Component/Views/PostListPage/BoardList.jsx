@@ -36,6 +36,7 @@ function BoardList(props) {
                 if (response.data.getPostsSuccess) {
                     console.log(response.data.posts)
                     setPosts(response.data.posts)
+                    // props.UpdatePosts(response.data.posts)
                 } else {
                     alert('게시물을 불러오는데 실패했습니다.')
                 }
