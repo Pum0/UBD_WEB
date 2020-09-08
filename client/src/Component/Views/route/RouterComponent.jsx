@@ -20,7 +20,7 @@ class AppRouter extends Component {
                         {/* 회원가입 페이지 */}
                         <Route exact path="/signup" component={Auth(RegisterPage, false)}/>
                         {/* NavBar + Map  */}
-                        <Route exact path="/Home" component={Auth(Home, true)}/>
+                        <Route path="/Home" component={Auth(Home, true)}/>
                     </Switch>
                 </div>
             </Router>

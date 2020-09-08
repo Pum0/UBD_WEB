@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import {Typography} from "@material-ui/core"
-import {Pagination} from "antd";
+import {Pagination, Collapse} from "antd";
 import { withRouter } from "react-router-dom";
 
 

@@ -15,7 +15,6 @@ function BoardList(props) {
 
     const [Posts, setPosts] = useState([])
     var BoardList = []
-    var descendingOrder = [];
     var postCount = 0;
     var postPageNum;
     const [current, setCurrent] = useState(1);
@@ -96,16 +95,13 @@ function BoardList(props) {
         }
     })
 
-
-    // 게시판 DB에 들어있는 글을 최신 순으로 정렬하기위해 역순으로 리스트에 삽입
-    for (var i = BoardList.length - 1; i >= 0; i--) {
-        descendingOrder.push(BoardList[i]);
-    }
+    // 최신 글 부터 출력되게 리스트를 반전 시켜줌
+    {BoardList.reverse()}
 
     var pageTest = [];
 
     for (var i = (current - 1) * 4; i < current * 4; i++) {
-        pageTest.push(descendingOrder[i]);
+        pageTest.push(BoardList[i]);
     }
 
 
@@ -132,7 +128,6 @@ function BoardList(props) {
 
 
             </div>
-            {/* {descendingOrder} */}
             {pageTest}
 
             <Pagination responsive={true} current={current} onChange={onChange} total={postPageNum} style={{ margin: 3 }} />
