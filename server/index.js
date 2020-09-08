@@ -32,8 +32,7 @@ app.use(morgan('dev'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/posts', require('./routes/Posts'));
 app.use('/api/comments', require('./routes/Comments'));
-
-// app.use('/api/rideInfoes', require('/routes/RideInfoes'));
+app.use('/api/rideinfoes', require('./routes/RideInfoes'));
 
 app.use('/uploads', express.static('uploads'));
 

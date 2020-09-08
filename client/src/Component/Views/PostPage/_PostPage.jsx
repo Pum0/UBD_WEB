@@ -16,21 +16,26 @@ import ClearIcon from "@material-ui/icons/Clear";
 import axios from 'axios';
 import moment from "moment";
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Route, Switch, withRouter } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
+import SingleComment from "./Sections/SingleComment" ;
+
 import { Drawer } from "antd";
 
 function _PostPage(props) {
 
 
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
+
 
     // const comment_id = props.match.params.comment_id
-    const post_id = props.match.params.post_id
+    const postId = props.match.params.postId
+
     const [Post, setPost] = useState([])
 
     // 삭제버튼 클릭 시 Modal이 열릴 수 있도록 기본 값을 false로 지정한 스테이트
@@ -38,12 +43,13 @@ function _PostPage(props) {
 
 
     // 댓글 부분
-    const [Coments, setComents] = useState([])
+    const [Comment, setComment] = useState([])
 
 
     const postVariable = {
-        post_id: post_id
+        postId: postId
     }
+
     useEffect(() => {
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
@@ -56,11 +62,11 @@ function _PostPage(props) {
                 }
             })
 
-        axios.get('/api/comments/getComments')
+        axios.post('/api/comments/getComments', postVariable)
             .then(response => {
                 if (response.data.getCommentsSuccess) {
                     console.log(response.data.comments)
-                    setComents(response.data.comments)
+                    setComment(response.data.comments)
                 } else {
                     console.log('댓글을 불러오는데 실패했습니다.')
                 }
@@ -69,25 +75,17 @@ function _PostPage(props) {
 
     }, [])
 
-    // // 댓글을 삭제하는 기능
-    // const onDeleteCommentHandler = (event) => {
-    //     event.preventDefault();
-    //     let comid = comment_id
-    //     let body = {
-    //         comment_id: comid
-    //     }
-    //
-    //
-    //     dispatch(deleteComment(body))
-    //         .then(response => {
-    //             if (response.payload.success) {
-    //                 console.log(Coments)
-    //                 console.log(comid)
-    //             } else {
-    //                 alert('삭제실패')
-    //             }
-    //         })
-    // }
+    const UpdateComment = (newComment) => {
+        setComment(Comment.concat(newComment))
+    }
+
+    const UpdateComment2 = (CommentNumber) => {
+        setComment(Comment.filter(comment => Comments.CommentNumber !== CommentNumber ))
+    }
+
+    const UpdatePost = (newPost) => {
+        setPost(Post.concat(newPost))
+    }
 
     const [visible, setVisible] = useState(true);
 
@@ -106,40 +104,40 @@ function _PostPage(props) {
 
     };
 
-    const randerComments = Coments.map((comment, index) => {
-        if (post_id === comment.postId)
-            return (
-                <TableRow style={{ margin: 0, padding: 0 }}>
+    // const randerComments = Comment.map((comment, index) => {
+    //     if (postId === comment.postId)
+    //         return (
+    //             <TableRow style={{ margin: 0, padding: 0 }}>
 
-                    <TableCell style={{ padding: 5, margin: 5 }}> {comment.content}
-                    </TableCell>
-                    <TableCell width={"5%"} style={{ padding: 0, margin: 0, textAlign: "center" }}>{comment.writer.name}
-                    </TableCell>
-                    <TableCell width={"2.5%"} style={{ padding: 0, margin: 0 }}>
-                        <IconButton edge="start" color="inherit" aria-label="del_comment"
-                            style={{ padding: 0, margin: 0 }}>
-                            <ClearIcon  />
-                        </IconButton>
-                    </TableCell>
-                </TableRow>
-            );
-    })
+    //                 <TableCell style={{ padding: 5, margin: 5 }}> {comment.content}
+    //                 </TableCell>
+    //                 <TableCell width={"5%"} style={{ padding: 0, margin: 0, textAlign: "center" }}>{comment.writer.name}
+    //                 </TableCell>
+    //                 <TableCell width={"2.5%"} style={{ padding: 0, margin: 0 }}>
+    //                     <IconButton edge="start" color="inherit" aria-label="del_comment"
+    //                         style={{ padding: 0, margin: 0 }}>
+    //                         <ClearIcon />
+    //                     </IconButton>
+    //                 </TableCell>
+    //             </TableRow>
+    //         );
+    // })
 
 
     // 이 글을 삭제하는 기능
-    const onDeleteHandler = (event) => {
-        event.preventDefault();
-        let body = {
-            post_id: post_id
+    const onDeleteHandler = (e) => {
+        e.preventDefault();
+
+        const variables = {
+            postId: postId
         }
 
-
-        dispatch(deletePost(body))
+        axios.post('/api/posts/deletePost', variables)
             .then(response => {
-                if (response.payload.deletePostSuccess) {
+                if (response.data.deletePostSuccess) {
                     props.history.push("/Home/board/BoardList")
                 } else {
-                    alert('삭제실패')
+                    alert('Failed to save Comment')
                 }
             })
     }
@@ -180,10 +178,8 @@ function _PostPage(props) {
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <Comments postId={post_id} />
+                            <Comments UpdateComment={UpdateComment} commentLists={Comment} postId={postId} UpdateComment2={UpdateComment2} />
 
-                            {/* 게시글 안의 댓글 리스트 */}
-                            {randerComments}
                         </TableFooter>
 
 
@@ -191,25 +187,28 @@ function _PostPage(props) {
                 </TableContainer>
 
                 {/*수정버튼*/}
-                <NavLink to={`/Home/${Post._id}/BoardUpdatePage`}>
-                    <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
-                        <Typography variant="subtitle2">수정</Typography>
-                    </Button>
-                </NavLink>
+                {user.userData._id === Post.writer._id &&
+                    <NavLink to={`/Home/${Post._id}/BoardUpdatePage`}>
+                        <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}>
+                            <Typography variant="subtitle2">수정</Typography>
+                        </Button>
+                    </NavLink>}
+
 
                 {/*삭제버튼*/}
-                <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}
-                    onClick={onDeleteHandler}>
-                    <Typography variant="subtitle2">삭제</Typography>
-                </Button>
-
+                {user.userData._id === Post.writer._id &&
+                    < Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 5 }}
+                        onClick={onDeleteHandler}>
+                        <Typography variant="subtitle2">삭제</Typography>
+                    </Button>
+                }
 
                 {/*글 수정 페이지로 라우팅*/}
                 <Switch>
-                    <Route path="/Home/:post_id/BoardUpdatePage" component={Auth(BoardUpdatePage, true)} />
+                    <Route path="/Home/:postId/BoardUpdatePage" component={Auth(BoardUpdatePage, true)} />
                 </Switch>
 
-            </Drawer>
+            </Drawer >
         )
     } else {
         return (

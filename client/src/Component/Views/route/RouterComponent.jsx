@@ -21,6 +21,7 @@ class AppRouter extends Component {
                         <Route exact path="/signup" component={Auth(RegisterPage, false)}/>
                         {/* NavBar + Map  */}
                         <Route path="/Home" component={Auth(Home, true)}/>
+
                     </Switch>
                 </div>
             </Router>
