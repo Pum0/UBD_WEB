@@ -66,7 +66,7 @@ function BoardList(props) {
         if (post.writer) {
 
             BoardList.push(
-                <Card bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
+                <Card key={post._id} bordered={true} style={{ width: "100%" }} onClick={onPostOpenHandler} >
                     <Row >
                         <Col xs={{ span: 11, offset: 2 }} lg={{ span: 6, offset: 2 }} style={{ marginLeft: 5 }} >
 

@@ -1,22 +1,28 @@
-import React, { useState } from "react";
 import Axios from "axios";
-import { Comment, Avatar, Button, Input } from "antd";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ClearIcon from "@material-ui/icons/Clear";
-import IconButton from "@material-ui/core/IconButton";
+import SingleComment from './SingleComment';
+import ReplyComment from './ReplyComment';
 
-function SingleComment(props) {
+function Comments(props) {
     const user = useSelector(state => state.user);
-    const CommentId = props.comment._id;
-
-    const [OpenReply, setOpenReply] = useState(false)
     const [CommentValue, setCommentValue] = useState("")
+    const [CommentNumber, setCommentNumber] = useState(0)
 
-    const onClickReplyOpen = () => {
-        setOpenReply(!OpenReply)
-    }
+    useEffect(() => {
 
-    const onHandleChange = (e) => {
+        let commentNumber = 0;
+
+        props.commentLists.map((comment) => {
+            if (comment.postId === props.postId) {
+                commentNumber++
+            }
+
+        })
+        setCommentNumber(commentNumber)
+    }, [props.commentLists])
+
+    const handleClick = (e) => {
         setCommentValue(e.currentTarget.value)
     }
 
@@ -24,11 +30,9 @@ function SingleComment(props) {
         e.preventDefault();
 
         const variables = {
+            content: CommentValue,
             writer: user.userData._id,
-            postId: props.postId,
-            responseTo: props.comment._id,
-            content: CommentValue
-
+            postId: props.postId
         }
 
         Axios.post('/api/comments/writeComment', variables)
@@ -36,7 +40,6 @@ function SingleComment(props) {
                 if (response.data.writeCommentSuccess) {
                     console.log(response.data.result)
                     setCommentValue("")
-                    setOpenReply(false)
                     props.UpdateComment(response.data.result)
                 } else {
                     alert('Failed to save Comment')
@@ -45,66 +48,44 @@ function SingleComment(props) {
 
     }
 
-    const onClickDelete = (e) => {
-        e.preventDefault();
-
-        const commentId = {
-            commentId: CommentId
-        }
-
-
-        // 댓글 삭제
-        Axios.post('/api/comments/deleteComment', commentId)
-            .then(response => {
-                if (response.data.deleteCommentSuccess) {
-                    console.log(response.data.delComment)
-                    props.UpdateComment2(response.data.delComment)
-                } else {
-                    alert('Failed to delete Comment')
-                }
-            })
-    }
 
 
 
-    const actions = [
-        <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
-        ,
-        <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
-            style={{ padding: 0, margin: 0 }}>
-            <ClearIcon />
-        </IconButton>
-    ]
-
-    if(props.comment.writer)
     return (
         <div>
-            <Comment
-                actions={actions}
-                author={props.comment.writer.name}
-                avatar={<Avatar src alt />}
-                content={<p> {props.comment.content} </p>}
+            <br />
+            <p> {CommentNumber} 댓글 </p>
+            <hr />
 
-            >  </Comment>
+            {/* Comment Lists */}
 
-            {OpenReply &&
-                <form style={{ display: 'flex' }} onSubmit={onSubmitHandler}>
-                    <textarea
-                        style={{ width: '100%', borderRadius: '5px' }}
-                        onChange={onHandleChange}
-                        value={CommentValue}
-                        placeholder="댓글을 작성해 주세요"
+            {props.commentLists && props.commentLists.map((comment, index) => (
+                (!comment.responseTo &&
+                    <React.Fragment key={comment._id}>
+                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} UpdateComment2={props.UpdateComment2} />
+                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} commentLists={props.commentLists} postId={props.postId} UpdateComment2={props.UpdateComment2} />
+                    </React.Fragment>
+                )
 
-                    />
-                    <br />
-                    <button style={{ witdh: '20%', height: '52px' }} type="submit" > Submit </button>
-                </form>
-            }
+            ))}
 
+
+            {/* Root Comment Form */}
+
+            <form style={{ display: 'flex' }} onSubmit={onSubmitHandler}>
+                <textarea
+                    style={{ width: '100%', borderRadius: '5px' }}
+                    onChange={handleClick}
+                    value={CommentValue}
+                    placeholder="댓글을 작성해 주세요"
+
+                />
+                <br />
+                <button style={{ witdh: '20%', height: '52px' }} onClick={onSubmitHandler} > Submit </button>
+            </form>
         </div>
-    );
+    )
 
 }
 
-
-export default SingleComment; 
+export default Comments;
