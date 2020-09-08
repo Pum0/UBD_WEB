@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 function SingleComment(props) {
     const user = useSelector(state => state.user);
+    const CommentId = props.comment._id;
 
     const [OpenReply, setOpenReply] = useState(false)
     const [CommentValue, setCommentValue] = useState("")
@@ -23,10 +24,11 @@ function SingleComment(props) {
         e.preventDefault();
 
         const variables = {
-            content: CommentValue,
             writer: user.userData._id,
             postId: props.postId,
-            responseTo: props.comment._id
+            responseTo: props.comment._id,
+            content: CommentValue
+
         }
 
         Axios.post('/api/comments/writeComment', variables)
@@ -46,19 +48,17 @@ function SingleComment(props) {
     const onClickDelete = (e) => {
         e.preventDefault();
 
-        const variables = {
-            content: CommentValue,
-            writer: user.userData._id,
-            postId: props.postId,
-            responseTo: props.comment._id
+        const commentId = {
+            commentId: CommentId
         }
 
+
         // 댓글 삭제
-        Axios.post('/api/comments/deleteComment', variables)
+        Axios.post('/api/comments/deleteComment', commentId)
             .then(response => {
                 if (response.data.deleteCommentSuccess) {
-                    console.log(response.data.result)
-                    props.UpdateComment(response.data.result)
+                    console.log(response.data.delComment)
+                    props.UpdateComment2(response.data.delComment)
                 } else {
                     alert('Failed to delete Comment')
                 }
@@ -69,15 +69,14 @@ function SingleComment(props) {
 
     const actions = [
         <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
-        
-    ]
-    const Delbutton = [
+        ,
         <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
             style={{ padding: 0, margin: 0 }}>
             <ClearIcon />
         </IconButton>
     ]
 
+    if(props.comment.writer)
     return (
         <div>
             <Comment
@@ -98,7 +97,7 @@ function SingleComment(props) {
 
                     />
                     <br />
-                    <button style={{ witdh: '20%', height: '52px' }} onClick={onSubmitHandler} > Submit </button>
+                    <button style={{ witdh: '20%', height: '52px' }} type="submit" > Submit </button>
                 </form>
             }
 

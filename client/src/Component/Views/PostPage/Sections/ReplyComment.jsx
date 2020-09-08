@@ -26,8 +26,8 @@ function ReplyComment(props) {
 
                 {comment.responseTo === parentCommentId &&
                     <div style={{ width: '80%', marginLeft: '40px' }}>
-                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} />
-                        <ReplyComment UpdateComment={props.UpdateComment} commentLists={props.commentLists} parentCommentId={comment._id} postId={props.postId} />
+                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} UpdateComment2={props.UpdateComment2}  />
+                        <ReplyComment UpdateComment={props.UpdateComment} commentLists={props.commentLists} parentCommentId={comment._id} postId={props.postId} UpdateComment2={props.UpdateComment2} />
                     </div>
                 }
             </React.Fragment>

@@ -64,13 +64,13 @@ router.post("/updateComment", (req, res) => {
 // 댓글 삭제
 router.post("/deleteComment", (req, res) => {
 
-    Comment.deleteOne({ _id: req.body.comment_id })
-        .exec((err, doc) => {
+    Comment.deleteOne({ _id : req.body.commentId })
+        .exec((err, delComment) => {
             if (err) return res.status(400).json({
                 deleteCommentSuccess: false, err
             });
             res.status(200).json({
-                deleteCommentSuccess: true, doc
+                deleteCommentSuccess: true, delComment
             })
         })
 });

@@ -22,6 +22,8 @@ import Auth from "../../../hoc/auth";
 import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
+import SingleComment from "./Sections/SingleComment" ;
+
 import { Drawer } from "antd";
 
 function _PostPage(props) {
@@ -30,8 +32,10 @@ function _PostPage(props) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
 
+
     // const comment_id = props.match.params.comment_id
     const postId = props.match.params.postId
+
     const [Post, setPost] = useState([])
 
     // 삭제버튼 클릭 시 Modal이 열릴 수 있도록 기본 값을 false로 지정한 스테이트
@@ -75,30 +79,13 @@ function _PostPage(props) {
         setComment(Comment.concat(newComment))
     }
 
+    const UpdateComment2 = (CommentNumber) => {
+        setComment(Comment.filter(comment => Comments.CommentNumber !== CommentNumber ))
+    }
+
     const UpdatePost = (newPost) => {
         setPost(Post.concat(newPost))
     }
-
-
-    // // 댓글을 삭제하는 기능
-    // const onDeleteCommentHandler = (event) => {
-    //     event.preventDefault();
-    //     let comid = comment_id
-    //     let body = {
-    //         comment_id: comid
-    //     }
-    //
-    //
-    //     dispatch(deleteComment(body))
-    //         .then(response => {
-    //             if (response.payload.success) {
-    //                 console.log(Comment)
-    //                 console.log(comid)
-    //             } else {
-    //                 alert('삭제실패')
-    //             }
-    //         })
-    // }
 
     const [visible, setVisible] = useState(true);
 
@@ -139,7 +126,7 @@ function _PostPage(props) {
 
     // 이 글을 삭제하는 기능
     const onDeleteHandler = (e) => {
-            e.preventDefault();
+        e.preventDefault();
 
         const variables = {
             postId: postId
@@ -191,7 +178,7 @@ function _PostPage(props) {
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <Comments UpdateComment={UpdateComment} commentLists={Comment} postId={postId} />
+                            <Comments UpdateComment={UpdateComment} commentLists={Comment} postId={postId} UpdateComment2={UpdateComment2} />
 
                         </TableFooter>
 

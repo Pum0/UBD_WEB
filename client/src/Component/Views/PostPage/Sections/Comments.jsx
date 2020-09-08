@@ -17,6 +17,7 @@ function Comments(props) {
             if (comment.postId === props.postId) {
                 commentNumber++
             }
+
         })
         setCommentNumber(commentNumber)
     }, [props.commentLists])
@@ -61,8 +62,8 @@ function Comments(props) {
             {props.commentLists && props.commentLists.map((comment, index) => (
                 (!comment.responseTo &&
                     <React.Fragment>
-                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} />
-                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} commentLists={props.commentLists} postId={props.postId} />
+                        <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} UpdateComment2={props.UpdateComment2} />
+                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} commentLists={props.commentLists} postId={props.postId} UpdateComment2={props.UpdateComment2} />
                     </React.Fragment>
                 )
 
