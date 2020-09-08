@@ -22,7 +22,7 @@ import Auth from "../../../hoc/auth";
 import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
-import SingleComment from "./Sections/SingleComment" ;
+import SingleComment from "./Sections/SingleComment";
 
 import { Drawer } from "antd";
 
@@ -79,8 +79,8 @@ function _PostPage(props) {
         setComment(Comment.concat(newComment))
     }
 
-    const UpdateComment2 = (CommentNumber) => {
-        setComment(Comment.filter(comment => Comments.CommentNumber !== CommentNumber ))
+    const UpdateComment2 = (CommentId) => {
+        setComment(Comment.filter(SingleComment => Comment._id !== SingleComment.CommentId))
     }
 
     const UpdatePost = (newPost) => {
