@@ -71,11 +71,11 @@ function SingleComment(props) {
 
     const actions = [
         <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
-        ,
-        <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
-            style={{ padding: 0, margin: 0 }}>
-            <ClearIcon />
-        </IconButton>
+        // ,
+        // <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
+        //     style={{ padding: 0, margin: 0 }}>
+        //     <ClearIcon />
+        // </IconButton>
     ]
 
     if (props.comment.writer)
