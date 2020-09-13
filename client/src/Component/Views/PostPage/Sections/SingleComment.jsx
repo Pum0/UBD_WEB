@@ -57,8 +57,7 @@ function SingleComment(props) {
         Axios.post('/api/comments/deleteComment', commentId)
             .then(response => {
                 if (response.data.deleteCommentSuccess) {
-                    console.log(response.data.delComment)
-                    props.UpdateComment2(response.data.delComment)
+                    props.UpdateComment2(commentId)
                 } else {
                     alert('Failed to delete Comment')
                 }

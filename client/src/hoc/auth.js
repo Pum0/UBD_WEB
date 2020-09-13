@@ -31,8 +31,8 @@ export default function (SpecificComponent, option, adminRoute = null) {
                         // props.history.push('/Home')
                     } else {
                         if (option === false)
-                        alert('비정상적인 접근입니다.')
-                            // props.history.push('/Home')
+                            alert('비정상적인 접근입니다.')
+                        // props.history.push('/Home')
                     }
                 }
             })

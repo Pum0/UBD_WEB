@@ -50,7 +50,7 @@ function SharingList() {
                     </TableRow>
                 </Table>
 
-                <Button style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
+                <Button  style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
             </Panel>
         )
         sharedCount++;

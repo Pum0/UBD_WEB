@@ -54,7 +54,6 @@ function _PostPage(props) {
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
                 if (response.data.getPostSuccess) {
-
                     console.log(response.data.post)
                     setPost(response.data.post)
                 } else {
@@ -79,8 +78,16 @@ function _PostPage(props) {
         setComment(Comment.concat(newComment))
     }
 
+    
+
     const UpdateComment2 = (CommentId) => {
-        setComment(Comment.filter(SingleComment => Comment._id !== SingleComment.CommentId))
+        const comm_idList = [...Comment];
+
+        console.log(comm_idList)
+       
+        setComment(comm_idList)
+
+
     }
 
     const UpdatePost = (newPost) => {
@@ -209,6 +216,7 @@ function _PostPage(props) {
                 </Switch>
 
             </Drawer >
+
         )
     } else {
         return (

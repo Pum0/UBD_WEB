@@ -36,12 +36,15 @@ router.post("/RideInfoAdd", (req, res) => {
 
 
 // 주행정보 불러오기
-router.post("/RideInfoList", (req, res) => {
+router.get("/RideInfoList", (req, res) => {
 
-    RideInfo.find({ '_id': req.body.user._id })
+    RideInfo.find()
         .populate('writer')
         .exec((err, rideInfo) => {
-            if (err) return res.status(400).send(err)
+            if (err) return res.status(400).json({
+                RideInfoListsuccess: false,
+                message : "주행정보를 불러올 수 없습니다.",err
+            })
             res.status(200).json({
                 RideInfoListsuccess: true,
                 rideInfo

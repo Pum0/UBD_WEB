@@ -1,15 +1,22 @@
-import React, { Component, useState } from "react";
-import {Typography} from "@material-ui/core"
-import {Pagination, Collapse} from "antd";
+import React, { Component, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Collapse, Button, Pagination } from "antd";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
+import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
+import moment from "moment";
 
+const { Panel } = Collapse;
 
 function RecordList(props) {
 
+    const user = useSelector(state => state.user);
+
+    const [Records, setRecords] = useState([]);
     const [r_Current, setR_Current] = useState(1);
 
     var recordCount = 0;
-    var recordPageNum = 10;
+    var recordPageNum;
     var recordList = [];
 
 
@@ -19,13 +26,59 @@ function RecordList(props) {
     };
 
 
+    useEffect(() => {
+        axios.get('/api/RideInfoes/RideInfoList')
+            .then(response => {
+                if (response.data.RideInfoListsuccess) {
+                    console.log(response.data.rideInfo)
+                    setRecords(response.data.rideInfo)
+                } else {
+                    alert('기록을 불러오는데 실패했습니다.')
+                }
+            }
+            )
+    }, [])
+
+    const recordMapping = Records.map((record, index) => {
+        if (user.userData._id)
+            recordList.push(
+                <Panel header={moment(record.created).format("YYYY.MM.DD HH:mm")} key={index}>
+                    <Table component={Paper}>
+                        <TableRow>
+                            <TableCell>라이딩거리</TableCell>
+                            <TableCell>소모칼로리</TableCell>
+                            <TableCell>라이딩시간</TableCell>
+                            <TableCell>평균속도</TableCell>
+
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>{record.totalRideDis}</TableCell>
+                            <TableCell>{record.kcal}</TableCell>
+                            <TableCell>{record.totalRideTime}</TableCell>
+                            <TableCell>{record.speedAvg}</TableCell>
+                        </TableRow>
+                    </Table>
+
+                    <Button style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
+                    <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
+
+                </Panel>
+            )
+        recordCount++;
+        recordPageNum = (recordCount / 4) * 10;
+    })
+
     return (
         <div>
-             <Typography variant="h4"> 나의 기록 <br/></Typography>
-            
-            
+            <Typography variant="h4"> 나의 기록 <br /></Typography>
+            <Collapse accordion>
+                {recordList}
 
-             <Pagination responsive={true} current={r_Current} onChange={onChange} total={recordPageNum} style={{ margin: 3 }} />
+
+            </Collapse>
+
+
+            <Pagination responsive={true} current={r_Current} onChange={onChange} total={recordPageNum} style={{ margin: 3 }} />
 
         </div>
     );
