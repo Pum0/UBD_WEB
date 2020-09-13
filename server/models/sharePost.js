@@ -14,6 +14,11 @@ const sharePostSchema = mongoose.Schema({
         ref: 'User'
     },
 
+    RideInfo: {
+        type: Schema.Types.ObjectId,
+        ref: 'RideInfo'
+    },
+
     seq: {
         type: Number
     },

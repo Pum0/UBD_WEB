@@ -10,24 +10,24 @@ function ReplyComment(props) {
 
         let commentNumber = 0;
 
-        props.commentLists.map((comment) => {
+        props.CommentLists.map((comment) => {
             if (comment.responseTo === props.parentCommentId) {
                 commentNumber++
             }
         })
         setChildCommentNumber(commentNumber)
-    }, [props.commentLists])
+    }, [props.CommentLists])
 
     const renderReplyComment = (parentCommentId) =>
 
-        props.commentLists.map((comment, index) => (
+        props.CommentLists.map((comment, index) => (
 
             <React.Fragment>
 
                 {comment.responseTo === parentCommentId &&
                     <div style={{ width: '80%', marginLeft: '40px' }}>
                         <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} UpdateComment2={props.UpdateComment2}  />
-                        <ReplyComment UpdateComment={props.UpdateComment} commentLists={props.commentLists} parentCommentId={comment._id} postId={props.postId} UpdateComment2={props.UpdateComment2} />
+                        <ReplyComment UpdateComment={props.UpdateComment} CommentLists={props.CommentLists} parentCommentId={comment._id} postId={props.postId} UpdateComment2={props.UpdateComment2} />
                     </div>
                 }
             </React.Fragment>

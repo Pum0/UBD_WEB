@@ -4,6 +4,7 @@ import { Comment, Avatar, Button, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import ClearIcon from "@material-ui/icons/Clear";
 import IconButton from "@material-ui/core/IconButton";
+import Comments from "./Comments"
 
 function SingleComment(props) {
     const user = useSelector(state => state.user);
@@ -51,13 +52,15 @@ function SingleComment(props) {
         const commentId = {
             commentId: CommentId
         }
-
+        console.log(commentId)
+        props.UpdateComment2(commentId)
 
         // 댓글 삭제
         Axios.post('/api/comments/deleteComment', commentId)
             .then(response => {
                 if (response.data.deleteCommentSuccess) {
                     props.UpdateComment2(commentId)
+
                 } else {
                     alert('Failed to delete Comment')
                 }
@@ -75,33 +78,33 @@ function SingleComment(props) {
         </IconButton>
     ]
 
-    if(props.comment.writer)
-    return (
-        <div>
-            <Comment
-                actions={actions}
-                author={props.comment.writer.name}
-                avatar={<Avatar src alt />}
-                content={<p> {props.comment.content} </p>}
+    if (props.comment.writer)
+        return (
+            <div>
+                <Comment
+                    actions={actions}
+                    author={props.comment.writer.name}
+                    avatar={<Avatar src alt />}
+                    content={<p> {props.comment.content} </p>}
 
-            >  </Comment>
+                >  </Comment>
 
-            {OpenReply &&
-                <form style={{ display: 'flex' }} onSubmit={onSubmitHandler}>
-                    <textarea
-                        style={{ width: '100%', borderRadius: '5px' }}
-                        onChange={onHandleChange}
-                        value={CommentValue}
-                        placeholder="댓글을 작성해 주세요"
+                {OpenReply &&
+                    <form style={{ display: 'flex' }} onSubmit={onSubmitHandler}>
+                        <textarea
+                            style={{ width: '100%', borderRadius: '5px' }}
+                            onChange={onHandleChange}
+                            value={CommentValue}
+                            placeholder="댓글을 작성해 주세요"
 
-                    />
-                    <br />
-                    <button style={{ witdh: '20%', height: '52px' }} type="submit" > Submit </button>
-                </form>
-            }
+                        />
+                        <br />
+                        <button style={{ witdh: '20%', height: '52px' }} type="submit" > Submit </button>
+                    </form>
+                }
 
-        </div>
-    );
+            </div>
+        );
 
 }
 
