@@ -4,11 +4,12 @@ import { Comment, Avatar, Button, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import ClearIcon from "@material-ui/icons/Clear";
 import IconButton from "@material-ui/core/IconButton";
+import Comments from "./Comments"
 
 function SingleComment(props) {
     const user = useSelector(state => state.user);
     const CommentId = props.comment._id;
-
+ 
     const [OpenReply, setOpenReply] = useState(false)
     const [CommentValue, setCommentValue] = useState("")
 
@@ -51,14 +52,14 @@ function SingleComment(props) {
         const commentId = {
             commentId: CommentId
         }
-
+        console.log(commentId)
+        props.UpdateComment2(commentId)
 
         // 댓글 삭제
         Axios.post('/api/comments/deleteComment', commentId)
             .then(response => {
                 if (response.data.deleteCommentSuccess) {
-                    console.log(response.data.delComment)
-                    props.UpdateComment2(response.data.delComment)
+                    
                 } else {
                     alert('Failed to delete Comment')
                 }

@@ -16,7 +16,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import axios from 'axios';
 import moment from "moment";
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connectAdvanced } from "react-redux";
 import { NavLink, Route, Switch, withRouter } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import { deletePost } from "../../../_actions/post_action";
@@ -43,7 +43,8 @@ function _PostPage(props) {
 
 
     // 댓글 부분
-    const [Comment, setComment] = useState([])
+    const [CommentLists, setComment] = useState([])
+    
 
 
     const postVariable = {
@@ -54,7 +55,6 @@ function _PostPage(props) {
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
                 if (response.data.getPostSuccess) {
-
                     console.log(response.data.post)
                     setPost(response.data.post)
                 } else {
@@ -76,11 +76,14 @@ function _PostPage(props) {
     }, [])
 
     const UpdateComment = (newComment) => {
-        setComment(Comment.concat(newComment))
+        setComment(CommentLists.concat(newComment))
     }
 
-    const UpdateComment2 = (CommentId) => {
-        setComment(Comment.filter(SingleComment => Comment._id !== SingleComment.CommentId))
+    const UpdateComment2 = (commentId) => {
+        const findId = CommentLists.find(_id => commentId)
+        console.log(CommentLists)
+        console.log(CommentLists.findIndex(_id => _id === commentId))
+        setComment(CommentLists.filter(comment => comment._id !== commentId))
     }
 
     const UpdatePost = (newPost) => {
@@ -104,7 +107,7 @@ function _PostPage(props) {
 
     };
 
-    // const randerComments = Comment.map((comment, index) => {
+    // const randerComments = CommentLists.map((comment, index) => {
     //     if (postId === comment.postId)
     //         return (
     //             <TableRow style={{ margin: 0, padding: 0 }}>
@@ -137,7 +140,7 @@ function _PostPage(props) {
                 if (response.data.deletePostSuccess) {
                     props.history.push("/Home/board/BoardList")
                 } else {
-                    alert('Failed to save Comment')
+                    alert('Failed to save CommentLists')
                 }
             })
     }
@@ -178,7 +181,7 @@ function _PostPage(props) {
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <Comments UpdateComment={UpdateComment} commentLists={Comment} postId={postId} UpdateComment2={UpdateComment2} />
+                            <Comments UpdateComment={UpdateComment} CommentLists={CommentLists} postId={postId} UpdateComment2={UpdateComment2} />
 
                         </TableFooter>
 

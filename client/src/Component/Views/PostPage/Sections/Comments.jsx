@@ -8,19 +8,21 @@ function Comments(props) {
     const user = useSelector(state => state.user);
     const [CommentValue, setCommentValue] = useState("")
     const [CommentNumber, setCommentNumber] = useState(0)
+    let commentNumber = 0;
 
     useEffect(() => {
 
-        let commentNumber = 0;
+        // let commentNumber = 0;
 
-        props.commentLists.map((comment) => {
+        props.CommentLists.map((comment) => {
             if (comment.postId === props.postId) {
                 commentNumber++
             }
+            
 
         })
         setCommentNumber(commentNumber)
-    }, [props.commentLists])
+    }, [props.CommentLists])
 
     const handleClick = (e) => {
         setCommentValue(e.currentTarget.value)
@@ -59,11 +61,11 @@ function Comments(props) {
 
             {/* Comment Lists */}
 
-            {props.commentLists && props.commentLists.map((comment, index) => (
+            {props.CommentLists && props.CommentLists.map((comment, index) => (
                 (!comment.responseTo &&
                     <React.Fragment key={comment._id}>
                         <SingleComment UpdateComment={props.UpdateComment} comment={comment} postId={props.postId} UpdateComment2={props.UpdateComment2} />
-                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} commentLists={props.commentLists} postId={props.postId} UpdateComment2={props.UpdateComment2} />
+                        <ReplyComment UpdateComment={props.UpdateComment} parentCommentId={comment._id} CommentLists={props.CommentLists} postId={props.postId} UpdateComment2={props.UpdateComment2} />
                     </React.Fragment>
                 )
 
