@@ -44,7 +44,7 @@ function _PostPage(props) {
 
     // 댓글 부분
     const [CommentLists, setComment] = useState([])
-    
+
 
 
     const postVariable = {
@@ -79,13 +79,13 @@ function _PostPage(props) {
         setComment(CommentLists.concat(newComment))
     }
 
-<
+
     const UpdateComment2 = (commentId) => {
         const findId = CommentLists.find(_id => commentId)
         console.log(CommentLists)
         console.log(CommentLists.findIndex(_id => _id === commentId))
-        setComment(CommentLists.filter(comment => comment._id !== commentId)
-        }
+        setComment(CommentLists.filter(comment => comment._id !== commentId))
+    }
 
     const UpdatePost = (newPost) => {
         setPost(Post.concat(newPost))
