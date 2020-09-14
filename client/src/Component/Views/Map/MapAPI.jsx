@@ -1,6 +1,6 @@
-import React, { Component, useState } from "react";
-import { Marker, NaverMap, RenderAfterNavermapsLoaded, Polyline } from "react-naver-maps";
-import { ButtonGroup as Buttons, Button as ControlBtn } from "@material-ui/core";
+import React, {Component, useState} from "react";
+import {Marker, Polyline, NaverMap, RenderAfterNavermapsLoaded} from "react-naver-maps";
+import {ButtonGroup as Buttons, Button as ControlBtn} from "@material-ui/core";
 
 const config = require('./MapAPIKey')
 
@@ -53,7 +53,6 @@ const config = require('./MapAPIKey')
 // }
 
 
-
 class MapAPI extends Component {
 
 
@@ -62,13 +61,13 @@ class MapAPI extends Component {
         const navermaps = window.navermaps;
 
         this.state = {
-            center: { lat: 37.3595704, lng: 127.105399 },
+            center: {lat: 37.3595704, lng: 127.105399},
             // defaults
             zoomControl: true, //줌 컨트롤의 표시 여부
             zoomControlOptions:
-            { //줌 컨트롤의 옵션
-                // position: 
-            },
+                { //줌 컨트롤의 옵션
+                    // position:
+                },
 
             btnColorState: 0,
             btnColor: {
@@ -103,7 +102,6 @@ class MapAPI extends Component {
             mapTypeControl: true
 
 
-
         }
         this.toggleInteraction = this.toggleInteraction.bind(this)
         this.toggleKinetic = this.toggleKinetic.bind(this)
@@ -115,9 +113,8 @@ class MapAPI extends Component {
 
 
     panToNaver() {
-        this.setState({ center: { lat: 37.3595704, lng: 127.105399 } })
+        this.setState({center: {lat: 37.3595704, lng: 127.105399}})
     }
-
 
 
     toggleInteraction() {
@@ -194,7 +191,6 @@ class MapAPI extends Component {
     }
 
 
-
     render() {
 
         return (
@@ -207,22 +203,59 @@ class MapAPI extends Component {
                 >
                     <NaverMap
                         mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-                        defaultCenter={{ lat: 35.896500, lng: 128.622062 }}
+                        defaultCenter={{lat: 35.896500, lng: 128.622062}}
                         defaultZoom={17}
 
                         style={{
                             position: "absolute",
-                            width: '100%',
+                            width: '89.5%',
                             height: '100%',
                         }}
                         {...this.state}
+
+                        // onClick={(e) => {
+                        //     alert("click")
+                        // }}
+
+                        // 마우스 우클릭
+                        // onRightclick={(e) => {
+                        //     alert("right")
+                        // }}
+
+                        // 마우스 더블 클릭
+                        // onDblclick={(e) => {
+                        //     alert("double click")
+                        // }}
+
+                        // 드래그 시작할 때
+                        // onDragstart={(e) => {
+                        //     alert("Drag Start")
+                        // }}
+
+                        // 드래그 끝낼 떄
+                        // onDragend={(e) => {
+                        //     alert("Drag End")
+                        // }}
+
+                        // 지도 내로 마우스 들어올 때
+                        // onMouseover={(e) => {
+                        //     alert("Mouse in")
+                        // }}
+
+                        // 지도 밖으로 마우스 벗어날 때
+                        // onMouseout={(e) => {
+                        //     alert("Mouse Out")
+                        // }}
+
+                        // 줌 변경
+                        // onZooming={(e) => {
+                        //     alert("Zoom Change")
+                        // }}
                     >
-
-
                     </NaverMap>
                 </RenderAfterNavermapsLoaded>
                 <div>
-                    <Buttons style={{ position: "absolute", left: "650px", top: "12px", zIndex: 999 }}>
+                    <Buttons style={{position: "absolute", left: "650px", top: "12px", zIndex: 999}}>
                         <ControlBtn
                             variant="contained" color={this.state.btnColor[this.state.btnColorState]}
                             controlOn={this.state.draggable}
