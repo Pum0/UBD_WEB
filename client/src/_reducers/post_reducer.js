@@ -1,7 +1,8 @@
 import {
     WRITE_POST,
     UPDATE_POST,
-    DELETE_POST
+    DELETE_POST,
+    GET_POST
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -17,6 +18,10 @@ export default function (state = {}, action) {
 
         case DELETE_POST:
             return { ...state, deleteData: action.payload }
+            break;
+
+        case GET_POST:
+            return { ...state, getPostData: action.payload }
             break;
 
         default:

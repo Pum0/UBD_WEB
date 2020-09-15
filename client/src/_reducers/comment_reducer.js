@@ -1,7 +1,8 @@
 import {
     WRITE_COMMENT,
     UPDATE_COMMENT,
-    DELETE_COMMENT
+    DELETE_COMMENT,
+    GET_COMMENT
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -17,6 +18,10 @@ export default function (state = {}, action) {
 
         case DELETE_COMMENT:
             return { ...state, deleteDate: action.payload }
+            break;
+
+        case GET_COMMENT:
+            return { ...state, getCommentDate: action.payload }
             break;
 
         default:

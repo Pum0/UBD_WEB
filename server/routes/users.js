@@ -14,9 +14,10 @@ router.post("/register", (req, res) => {
     const user = new User(req.body)
 
     user.save((err, userInfo) => {
-        if (err) return require.json({ 
-            registerSuccess: false, 
-            err })
+        if (err) return require.json({
+            registerSuccess: false,
+            err
+        })
         return res.status(200).json({
             registerSuccess: true
         })
@@ -106,17 +107,20 @@ router.get("/auth", auth, (req, res) => {
 })
 
 // 로그아웃 
-router.get("/logout", auth, async (req, res) => {
-    await User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" })
-    if (err) res.status(400).json({
-        logoutSuccess: false,
-        message: "로그아웃에 실패했습니다."
-    });
-    return res.status(200).send({
-        logoutSuccess: true,
-        message: "로그아웃 되었습니다."
-    });
-});
+router.get("/logout", auth, (req, res) => {
+    User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" })
+        .exec((err) => {
+            if (err) res.status(400).json({
+                logoutSuccess: false,
+                message: "로그아웃에 실패했습니다."
+            });
+            return res.status(200).send({
+                logoutSuccess: true,
+                message: "로그아웃 되었습니다."
+            });
+        });
+})
+
 
 
 // 비밀번호 변경

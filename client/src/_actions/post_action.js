@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     WRITE_POST,
     UPDATE_POST,
-    DELETE_POST
+    DELETE_POST,
+    GET_POST
 } from './types';
 import { POST_SERVER } from '../Component/config';
 
@@ -39,6 +40,18 @@ export function deletePost(dataToSubmit) {
 
     return {
         type: DELETE_POST,
+        payload: request
+    }
+}
+
+// 게시글 불러오기 액션
+export function getPost() {
+
+    const request = axios.post(`${POST_SERVER}/getPost`)
+        .then(response => response.data)
+
+    return {
+        type: GET_POST,
         payload: request
     }
 }

@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     WRITE_COMMENT,
     UPDATE_COMMENT,
-    DELETE_COMMENT
+    DELETE_COMMENT,
+    GET_COMMENT
 } from './types';
 import { COMMENT_SERVER } from '../Component/config';
 
@@ -38,6 +39,18 @@ export function deleteComment(dataToSubmit) {
 
     return {
         type: DELETE_COMMENT,
+        payload: request
+    }
+}
+
+// 댓글 불러오기 액션
+export function getComment() {
+
+    const request = axios.post(`${COMMENT_SERVER}/getComments`)
+        .then(response => response.data)
+
+    return {
+        type: GET_COMMENT,
         payload: request
     }
 }
