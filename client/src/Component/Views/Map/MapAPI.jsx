@@ -1,6 +1,7 @@
-import React, {Component, useState} from "react";
-import {Marker, Polyline, NaverMap, RenderAfterNavermapsLoaded} from "react-naver-maps";
-import {ButtonGroup as Buttons, Button as ControlBtn} from "@material-ui/core";
+import React, { Component, useState } from "react";
+import { Marker, NaverMap, RenderAfterNavermapsLoaded, Polyline, Overlay } from "react-naver-maps";
+import { ButtonGroup as Buttons, Button as ControlBtn } from "@material-ui/core";
+import { GoogleMap } from "react-google-maps";
 
 const config = require('./MapAPIKey')
 
@@ -24,7 +25,7 @@ const config = require('./MapAPIKey')
 //         <div>
 
 //             <RenderAfterNavermapsLoaded
-//                 ncpClientId={config.ncpClientId}
+//                 ncpClientId={config.ncpClientI   d}
 //                 error={<p>Maps Load Error</p>}
 //                 loading={<p>Maps Loading...</p>}
 //             >
@@ -53,6 +54,7 @@ const config = require('./MapAPIKey')
 // }
 
 
+
 class MapAPI extends Component {
 
 
@@ -60,14 +62,24 @@ class MapAPI extends Component {
         super(props);
         const navermaps = window.navermaps;
 
+
         this.state = {
-            center: {lat: 37.3595704, lng: 127.105399},
+            ridePath: [
+                { lat: 35.896500, lng: 128.622062 },
+                { lat: 35.896500, lng: 128.622062 },
+                { lat: 35.896500, lng: 128.622062 },
+                { lat: 35.897500, lng: 128.622062 },
+                { lat: 35.897500, lng: 128.625062 },
+                { lat: 35.898500, lng: 128.627062 },
+                { lat: 35.899700, lng: 128.629062 },
+            ],
+            center: { lat: 37.3595704, lng: 127.105399 },
             // defaults
             zoomControl: true, //줌 컨트롤의 표시 여부
             zoomControlOptions:
-                { //줌 컨트롤의 옵션
-                    // position:
-                },
+            { //줌 컨트롤의 옵션
+                // position: 
+            },
 
             btnColorState: 0,
             btnColor: {
@@ -102,6 +114,7 @@ class MapAPI extends Component {
             mapTypeControl: true
 
 
+
         }
         this.toggleInteraction = this.toggleInteraction.bind(this)
         this.toggleKinetic = this.toggleKinetic.bind(this)
@@ -113,8 +126,9 @@ class MapAPI extends Component {
 
 
     panToNaver() {
-        this.setState({center: {lat: 37.3595704, lng: 127.105399}})
+        this.setState({ center: { lat: 37.3595704, lng: 127.105399 } })
     }
+
 
 
     toggleInteraction() {
@@ -137,6 +151,7 @@ class MapAPI extends Component {
                 pinchZoom: true,
                 scrollWheel: true,
                 keyboardShortcuts: true,
+                
                 disableDoubleTapZoom: false,
                 disableDoubleClickZoom: false,
                 disableTwoFingerTapZoom: false,
@@ -190,7 +205,6 @@ class MapAPI extends Component {
         }
     }
 
-
     render() {
 
         return (
@@ -203,59 +217,72 @@ class MapAPI extends Component {
                 >
                     <NaverMap
                         mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-                        defaultCenter={{lat: 35.896500, lng: 128.622062}}
+                        defaultCenter={{ lat: 35.896500, lng: 128.622062 }}
                         defaultZoom={17}
 
                         style={{
                             position: "absolute",
-                            width: '89.5%',
+                            width: '100%',
                             height: '100%',
                         }}
                         {...this.state}
 
-                        // onClick={(e) => {
-                        //     alert("click")
-                        // }}
+                    // onClick={(e) => {
+                    //     alert("click")
+                    // }}
 
-                        // 마우스 우클릭
-                        // onRightclick={(e) => {
-                        //     alert("right")
-                        // }}
+                    // 마우스 우클릭
+                    // onRightclick={(e) => {
+                    //     alert("right")
+                    // }}
 
-                        // 마우스 더블 클릭
-                        // onDblclick={(e) => {
-                        //     alert("double click")
-                        // }}
+                    // 마우스 더블 클릭
+                    // onDblclick={(e) => {
+                    //     alert("double click")
+                    // }}
 
-                        // 드래그 시작할 때
-                        // onDragstart={(e) => {
-                        //     alert("Drag Start")
-                        // }}
+                    // 드래그 시작할 때
+                    // onDragstart={(e) => {
+                    //     alert("Drag Start")
+                    // }}
 
-                        // 드래그 끝낼 떄
-                        // onDragend={(e) => {
-                        //     alert("Drag End")
-                        // }}
+                    // 드래그 끝낼 떄
+                    // onDragend={(e) => {
+                    //     alert("Drag End")
+                    // }}
 
-                        // 지도 내로 마우스 들어올 때
-                        // onMouseover={(e) => {
-                        //     alert("Mouse in")
-                        // }}
+                    // 지도 내로 마우스 들어올 때
+                    // onMouseover={(e) => {
+                    //     alert("Mouse in")
+                    // }}
 
-                        // 지도 밖으로 마우스 벗어날 때
-                        // onMouseout={(e) => {
-                        //     alert("Mouse Out")
-                        // }}
+                    // 지도 밖으로 마우스 벗어날 때
+                    // onMouseout={(e) => {
+                    //     alert("Mouse Out")
+                    // }}
 
-                        // 줌 변경
-                        // onZooming={(e) => {
-                        //     alert("Zoom Change")
-                        // }}
+                    // 줌 변경
+                    // onZooming={(e) => {
+                    //     alert("Zoom Change")
+                    // }}
                     >
+
+
+
+                        <Polyline
+
+                            path={this.state.ridePath}
+                            strokeColor={'#ff0000'}
+                            strokeOpacity={0.7}
+                            strokeWeight={5}
+                            style={{ zIndex: 999 }}
+                        />
+
+
                     </NaverMap>
                 </RenderAfterNavermapsLoaded>
                 <div>
-                    <Buttons style={{position: "absolute", left: "650px", top: "12px", zIndex: 999}}>
+                    {/* <Buttons style={{ position: "absolute", left: "650px", top: "12px", zIndex: 999 }}>
                         <ControlBtn
                             variant="contained" color={this.state.btnColor[this.state.btnColorState]}
                             controlOn={this.state.draggable}
@@ -282,7 +309,7 @@ class MapAPI extends Component {
                         >
                             {'최소/최대 줌 레벨' + (this.state.minZoom === 10 ? ': 10 ~ 12' : ': 1 ~ 17')}
                         </ControlBtn>
-                    </Buttons>
+                    </Buttons> */}
 
                 </div>
             </div>
