@@ -13,21 +13,19 @@ function Home(props) {
   
 
     return (
-        <div >
-            <div style={{ display: "flex" }}>
-                <Layout>
+        <div style={{}}>
+            <div style={{ display: "flex"}}>
+                <Layout style={{position:"absolute", width:"89.3%",height:"100%"}}>
                     {/* <User_Avatar /> */}
                     <NavBar />
                     {/* == <Sider> 내용 </Sider> */}
-                    <MapAPI />
+                    <MapAPI/>
 
                     <Switch>
                         <ContentRouter />
                     </Switch>
                     
                 </Layout>
-
-
             </div>
         </div>
     );
