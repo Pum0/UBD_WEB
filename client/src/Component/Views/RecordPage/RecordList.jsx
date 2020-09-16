@@ -6,6 +6,7 @@ import axios from "axios";
 import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
 import moment from "moment";
 import { Polyline, NaverMap } from "react-naver-maps"
+import ShareModal from "./section/ShareModal"
 
 const { Panel } = Collapse;
 
@@ -82,19 +83,7 @@ function RecordList(props) {
 
             <Pagination responsive={true} current={r_Current} onChange={onChange} total={recordPageNum} style={{ margin: 3 }} />
 
-            <Polyline
-                path={[
-                    { lat: 35.896500, lng: 128.622062 },
-                    { lat: 35.896500, lng: 128.622062 },
-                    { lat: 35.896500, lng: 128.622062 },
-                    { lat: 35.897500, lng: 128.622062 },
-                ]}
-                strokeColor={'#000000'}
-                strokeOpacity={0.7}
-                strokeWeight={3}
-                style={{zIndex:999}}
-            />
-
+            <ShareModal/>
 
         </div>
     );
