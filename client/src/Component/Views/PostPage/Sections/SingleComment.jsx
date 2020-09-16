@@ -5,8 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import ClearIcon from "@material-ui/icons/Clear";
 import IconButton from "@material-ui/core/IconButton";
 import Comments from "./Comments"
+import {getComment} from "../../../../_actions/comment_action";
+import {writeComment} from "../../../../_actions/comment_action"
+import {deleteComment} from "../../../../_actions/comment_action"
+
 
 function SingleComment(props) {
+
+    const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     const CommentId = props.comment._id;
 
@@ -32,17 +38,29 @@ function SingleComment(props) {
 
         }
 
-        Axios.post('/api/comments/writeComment', variables)
-            .then(response => {
-                if (response.data.writeCommentSuccess) {
-                    console.log(response.data.result)
-                    setCommentValue("")
-                    setOpenReply(false)
-                    props.UpdateComment(response.data.result)
-                } else {
-                    alert('Failed to save Comment')
-                }
-            })
+        // Axios.post('/api/comments/writeComment', variables)
+        //     .then(response => {
+        //         if (response.data.writeCommentSuccess) {
+        //             console.log(response.data.result)
+        //             setCommentValue("")
+        //             setOpenReply(false)
+        //             props.UpdateComment(response.data.result)
+        //         } else {
+        //             alert('Failed to save Comment')
+        //         }
+        //     })
+
+        dispatch(writeComment(variables))
+        .then(response => {
+            if (response.payload.writeCommentSuccess) {
+                console.log(response.payload.result)
+                setCommentValue("")
+                setOpenReply(false)
+                props.UpdateComment(response.payload.result)
+            } else {
+                alert('Failed to save Comment')
+            }
+        })
 
     }
 
@@ -53,29 +71,39 @@ function SingleComment(props) {
             commentId: CommentId
         }
         console.log(commentId)
-        props.UpdateComment2(commentId)
+        props.RemoveComment(commentId)
+
+        dispatch(deleteComment(commentId))
+        .then(response => {
+            if(response.payload.delComment){
+            // props.RemoveComment(commentId)
+            } else {
+                alert('실패')
+            }
+        })
 
         // 댓글 삭제
-        Axios.post('/api/comments/deleteComment', commentId)
-            .then(response => {
-                if (response.data.deleteCommentSuccess) {
-                    props.UpdateComment2(commentId)
+        // Axios.post('/api/comments/deleteComment', commentId)
+        //     .then(response => {
+        //         if (response.data.deleteCommentSuccess) {
+        //             // console.log(response.data.delComment._id)
+        //             props.RemoveComment(response.data.delComment._id)
 
-                } else {
-                    alert('Failed to delete Comment')
-                }
-            })
+        //         } else {
+        //             alert('Failed to delete Comment')
+        //         }
+        //     })
     }
 
 
 
     const actions = [
         <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
-        // ,
-        // <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
-        //     style={{ padding: 0, margin: 0 }}>
-        //     <ClearIcon />
-        // </IconButton>
+        ,
+        <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
+            style={{ padding: 0, margin: 0 }}>
+            <ClearIcon />
+        </IconButton>
     ]
 
     if (props.comment.writer)

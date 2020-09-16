@@ -8,3 +8,5 @@ export const DELETE_POST = 'delete_post';
 export const WRITE_COMMENT = 'write_comment';
 export const UPDATE_COMMENT = 'update_comment';
 export const DELETE_COMMENT = 'delete_comment';
+export const GET_COMMENT = 'get_comment';
+export const GET_POST = 'get_post';

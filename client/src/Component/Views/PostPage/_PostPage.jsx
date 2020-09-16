@@ -23,6 +23,8 @@ import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
 import SingleComment from "./Sections/SingleComment";
+import { getComment } from "../../../_actions/comment_action";
+import { getPost } from "../../../_actions/post_action"
 
 import { Drawer } from "antd";
 
@@ -43,15 +45,16 @@ function _PostPage(props) {
 
 
     // 댓글 부분
-    const [CommentLists, setComment] = useState([])
+    const [CommentLists, setCommentLists] = useState([])
 
-
-
-    const postVariable = {
-        postId: postId
-    }
 
     useEffect(() => {
+
+        const postVariable = {
+            postId: postId
+        }
+
+
         axios.post('/api/posts/getPost', postVariable)
             .then(response => {
                 if (response.data.getPostSuccess) {
@@ -62,29 +65,40 @@ function _PostPage(props) {
                 }
             })
 
+
         axios.post('/api/comments/getComments', postVariable)
             .then(response => {
                 if (response.data.getCommentsSuccess) {
                     console.log(response.data.comments)
-                    setComment(response.data.comments)
+                    setCommentLists(response.data.comments)
                 } else {
                     console.log('댓글을 불러오는데 실패했습니다.')
                 }
             })
 
 
+
+
     }, [])
 
-    const UpdateComment = (newComment) => {
-        setComment(CommentLists.concat(newComment))
+    const Test = (e) => {
+        console.log(CommentLists)
     }
 
+    const UpdateComment = (comment) => {
+        setCommentLists(CommentLists.concat(comment))
+    }
 
-    const UpdateComment2 = (commentId) => {
-        const findId = CommentLists.find(_id => commentId)
-        console.log(CommentLists)
-        console.log(CommentLists.findIndex(_id => _id === commentId))
-        setComment(CommentLists.filter(comment => comment._id !== commentId))
+    // CommentLists.map((comment, index)
+    const RemoveComment = (commentId) => {
+
+        const findIndex = CommentLists
+        .indexOf(commentId)
+
+        // console.log(findIndex)
+        CommentLists.splice(findIndex, 1)
+        // console.log(CommentLists.filter(Comment => Comment._id !== commentId))
+        setCommentLists(CommentLists.filter(_id => _id !== commentId))
     }
 
     const UpdatePost = (newPost) => {
@@ -108,26 +122,6 @@ function _PostPage(props) {
 
     };
 
-    // const randerComments = CommentLists.map((comment, index) => {
-    //     if (postId === comment.postId)
-    //         return (
-    //             <TableRow style={{ margin: 0, padding: 0 }}>
-
-    //                 <TableCell style={{ padding: 5, margin: 5 }}> {comment.content}
-    //                 </TableCell>
-    //                 <TableCell width={"5%"} style={{ padding: 0, margin: 0, textAlign: "center" }}>{comment.writer.name}
-    //                 </TableCell>
-    //                 <TableCell width={"2.5%"} style={{ padding: 0, margin: 0 }}>
-    //                     <IconButton edge="start" color="inherit" aria-label="del_comment"
-    //                         style={{ padding: 0, margin: 0 }}>
-    //                         <ClearIcon />
-    //                     </IconButton>
-    //                 </TableCell>
-    //             </TableRow>
-    //         );
-    // })
-
-
     // 이 글을 삭제하는 기능
     const onDeleteHandler = (e) => {
         e.preventDefault();
@@ -145,6 +139,7 @@ function _PostPage(props) {
                 }
             })
     }
+
 
 
     if (Post.writer) {
@@ -182,8 +177,8 @@ function _PostPage(props) {
 
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
-                            <Comments UpdateComment={UpdateComment} CommentLists={CommentLists} postId={postId} UpdateComment2={UpdateComment2} />
-
+                            <Comments UpdateComment={UpdateComment} CommentLists={CommentLists} postId={postId} RemoveComment={RemoveComment} />
+                            <Button onClick={Test}> 테스트 </Button>
                         </TableFooter>
 
 
