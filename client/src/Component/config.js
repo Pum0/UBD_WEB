@@ -27,6 +27,8 @@ export const POST_SERVER = '/api/posts';
 
 export const COMMENT_SERVER = '/api/comments';
 
+export const RIDEINFO_SERVER = '/api/rideInfoes';
+
 
 
 

@@ -5,14 +5,18 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
 import moment from "moment";
+import { getRideInfo } from "../../../_actions/rideinfo_action"
 import { Polyline, NaverMap } from "react-naver-maps"
 import ShareModal from "./section/ShareModal"
+
 
 const { Panel } = Collapse;
 
 function RecordList(props) {
 
+    const dispatch = useDispatch();
     const user = useSelector(state => state.user);
+
 
     const [Records, setRecords] = useState([]);
     const [r_Current, setR_Current] = useState(1);
@@ -21,6 +25,7 @@ function RecordList(props) {
     var recordPageNum;
     var recordList = [];
 
+    const writer = user.userData._id
 
     const onChange = page => {
         console.log(page);
@@ -29,9 +34,24 @@ function RecordList(props) {
 
 
     useEffect(() => {
-        axios.get('/api/RideInfoes/RideInfoList')
+
+        const body = {
+            writer: writer
+        }
+
+        // dispatch(getRideInfo(body))
+        //     .then(response => {
+        //         if (response.payload.getRideInfoSuccess) {
+        //             console.log(response.payload.rideInfo)
+        //             setRecords(response.payload.rideInfo)
+        //         } else {
+        //             alert('실패')
+        //         }
+        //     })
+
+        axios.post('/api/rideInfoes/getRideInfo', body)
             .then(response => {
-                if (response.data.RideInfoListsuccess) {
+                if (response.data.getRideInfoSuccess) {
                     console.log(response.data.rideInfo)
                     setRecords(response.data.rideInfo)
                 } else {
@@ -40,6 +60,11 @@ function RecordList(props) {
             }
             )
     }, [])
+
+
+    // onClickHandler = (e) => {
+    //     dispatch 
+    // }
 
     const recordMapping = Records.map((record, index) => {
         if (user.userData._id)

@@ -10,3 +10,4 @@ export const UPDATE_COMMENT = 'update_comment';
 export const DELETE_COMMENT = 'delete_comment';
 export const GET_COMMENT = 'get_comment';
 export const GET_POST = 'get_post';
+export const GET_RIDEINFO = 'get_rideinfo';
