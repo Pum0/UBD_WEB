@@ -65,13 +65,15 @@ class MapAPI extends Component {
 
         this.state = {
             ridePath: [
-                { lat: 35.896500, lng: 128.622062 },
+                { lat: 35.896200, lng: 128.622062 },
                 { lat: 35.896500, lng: 128.622062 },
                 { lat: 35.896500, lng: 128.622062 },
                 { lat: 35.897500, lng: 128.622062 },
                 { lat: 35.897500, lng: 128.625062 },
-                { lat: 35.898500, lng: 128.627062 },
-                { lat: 35.899700, lng: 128.629062 },
+
+                { lat: 35.907500, lng: 128.705062 },
+                { lat: 35.898500, lng: 128.697062 },
+                { lat: 35.809700, lng: 128.619062 },
             ],
             center: { lat: 37.3595704, lng: 127.105399 },
             // defaults
@@ -151,7 +153,7 @@ class MapAPI extends Component {
                 pinchZoom: true,
                 scrollWheel: true,
                 keyboardShortcuts: true,
-                
+
                 disableDoubleTapZoom: false,
                 disableDoubleClickZoom: false,
                 disableTwoFingerTapZoom: false,

@@ -103,7 +103,7 @@ function NavBar(props) {
 
 
             </Sider>
-            <div style={{position:"absolute", zIndex:999,top:"5px" ,left:"97%"}}>
+            <div style={{position:"absolute", zIndex:999,top:"5px" ,left:"100%"}}>
                 <User_Avatar></User_Avatar>
             </div>
         </div>
