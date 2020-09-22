@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { Marker, NaverMap, RenderAfterNavermapsLoaded, Polyline, Overlay } from "react-naver-maps";
 import { ButtonGroup as Buttons, Button as ControlBtn } from "@material-ui/core";
-import { GoogleMap } from "react-google-maps";
+
 
 const config = require('./MapAPIKey')
 

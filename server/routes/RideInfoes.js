@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { rideinfoTo } = require("../middleware/rideinfo");
 const { RideInfo } = require('../models/RideInfo');
 
 //=================================
@@ -38,13 +39,10 @@ router.post("/RideInfoAdd", (req, res) => {
 // 주행정보 불러오기
 router.post("/getRideInfo", (req, res) => {
 
-    RideInfo.find({ 'writer': req.body.writer })
+    RideInfo.find({ "writer": req.body.writer })
         .populate('writer')
         .exec((err, rideInfo) => {
-            if (err) return res.status(400).json({
-                getRideInfoSuccess: false,
-                message: "주행정보를 불러올 수 없습니다.", err
-            })
+            if (err) return res.status(400).send(err)
             res.status(200).json({
                 getRideInfoSuccess: true,
                 rideInfo
@@ -52,6 +50,18 @@ router.post("/getRideInfo", (req, res) => {
         })
 })
 
+router.get("/RideInfo", (req, res) => {
+
+    RideInfo.findOne({ "_id": req.body._id })
+        .populate('writer')
+        .exec((err, rideInfo) => {
+            if (err) return res.status(400).send(err)
+            res.status(200).json({
+                rideInfo
+
+            })
+        })
+})
 
 
 module.exports = router;

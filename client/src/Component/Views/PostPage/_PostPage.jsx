@@ -69,8 +69,8 @@ function _PostPage(props) {
         axios.post('/api/comments/getComments', postVariable)
             .then(response => {
                 if (response.data.getCommentsSuccess) {
-                    console.log(response.data.comments)
-                    setCommentLists(response.data.comments)
+                    console.log(response.data.comment)
+                    setCommentLists(response.data.comment)
                 } else {
                     console.log('댓글을 불러오는데 실패했습니다.')
                 }

@@ -85,6 +85,7 @@ router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베�
                     .cookie("x_auth", user.token)
                     .status(200).json({
                         loginSuccess: true, userID: user._id
+                        
                     });
             });
         });
