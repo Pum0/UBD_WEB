@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Comment } = require("../models/Comment");
+const { commentM } = require("../middleware/comment")
 
 //=================================
 //             Comment
@@ -35,15 +36,30 @@ router.post("/getComments", (req, res) => {
 
     Comment.find({ "postId": req.body.postId })
         .populate('writer')
-        .exec((err, comments) => {
+        .exec((err, comment) => {
             if (err) return res.status(400).send(err)
             res.status(200).json({
                 getCommentsSuccess: true,
-                comments
+                comment
             })
         })
 
 });
+
+// // 댓글 불러오기
+// router.post("/getComments", commentM, (req, res) => {
+
+//     res.status(200).json({
+//         getCommentsSuccess: true,
+//         _id: req.comment._id,
+//         writer: req.comment.writer,
+//         postId: req.comment.postId,
+//         responseTo: req.comment.responseTo,
+//         created: req.comment.created,
+//         content: req.comment.content,
+        
+//     })
+// })
 
 
 // 댓글 수정
@@ -64,7 +80,7 @@ router.post("/updateComment", (req, res) => {
 // 댓글 삭제
 router.post("/deleteComment", (req, res) => {
 
-    Comment.deleteOne({ _id : req.body.commentId })
+    Comment.deleteOne({ _id: req.body.commentId })
         .exec((err, delComment) => {
             if (err) return res.status(400).json({
                 deleteCommentSuccess: false, err

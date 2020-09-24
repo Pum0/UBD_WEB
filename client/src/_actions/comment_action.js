@@ -46,7 +46,7 @@ export function deleteComment(dataToSubmit) {
 // 댓글 불러오기 액션
 export function getComment() {
 
-    const request = axios.post(`${COMMENT_SERVER}/getComments`)
+    const request = axios.get(`${COMMENT_SERVER}/getComments`)
         .then(response => response.data)
 
     return {

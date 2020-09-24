@@ -136,4 +136,18 @@ router.post("/deletePost", (req, res) => {
 });
 
 
+// 게시물 검색
+router.post("/searchPost", (req, res) => {
+    Post.find({ title : new RegExp(req.body.title)})
+        .populate('writer')
+        .exec((err, posts) => {
+            if (err) return res.status(400).json.send()
+            res.status(200).json({
+                searchPostSuccess: true,
+                posts
+            })
+        })
+})
+
+
 module.exports = router;

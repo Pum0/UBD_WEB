@@ -63,7 +63,6 @@ function MapAPI(props) {
 
                 </NaverMap>
             </RenderAfterNavermapsLoaded>
-            <Button onClick={holyShit}> 클릭ㅋ </Button>
 
         </div >
     );

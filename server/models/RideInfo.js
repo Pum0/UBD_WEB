@@ -42,6 +42,24 @@ const RideInfoSchema = mongoose.Schema({
 
 })
 
+RideInfoSchema.methods.generateRideInfoList = function (cb) {
+   var rideInfo = this;
+    rideInfo.save(function (err, rideInfo) {
+        if(err) return cb(err);
+        cb(null, rideInfo)
+    })
+};
+
+RideInfoSchema.statics.findByRideInfo = function (writer, cb){
+
+ RideInfo.findOne({"writer" : writer },function (err, rideInfo) {
+    if(err) return cb(err);
+    cb(null, rideInfo)
+})
+
+}
+
+
 const RideInfo = mongoose.model('RideInfo', RideInfoSchema);
 
 module.exports = { RideInfo }

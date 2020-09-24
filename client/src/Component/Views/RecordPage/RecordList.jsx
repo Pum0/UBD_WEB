@@ -20,6 +20,7 @@ function RecordList(props) {
     // const [RideInfo, setRideInfo] = useState([]);
     const [Records, setRecords] = useState([]);
     const [r_Current, setR_Current] = useState(1);
+    const [rideInfo, setrideInfo] = useState([]);
 
     var recordCount = 0;
     var recordPageNum;
@@ -63,16 +64,15 @@ function RecordList(props) {
 
     const transferRideInfo = (_id) => {
 
-
         const body = {
             _id: _id
         }
 
-        axios.get('/api/rideInfoes/RideInfo', body)
+        axios.post('/api/rideInfoes/RideInfo', body)
             .then(response => {
-                console.log(response)
-            }
-            )
+                // setrideInfo(response.data.rideInfo)
+                console.log(response.data.rideInfo)
+            })
     }
 
     const test = () => {
@@ -99,21 +99,20 @@ function RecordList(props) {
                         </TableRow>
                     </Table>
 
-                    <Button onClick={transferRideInfo(record._id)}> {record._id} </Button>
-                    <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
-                    <Button style={{ margin: 3, padding: 3 }} onClick={function(){
+                    <Button onClick={transferRideInfo(record._id)}> {record._id} </Button>                <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
+                    <Button style={{ margin: 3, padding: 3 }} onClick={function () {
                         props.setDrawPath([]);
                     }}> 경로 </Button>
-                   
+
                     <ShareModal />
 
-                </Panel>
+                </Panel >
             )
         recordCount++;
         recordPageNum = (recordCount / 4) * 10;
     })
 
-    {recordList.reverse()}
+    { recordList.reverse() }
 
     return (
         <div>
