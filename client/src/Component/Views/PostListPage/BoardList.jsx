@@ -33,9 +33,9 @@ function BoardList(props) {
         axios.get('/api/Posts/getPosts')
             .then(response => {
                 if (response.data.getPostsSuccess) {
-                    console.log(response.data.posts)
+                    console.log(response.data)
                     setPosts(response.data.posts)
-                    // props.UpdatePosts(response.data.posts)
+                    UpdatePosts(response.data.posts)
                 } else {
                     alert('게시물을 불러오는데 실패했습니다.')
                 }
@@ -55,7 +55,25 @@ function BoardList(props) {
 
     const onSearchHandler = (e) => {
         setSearchTitle(e.currentTarget.value);
-        console.log(e.currentTarget.value);
+        // console.log(e.currentTarget.value);
+    }
+
+    const onClickSearch = (e) => {
+        e.preventDefault();
+
+        let body = {
+            title: searchTitle
+        }
+
+        axios.post('/api/Posts/searchPost', body)
+            .then(response => {
+                if (response.data.searchPostSuccess) {
+                    // console.log(response.data.posts)
+                    setPosts(response.data.posts)
+                } else {
+                    alert('게시물을 불러오는데 실패했습니다.')
+                }
+            })
     }
 
     const UpdatePosts = (newPosts) => {
@@ -100,7 +118,7 @@ function BoardList(props) {
     })
 
     // 최신 글 부터 출력되게 리스트를 반전 시켜줌
-    {BoardList.reverse()}
+    { BoardList.reverse() }
 
     var pageTest = [];
 
@@ -112,7 +130,7 @@ function BoardList(props) {
 
     return (
         <div >
-            <Typography variant="h4"> 자유게시판 <br/></Typography>
+            <Typography variant="h4"> 자유게시판 <br /></Typography>
             <div style={{ display: "flex" }}>
                 <NavLink to="/Home/BoardWritePage">
                     <Button size="small" variant="contained" edge="start" color="inherit" style={{ margin: 3 }}>
@@ -124,7 +142,7 @@ function BoardList(props) {
                     <TextField type="text" placeholder="찾는 제목을 입력하세요."
                         value={searchTitle} style={{ margin: 3 }} onChange={onSearchHandler} />
 
-                    <Button  type="submit" size="medium" variant="contained" edge="start" color="inherit">
+                    <Button onClick={onClickSearch} type="submit" size="medium" variant="contained" edge="start" color="inherit">
                         <Typography variant="subtitle2"> 검색</Typography>
                     </Button>
                 </form>

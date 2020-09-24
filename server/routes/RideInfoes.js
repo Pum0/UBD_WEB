@@ -50,7 +50,7 @@ router.post("/getRideInfo", (req, res) => {
         })
 })
 
-router.get("/RideInfo", (req, res) => {
+router.post("/RideInfo", (req, res) => {
 
     RideInfo.findOne({ "_id": req.body._id })
         .populate('writer')

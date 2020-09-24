@@ -8,6 +8,7 @@ import Comments from "./Comments"
 import {getComment} from "../../../../_actions/comment_action";
 import {writeComment} from "../../../../_actions/comment_action"
 import {deleteComment} from "../../../../_actions/comment_action"
+import LikeDisLikes from "./LikeDislikes"
 
 
 function SingleComment(props) {
@@ -98,6 +99,8 @@ function SingleComment(props) {
 
 
     const actions = [
+        <LikeDisLikes userId ={user.userData._id} commentId ={props.comment._id}/>
+        ,
         <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
         ,
         <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}

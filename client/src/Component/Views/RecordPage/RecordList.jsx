@@ -20,6 +20,7 @@ function RecordList(props) {
     // const [RideInfo, setRideInfo] = useState([]);
     const [Records, setRecords] = useState([]);
     const [r_Current, setR_Current] = useState(1);
+    const [rideInfo, setrideInfo] = useState([]);
 
     var recordCount = 0;
     var recordPageNum;
@@ -68,11 +69,11 @@ function RecordList(props) {
             _id: _id
         }
 
-        axios.get('/api/rideInfoes/RideInfo', body)
-        .then(response => {
-           console.log(response)
-        }
-        )
+        axios.post('/api/rideInfoes/RideInfo', body)
+            .then(response =>{
+                // setrideInfo(response.data.rideInfo)
+                console.log(response.data.rideInfo)
+            })
     }
 
     const test = () => {
