@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { Modal, Button } from 'antd';
+import TextField from "@material-ui/core/TextField";
 
 
 function ShareModal(props) {
@@ -23,28 +24,82 @@ function ShareModal(props) {
         setVisible(false);
     }
 
+
+    const [shareName, setShareName] = useState("")
+    const [shareContent, setShareContent] = useState("")
+
+    const onShareNameHandler = (event) => {
+        setShareName(event.currentTarget.value)
+    }
+    const onShareContentHandler = (event) => {
+        setShareContent(event.currentTarget.value)
+    }
+
+    const onSubmitHandler = (event) => {
+        // event.preventDefault();
+
+        // let body = {
+        //     writer: user.userData._id,
+        //     title: BoardName,
+        //     content: BoardContent,
+        //     images: FilePath
+        // }
+
+        // dispatch(writePost(body))
+        //     .then(response => {
+        //         if (response.payload.writePostSuccess) {
+        //             props.history.push("/Home")
+        //         } else {
+        //             alert('저장실패')
+        //         }
+        //     })
+
+    }
+
+
+
+
+
     return (
+        <div>
+            <Button onClick={showModal}>
+                공유하기
+            </Button>
 
-        <Modal
-            visible={visible}
-            title="공유하기"
-            onOk={handleOk}
-            onCancel={handleCancel}
-            footer={[
-                <Button key="back" onClick={handleCancel}>
-                    Return
-            </Button>,
-                <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-                    Submit
-            </Button>,
-            ]}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-        </Modal>
+            <Modal
+                visible={visible}
+                title="공유하기"
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={[
+                        <Button key="back" onClick={handleCancel}>
+                            닫기
+                        </Button>,
+                        <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
+                            공유
+                        </Button>,]
+                       }
+            >
 
+                <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
+                    <TextField variant="filled" label="제목" type="text" placeholder="글의 제목을 입력하세요."
+                        fullWidth margin="normal" value={shareName} onChange={onShareNameHandler} />
+
+                    <TextField
+                        type="text"
+                        variant="filled"
+                        label="내용"
+                        placeholder="글의 내용을 입력하세요."
+                        multiline
+                        value={shareContent}
+                        rows={15}
+                        style={{ width: "100%" }}
+                        onChange={onShareContentHandler}
+                    />
+                </form>
+
+            </Modal>
+        </div>
     );
 
 

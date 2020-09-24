@@ -9,15 +9,15 @@ import { getRideInfo } from "../../../_actions/rideinfo_action"
 import { Polyline, NaverMap } from "react-naver-maps"
 import ShareModal from "./section/ShareModal"
 
-
 const { Panel } = Collapse;
 
 function RecordList(props) {
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
+    // const RideInfo = useSelector(action => action.payload);
 
-
+    // const [RideInfo, setRideInfo] = useState([]);
     const [Records, setRecords] = useState([]);
     const [r_Current, setR_Current] = useState(1);
 
@@ -26,6 +26,7 @@ function RecordList(props) {
     var recordList = [];
 
     const writer = user.userData._id
+    // const rideInfoId = RideInfo.rideInfo._id
 
     const onChange = page => {
         console.log(page);
@@ -39,12 +40,11 @@ function RecordList(props) {
             writer: writer
         }
 
-        // dispatch(getRideInfo(body))
+        // dispatch(getRideInfo())
         //     .then(response => {
         //         if (response.payload.getRideInfoSuccess) {
         //             console.log(response.payload.rideInfo)
-        //             setRecords(response.payload.rideInfo)
-        //         } else {
+        //         } else { 
         //             alert('실패')
         //         }
         //     })
@@ -61,10 +61,23 @@ function RecordList(props) {
             )
     }, [])
 
+    const transferRideInfo = (_id) => {
 
-    // onClickHandler = (e) => {
-    //     dispatch 
-    // }
+
+        const body = {
+            _id: _id
+        }
+
+        axios.get('/api/rideInfoes/RideInfo', body)
+            .then(response => {
+                console.log(response)
+            }
+            )
+    }
+
+    const test = () => {
+        console.log()
+    }
 
     const recordMapping = Records.map((record, index) => {
         if (user.userData._id)
@@ -86,15 +99,21 @@ function RecordList(props) {
                         </TableRow>
                     </Table>
 
-
-                    <Button style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
+                    <Button onClick={transferRideInfo(record._id)}> {record._id} </Button>
                     <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
+                    <Button style={{ margin: 3, padding: 3 }} onClick={function(){
+                        props.setDrawPath([]);
+                    }}> 경로 </Button>
+                   
+                    <ShareModal />
 
                 </Panel>
             )
         recordCount++;
         recordPageNum = (recordCount / 4) * 10;
     })
+
+    {recordList.reverse()}
 
     return (
         <div>
@@ -108,7 +127,19 @@ function RecordList(props) {
 
             <Pagination responsive={true} current={r_Current} onChange={onChange} total={recordPageNum} style={{ margin: 3 }} />
 
-            <ShareModal/>
+            <Polyline
+                path={[
+                    { lat: 35.896500, lng: 128.622062 },
+                    { lat: 35.896500, lng: 128.622062 },
+                    { lat: 35.896500, lng: 128.622062 },
+                    { lat: 35.897500, lng: 128.622062 },
+                ]}
+                strokeColor={'#000000'}
+                strokeOpacity={0.7}
+                strokeWeight={3}
+                style={{ zIndex: 999 }}
+            />
+
 
         </div>
     );

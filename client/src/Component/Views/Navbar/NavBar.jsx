@@ -95,7 +95,7 @@ function NavBar(props) {
                     visible={RecordVisible}
                     width="650px"
                 >
-                    <RecordList />
+                    <RecordList setDrawPath={props.setDrawPath} />
                 </Drawer>
 
 

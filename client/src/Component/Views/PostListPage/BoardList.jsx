@@ -40,7 +40,7 @@ function BoardList(props) {
                     alert('게시물을 불러오는데 실패했습니다.')
                 }
             })
-    }, [])
+    }, [Posts])
 
     // drawer visible
     const [visible, setVisible] = useState(false);
