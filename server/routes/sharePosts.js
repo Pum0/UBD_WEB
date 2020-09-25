@@ -40,3 +40,5 @@ router.get("/getSharePost", (req, res) => {
         })
 
 })
+
+module.exports = router;

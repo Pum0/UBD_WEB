@@ -29,6 +29,8 @@ export const COMMENT_SERVER = '/api/comments';
 
 export const RIDEINFO_SERVER = '/api/rideInfoes';
 
+export const SHARE_SERVER = '/api/share';
+
 
 
 

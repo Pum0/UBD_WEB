@@ -34,6 +34,7 @@ app.use('/api/posts', require('./routes/Posts'));
 app.use('/api/comments', require('./routes/Comments'));
 app.use('/api/rideInfoes', require('./routes/RideInfoes'));     
 app.use('/api/like', require('./routes/like'));
+app.use('/api/share', require('./routes/sharePosts'));
 
 app.use('/uploads', express.static('uploads'));
 

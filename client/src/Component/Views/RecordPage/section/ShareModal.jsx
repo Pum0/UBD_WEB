@@ -1,9 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal, Button } from 'antd';
 import TextField from "@material-ui/core/TextField";
+import Axios from "axios";
+import {saveSharePost} from "../../../../_actions/share_action";
 
 
 function ShareModal(props) {
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
 
     const [loading, setLoading] = useState(false);
     const [visible, setVisible] = useState(false);
@@ -36,24 +41,23 @@ function ShareModal(props) {
     }
 
     const onSubmitHandler = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
-        // let body = {
-        //     writer: user.userData._id,
-        //     title: BoardName,
-        //     content: BoardContent,
-        //     images: FilePath
-        // }
+        let body = {
+            writer: user.userData._id,
+            RideInfo: props._id,
+            title: shareName,
+            content: shareContent
+        }
 
-        // dispatch(writePost(body))
-        //     .then(response => {
-        //         if (response.payload.writePostSuccess) {
-        //             props.history.push("/Home")
-        //         } else {
-        //             alert('저장실패')
-        //         }
-        //     })
-
+        dispatch(saveSharePost(body))
+            .then(response => {
+                if (response.payload.saveSharePostSuccess) {
+                    // props.history.push("/Home")
+                } else {
+                    alert('저장실패')
+                }
+            })
     }
 
 
@@ -72,13 +76,13 @@ function ShareModal(props) {
                 onOk={handleOk}
                 onCancel={handleCancel}
                 footer={[
-                        <Button key="back" onClick={handleCancel}>
-                            닫기
+                    <Button key="back" onClick={handleCancel}>
+                        닫기
                         </Button>,
-                        <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-                            공유
+                    <Button key="submit" type="primary" loading={loading} onClick={onSubmitHandler}>
+                        공유
                         </Button>,]
-                       }
+                }
             >
 
                 <form style={{ height: "96%" }} onSubmit={onSubmitHandler}>
