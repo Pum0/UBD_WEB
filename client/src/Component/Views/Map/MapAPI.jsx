@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { loadNavermapsScript, Marker, NaverMap, RenderAfterNavermapsLoaded, Polyline, Overlay, withNavermaps } from "react-naver-maps";
 import { ButtonGroup as Buttons, Button as ControlBtn } from "@material-ui/core";
 import { Button } from "antd"
@@ -21,10 +21,6 @@ function MapAPI(props) {
         height: '100%'
     }
 
-
-    const holyShit = () => {
-        console.log(props.drawPath)
-    }
 
 
     return (
@@ -50,17 +46,6 @@ function MapAPI(props) {
                         strokeWeight={5}
                         style={{ zIndex: 999 }}
                     />
-                    <Marker
-                        lat={Marker.lat}
-                        lng={Marker.lng}
-                        position={{ lat: 35.896500, lng: 128.622062 }}
-                        animation={2}
-                        onClick={(e) => {
-                            alert("안녕하세요.")
-                        }}
-                    >
-                    </Marker>
-
                 </NaverMap>
             </RenderAfterNavermapsLoaded>
 

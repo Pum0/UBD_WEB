@@ -22,6 +22,9 @@ function RecordList(props) {
     const [r_Current, setR_Current] = useState(1);
     const [rideInfo, setrideInfo] = useState([]);
 
+
+
+
     var recordCount = 0;
     var recordPageNum;
     var recordList = [];
@@ -79,7 +82,11 @@ function RecordList(props) {
         console.log()
     }
 
+    // 네이버 지도 API polyLine 형식에 맞게 위도+경도 형태로 바꾸기
+    var latLngValue = [{}]
+
     const recordMapping = Records.map((record, index) => {
+
         if (user.userData._id)
             recordList.push(
                 <Panel header={moment(record.created).format("YYYY.MM.DD HH:mm")} key={index}>
@@ -101,10 +108,28 @@ function RecordList(props) {
 
                     <Button onClick={transferRideInfo(record._id)}> {record._id} </Button>                <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
                     <Button style={{ margin: 3, padding: 3 }} onClick={function () {
-                        props.setDrawPath([]);
-                    }}> 경로 </Button>
 
-                    <ShareModal />
+                        // push 형식으로 경로를 지정하니 기본 배열 첫 칸의 빈 값이 오류가 생겨서 첫 번째 배열 값 제거..
+                            latLngValue.pop(0);
+
+
+                        // DB 안의 위도, 경도값을 형식에 맞게 삽입
+                        for (var i = 0; i < record.latitude.length; i++) {
+                            latLngValue.push({
+                                lat: record.latitude[i],
+                                lng: record.longitude[i]
+                            });
+                        }
+
+
+                        console.log(latLngValue)
+                        
+                        // Home 컴포넌트에서 넘어온 경로지정 함수
+                        props.setDrawPath(latLngValue);
+                    }
+                    } > 경로 </Button>
+
+                    <ShareModal recordId={record._id} />
 
                 </Panel >
             )
@@ -134,7 +159,7 @@ function RecordList(props) {
                     { lat: 35.897500, lng: 128.622062 },
                 ]}
                 strokeColor={'#000000'}
-                strokeOpacity={0.7}
+                strokeOpacity={0.4}
                 strokeWeight={3}
                 style={{ zIndex: 999 }}
             />

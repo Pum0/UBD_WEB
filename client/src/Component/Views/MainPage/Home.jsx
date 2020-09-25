@@ -1,5 +1,5 @@
 import { Layout, Button } from "antd";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, withRouter } from "react-router-dom";
 import MapAPI from "../Map/MapAPI";
 import NavBar from "../Navbar/NavBar";
@@ -10,20 +10,14 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 function Home(props) {
     const { Header, Content, Footer } = Layout;
 
-    const [drawPath, setDrawPath] = useState([
-        { lat: 35.896200, lng: 128.622062 },
-        { lat: 35.896500, lng: 128.622062 },
-        { lat: 35.896500, lng: 128.622062 },
-        { lat: 35.897500, lng: 128.622062 },
-        { lat: 35.897500, lng: 128.625062 },
-]
+    var [drawPath, setDrawPath] = useState([
+
+    ]
     );
 
+    // useEffect(() => {
 
-    const holyShit = () => {
-        console.log(drawPath)
-    }
-
+    // }, [drawPath])
 
     return (
         <div style={{}}>
@@ -40,7 +34,6 @@ function Home(props) {
 
                 </Layout>
             </div>
-            <Button onClick={holyShit}> 클릭ㅋ </Button>
 
         </div>
     );
