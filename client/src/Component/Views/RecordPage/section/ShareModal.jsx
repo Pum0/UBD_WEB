@@ -45,7 +45,7 @@ function ShareModal(props) {
 
         let body = {
             writer: user.userData._id,
-            RideInfo: props._id,
+            RideInfo: props.recordId,
             title: shareName,
             content: shareContent
         }
