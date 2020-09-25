@@ -171,6 +171,7 @@ function _PostPage(props) {
                                         <img src={`http://localhost:5000/${Post.images[0]}`} alt="image"
                                             style={{ width: "100%", border: "1px solid black" }} />
                                     }
+                                    {<LikeDislikes post userId={userId} postId={postId} />}
                                 </TableCell>
                             </TableRow>
                         </TableBody>

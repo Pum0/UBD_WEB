@@ -101,7 +101,7 @@ function SingleComment(props) {
     const actions = [
         <LikeDisLikes userId ={user.userData._id} commentId ={props.comment._id}/>
         ,
-        <span onClick={onClickReplyOpen} key="comment-basic-reply-to"> Reply to</span>
+        <span onClick={onClickReplyOpen} key="comment-basic-reply-to">  Reply to</span>
         ,
         <IconButton edge="start" color="inherit" aria-label="del_comment" onClick={onClickDelete}
             style={{ padding: 0, margin: 0 }}>
