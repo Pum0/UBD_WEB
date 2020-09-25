@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Collapse, Button, Pagination } from "antd";
 import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 const { Panel } = Collapse;
 
@@ -20,6 +21,18 @@ function SharingList() {
         console.log(page);
         setS_Current(page);
     };
+
+    useEffect(() => {
+        axios.get('/api/share/getSharePost')
+            .then(response => {
+                if (response.data.getSharePostSuccess) {
+                    console.log(response.data)
+                    setShared(response.data.sharePosts)
+                } else {
+                    alert('게시물을 불러오는데 실패했습니다.')
+                }
+            })
+    }, [])
 
     // 공유된 주행기록 DB를 매핑
     // const ShareListMapping = Shared.map((shared, index) => {} )
@@ -50,7 +63,7 @@ function SharingList() {
                     </TableRow>
                 </Table>
 
-                <Button  style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
+                <Button style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
             </Panel>
         )
         sharedCount++;

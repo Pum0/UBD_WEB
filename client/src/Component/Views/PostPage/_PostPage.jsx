@@ -27,6 +27,7 @@ import { getComment } from "../../../_actions/comment_action";
 import { getPost } from "../../../_actions/post_action"
 
 import { Drawer } from "antd";
+import LikeDislikes from "./Sections/LikeDislikes"
 
 function _PostPage(props) {
 
@@ -37,6 +38,7 @@ function _PostPage(props) {
 
     // const comment_id = props.match.params.comment_id
     const postId = props.match.params.postId
+    // const userId = user.userData._id
 
     const [Post, setPost] = useState([])
 
@@ -69,8 +71,8 @@ function _PostPage(props) {
         axios.post('/api/comments/getComments', postVariable)
             .then(response => {
                 if (response.data.getCommentsSuccess) {
-                    console.log(response.data.comments)
-                    setCommentLists(response.data.comments)
+                    console.log(response.data.comment)
+                    setCommentLists(response.data.comment)
                 } else {
                     console.log('댓글을 불러오는데 실패했습니다.')
                 }
@@ -93,7 +95,7 @@ function _PostPage(props) {
     const RemoveComment = (commentId) => {
 
         const findIndex = CommentLists
-        .indexOf(commentId)
+            .indexOf(commentId)
 
         // console.log(findIndex)
         CommentLists.splice(findIndex, 1)
@@ -171,7 +173,7 @@ function _PostPage(props) {
                                         <img src={`http://localhost:5000/${Post.images[0]}`} alt="image"
                                             style={{ width: "100%", border: "1px solid black" }} />
                                     }
-                                    {<LikeDislikes post userId={userId} postId={postId} />}
+                                    {<LikeDislikes post userId={localStorage.getItem('userId')} postId={postId} />}
                                 </TableCell>
                             </TableRow>
                         </TableBody>
@@ -179,7 +181,7 @@ function _PostPage(props) {
                         <TableFooter>
                             {/* 댓글 입력 칸 */}
                             <Comments UpdateComment={UpdateComment} CommentLists={CommentLists} postId={postId} RemoveComment={RemoveComment} />
-                            <Button onClick={Test}> 테스트 </Button>
+                            <Button onClick={Test}> 테스트1 </Button>
                         </TableFooter>
 
 
