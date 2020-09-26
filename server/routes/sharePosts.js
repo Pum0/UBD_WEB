@@ -28,17 +28,19 @@ router.get("/getSharePost", (req, res) => {
 
     sharePost.find()
         .populate('writer')
-        .exec((err, posts) => {
+        .populate('RideInfo')
+        .exec((err, sharePosts) => {
             if (err) return res.status(400).json({
                 getSharePostSuccess: false,
                 message: "게시물 목록을 불러올 수 없습니다.", err
             });
             res.status(200).json({
                 getSharePostSuccess: true,
-                posts
+                sharePosts
             })
         })
 
 })
+
 
 module.exports = router;

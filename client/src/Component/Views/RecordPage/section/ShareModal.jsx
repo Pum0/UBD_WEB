@@ -58,6 +58,12 @@ function ShareModal(props) {
                     alert('저장실패')
                 }
             })
+
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                setVisible(false)
+            }, 3000)
     }
 
 
