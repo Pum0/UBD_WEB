@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Collapse, Button, Pagination } from "antd";
 import { Typography, Table, TableCell, TableRow, Paper } from "@material-ui/core"
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 const { Panel } = Collapse;
 
-function SharingList() {
+function SharingList(props) {
     // 공유된 주행기록
     const [Shared, setShared] = useState([]);
 
@@ -21,16 +22,26 @@ function SharingList() {
         setS_Current(page);
     };
 
+    useEffect(() => {
+        axios.get('/api/share/getSharePost')
+            .then(response => {
+                if (response.data.getSharePostSuccess) {
+                    console.log(response.data)
+                    setShared(response.data.sharePosts)
+                } else {
+                    alert('게시물을 불러오는데 실패했습니다.')
+                }
+            })
+    }, [])
+    var latLngValue = [{}]
+
+
     // 공유된 주행기록 DB를 매핑
-    // const ShareListMapping = Shared.map((shared, index) => {} )
+    const ShareListMapping = Shared.map((shared, index) => {
 
-
-
-
-    for (var i = 0; i < 1; i++) {
         ShareList.push(
-            <Panel header="공유 게시판 UI 테스트" key="i">
-                <p>앙 경주부터 김해까지 개꿀띠~~</p>
+            <Panel header={<div style={{display:"flex"}}><p>{shared.title}</p> <p>{shared.writer.name}</p> </div>} key={index}>
+                <p>{shared.content}</p>
 
                 <Table component={Paper}>
                     <TableRow>
@@ -38,24 +49,47 @@ function SharingList() {
                         <TableCell>소모칼로리</TableCell>
                         <TableCell>라이딩시간</TableCell>
                         <TableCell>평균속도</TableCell>
-                        <TableCell>최고속도</TableCell>
 
                     </TableRow>
                     <TableRow>
-                        <TableCell>12.47km</TableCell>
-                        <TableCell>721kcal</TableCell>
-                        <TableCell>2시간18분</TableCell>
-                        <TableCell>13km/h</TableCell>
-                        <TableCell>20km/h</TableCell>
+                        <TableCell>{shared.RideInfo.totalRideDis}</TableCell>
+                        <TableCell>{shared.RideInfo.kcal}</TableCell>
+                        <TableCell>{shared.RideInfo.totalRideTime}</TableCell>
+                        <TableCell>{shared.RideInfo.speedAvg}</TableCell>
                     </TableRow>
                 </Table>
+                <Button style={{ margin: 3, padding: 3 }} onClick={function () {
 
-                <Button  style={{ margin: 3, padding: 3 }}> 경로보기 </Button>
+                    // push 형식으로 경로를 지정하니 기본 배열 첫 칸의 빈 값이 오류가 생겨서 첫 번째 배열 값 제거..
+                    latLngValue.pop(0);
+
+
+                    // DB 안의 위도, 경도값을 형식에 맞게 삽입
+                    for (var i = 0; i < shared.RideInfo.latitude.length; i++) {
+                        latLngValue.push({
+                            lat: shared.RideInfo.latitude[i],
+                            lng: shared.RideInfo.longitude[i]
+                        });
+                    }
+
+
+                    console.log(latLngValue)
+
+                    // Home 컴포넌트에서 넘어온 경로지정 함수
+                    props.setDrawPath(latLngValue);
+                }
+                } > 경로 </Button>
             </Panel>
         )
         sharedCount++;
         sharedPageNum = (sharedCount / 4) * 10;
-    }
+
+    })
+
+
+    {ShareList.reverse()}
+
+
 
 
 

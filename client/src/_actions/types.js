@@ -12,3 +12,4 @@ export const GET_COMMENT = 'get_comment';
 export const GET_POST = 'get_post';
 export const GET_RIDEINFO = 'get_rideinfo';
 export const SAVE_SHAREPOST = 'save_sharepost';
+export const GET_SHAREPOST = 'get_sharepost';

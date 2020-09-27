@@ -52,7 +52,7 @@ function NavBar(props) {
 
     return (
         <div style={{ display: "flex" }}>
-            <Sider style={{ minWidth: "55px", maxWidth: "55px", background:"white" }}>
+            <Sider style={{ minWidth: "55px", maxWidth: "55px", background: "white" }}>
                 <Menu style={{ width: "250px" }} theme="light" mode="inline" defaultSelectedKeys={['1']}>
                     <Menu.Item key="1" onClick={showBoardDrawer} icon={<MessageOutlined />}> 자유게시판  </Menu.Item>
                     <Menu.Item key="2" onClick={showShareDrawer} icon={<ShareAltOutlined />}>공유게시판</Menu.Item>
@@ -82,7 +82,7 @@ function NavBar(props) {
                     visible={ShareVisible}
                     width="650px"
                 >
-                    <SharingList />
+                    <SharingList setDrawPath={props.setDrawPath} />
                 </Drawer>
 
                 {/* -------------- 나의 기록 -------------- */}
@@ -99,11 +99,11 @@ function NavBar(props) {
                 </Drawer>
 
 
-             
+
 
 
             </Sider>
-            <div style={{position:"absolute", zIndex:999,top:"5px" ,left:"100%"}}>
+            <div style={{ position: "absolute", zIndex: 999, top: "5px", left: "100%" }}>
                 <User_Avatar></User_Avatar>
             </div>
         </div>

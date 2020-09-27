@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
-    SAVE_SHAREPOST
+    SAVE_SHAREPOST,
+    GET_SHAREPOST
 } from './types';
 import { SHARE_SERVER } from '../Component/config';
 
@@ -16,3 +17,15 @@ export function saveSharePost(dataToSubmit) {
         payload: request
     }
 }    
+
+export function getSharePost() {
+
+    const request = axios.get(`${SHARE_SERVER}/getSharePost`, )
+        .then(response => response.data)
+
+
+    return {
+        type: GET_SHAREPOST,
+        payload: request
+    }
+}

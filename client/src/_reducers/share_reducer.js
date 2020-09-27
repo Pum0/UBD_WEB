@@ -1,5 +1,6 @@
 import {
-    SAVE_SHAREPOST
+    SAVE_SHAREPOST,
+    GET_SHAREPOST
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -9,7 +10,12 @@ export default function (state = {}, action) {
             return { ...state, sharePostData: action.payload }
             break;
 
+        case GET_SHAREPOST:
+            return { ...state, getsharePostData: action.payload }
+            break;
+
         default:
             return state;
+
     }
 }
