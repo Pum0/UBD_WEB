@@ -5,7 +5,7 @@ import { Avatar, Popover, Button } from 'antd';
 
 import { USER_SERVER } from "../../../config";
 import { UserOutlined } from "@ant-design/icons";
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import { logoutUser } from "../../../../_actions/user_action"
 
 
@@ -29,11 +29,15 @@ function User_Avatar(props) {
             })
     }
 
+
+
     const text = (
         <div style={{ height: "100px", Width: "100px" }}>
             <Avatar size={48} icon={<UserOutlined />} />
-            <Button onClick={onClickHandler}> LogOut </Button>
-        </div>
+            <Button onClick={onClickHandler}> 로그아웃 </Button>
+            <NavLink to="/profile"><Button>   회원수정 </Button></NavLink>
+
+        </div >
     );
     const content = (
         <div style={{ height: "50px", Width: "200px" }}>

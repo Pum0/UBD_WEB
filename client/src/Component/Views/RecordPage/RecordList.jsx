@@ -79,9 +79,6 @@ function RecordList(props) {
 
     const recordMapping = Records.map((record, index) => {
 
-        var latt = record.latitude[0];
-        var lngg = record.longitude[0];
-
         if (user.userData._id)
             recordList.push(
                 <Panel header={moment(record.created).format("YYYY.MM.DD HH:mm")} key={index}>
@@ -108,15 +105,12 @@ function RecordList(props) {
 
 
                         // DB 안의 위도, 경도값을 형식에 맞게 삽입
-                        for (var i = 0; i < latt.length; i++) {
+                        for (var i = 0; i < record.latitude.length; i++) {
                             latLngValue.push({
-                                lat: latt[i],
-                                lng: lngg[i]
+                                lat: record.latitude[i],
+                                lng: record.longitude[i]
                             });
                         }
-
-                        console.log(latt[0]);
-                        console.log(lngg[0]);
 
 
                         console.log(latLngValue)

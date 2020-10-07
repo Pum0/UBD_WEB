@@ -85,7 +85,7 @@ router.post("/login", (req, res) => {    // 요청된 이메일을 데이터베�
                     .cookie("x_auth", user.token)
                     .status(200).json({
                         loginSuccess: true, userID: user._id
-                        
+
                     });
             });
         });
@@ -141,6 +141,23 @@ router.post("/updatePassword", (req, res) => {
 
         })
 });
+
+// 회원정보 불러오기
+router.get("/getUser", (req, res) => {
+
+    User.findOne({ "_id": req.body.user_id })
+        // .populate('writer')
+        .exec((err, user) => {
+            if (err) return res.status(400).json({
+                getUserSuccess: false,
+                message: "불러 올 회원정보를 찾을 수 없습니다.", err
+            });
+            res.status(200).json({
+                getUserSuccess: true,
+                user
+            })
+        })
+})
 
 // 회원정보 수정
 router.post("/updateUser", (req, res) => {

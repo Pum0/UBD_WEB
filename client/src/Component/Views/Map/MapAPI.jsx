@@ -25,7 +25,7 @@ function MapAPI(props) {
         <div>
 
             <RenderAfterNavermapsLoaded
-                ncpClientId={'erm7wdyl9d'}
+                ncpClientId={config.ncpClientId}
                 error={<p>Maps Load Error</p>}
                 loading={<p>Maps Loading...</p>}
             >

@@ -40,7 +40,7 @@ function SharingList(props) {
     const ShareListMapping = Shared.map((shared, index) => {
 
         ShareList.push(
-            <Panel header={<p>{shared.title} <br/> 작성자 {shared.writer.name}</p>} key={index}>
+            <Panel header={<p>{shared.title} <br/> {shared.writer.name}</p>} key={index}>
                 <p>{shared.content}</p>
 
                 <Table component={Paper}>
