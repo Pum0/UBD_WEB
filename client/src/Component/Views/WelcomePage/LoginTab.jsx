@@ -78,7 +78,7 @@ function LoginTab(props) {
 
     return (
         <div>
-            <header style={headerStyle}><h1 >UBD Map</h1></header>
+            <header style={headerStyle}><h1 >UBD Web</h1></header>
             <body style={formStyle}>
 
                 <form onSubmit={onSubmitHandler}>

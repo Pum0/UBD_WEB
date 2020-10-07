@@ -44,14 +44,6 @@ function RecordList(props) {
             writer: writer
         }
 
-        // dispatch(getRideInfo())
-        //     .then(response => {
-        //         if (response.payload.getRideInfoSuccess) {
-        //             console.log(response.payload.rideInfo)
-        //         } else { 
-        //             alert('실패')
-        //         }
-        //     })
 
         axios.post('/api/rideInfoes/getRideInfo', body)
             .then(response => {
@@ -87,6 +79,9 @@ function RecordList(props) {
 
     const recordMapping = Records.map((record, index) => {
 
+        var latt = record.latitude[0];
+        var lngg = record.longitude[0];
+
         if (user.userData._id)
             recordList.push(
                 <Panel header={moment(record.created).format("YYYY.MM.DD HH:mm")} key={index}>
@@ -105,32 +100,35 @@ function RecordList(props) {
                             <TableCell>{record.speedAvg}</TableCell>
                         </TableRow>
                     </Table>
-
-                    <Button onClick={transferRideInfo(record._id)}> {record._id} </Button>                <Button style={{ margin: 3, padding: 3 }}> 공유하기 </Button>
+                    <div style={{display:"flex"}}> 
                     <Button style={{ margin: 3, padding: 3 }} onClick={function () {
 
                         // push 형식으로 경로를 지정하니 기본 배열 첫 칸의 빈 값이 오류가 생겨서 첫 번째 배열 값 제거..
-                            latLngValue.pop(0);
+                        latLngValue.pop(0);
 
 
                         // DB 안의 위도, 경도값을 형식에 맞게 삽입
-                        for (var i = 0; i < record.latitude.length; i++) {
+                        for (var i = 0; i < latt.length; i++) {
                             latLngValue.push({
-                                lat: record.latitude[i],
-                                lng: record.longitude[i]
+                                lat: latt[i],
+                                lng: lngg[i]
                             });
                         }
 
+                        console.log(latt[0]);
+                        console.log(lngg[0]);
+
 
                         console.log(latLngValue)
-                        
+
                         // Home 컴포넌트에서 넘어온 경로지정 함수
                         props.setDrawPath(latLngValue);
+                        props.setPathView(latLngValue[0])
                     }
-                    } > 경로 </Button>
+                    } > 경로보기 </Button>
 
                     <ShareModal recordId={record._id} />
-
+                    </div>
                 </Panel >
             )
         recordCount++;
@@ -151,7 +149,7 @@ function RecordList(props) {
 
             <Pagination responsive={true} current={r_Current} onChange={onChange} total={recordPageNum} style={{ margin: 3 }} />
 
-            <Polyline
+            {/* <Polyline
                 path={[
                     { lat: 35.896500, lng: 128.622062 },
                     { lat: 35.896500, lng: 128.622062 },
@@ -162,7 +160,7 @@ function RecordList(props) {
                 strokeOpacity={0.4}
                 strokeWeight={3}
                 style={{ zIndex: 999 }}
-            />
+            /> */}
 
 
         </div>

@@ -11,15 +11,6 @@ import { DatePicker, Space } from 'antd';
 import { Paper } from "@material-ui/core";
 
 
-// function RegisterPage(props) {
-//     return (
-//         <div>
-
-//         </div>
-
-//     );
-// }
-
 function RegisterPage(props) {
     const dispatch = useDispatch();
 
@@ -105,7 +96,7 @@ function RegisterPage(props) {
                     fullWidth margin="normal" value={Weight} onChange={onWeightHandler} />
 
 
-                <DatePicker fullWidth margin="normal" size="middle" placeholder={"출생일 선택기"} onChange={onChange} />
+                <DatePicker fullWidth margin="normal" size="middle" placeholder={"생년월일"} onChange={onChange} />
                 <TextField placeholder={Birth} fullWidth margin="normal" value={Birth} />
 
                 {/*회원정보를 저장하며 디비에 등록 하는버튼*/}

@@ -20,24 +20,22 @@ function MapAPI(props) {
         width: '100%',
         height: '100%'
     }
-
-
-
+    
     return (
         <div>
 
             <RenderAfterNavermapsLoaded
-                ncpClientId={'erm7wdyl9d'
-                }
+                ncpClientId={'erm7wdyl9d'}
                 error={<p>Maps Load Error</p>}
                 loading={<p>Maps Loading...</p>}
             >
                 <NaverMap
                     mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-                    defaultCenter={{ lat: 35.896500, lng: 128.622062 }}
+                    defaultCenter={props.pathView}
                     defaultZoom={17}
-
+                    zoomControl={true}
                     style={mapStyle}
+                    position={props.pathView}
                 >
                     <Polyline
                         path={props.drawPath}

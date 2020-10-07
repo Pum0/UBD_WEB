@@ -11,9 +11,10 @@ function Home(props) {
     const { Header, Content, Footer } = Layout;
 
     var [drawPath, setDrawPath] = useState([
-
     ]
     );
+
+    var [pathView, setPathView] = useState({ lat: 35.896500, lng: 128.622062 });
 
     // useEffect(() => {
 
@@ -24,9 +25,9 @@ function Home(props) {
             <div style={{ display: "flex" }}>
                 <Layout style={{ position: "absolute", width: "89.3%", height: "100%" }}>
                     {/* <User_Avatar /> */}
-                    <NavBar setDrawPath={setDrawPath} />
+                    <NavBar setDrawPath={setDrawPath} setPathView={setPathView} />
                     {/* == <Sider> 내용 </Sider> */}
-                    <MapAPI drawPath={drawPath} />
+                    <MapAPI drawPath={drawPath} pathView={pathView}/>
 
                     <Switch>
                         <ContentRouter />

@@ -72,7 +72,7 @@ function ShareModal(props) {
 
     return (
         <div>
-            <Button onClick={showModal}>
+            <Button onClick={showModal} style={{top:"3px"}}>
                 공유하기
             </Button>
 

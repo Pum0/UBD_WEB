@@ -82,7 +82,7 @@ function NavBar(props) {
                     visible={ShareVisible}
                     width="650px"
                 >
-                    <SharingList setDrawPath={props.setDrawPath} />
+                    <SharingList setDrawPath={props.setDrawPath} setPathView={props.setPathView} />
                 </Drawer>
 
                 {/* -------------- 나의 기록 -------------- */}
@@ -95,7 +95,7 @@ function NavBar(props) {
                     visible={RecordVisible}
                     width="650px"
                 >
-                    <RecordList setDrawPath={props.setDrawPath} />
+                    <RecordList setDrawPath={props.setDrawPath}  setPathView={props.setPathView}/>
                 </Drawer>
 
 

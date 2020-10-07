@@ -10,22 +10,15 @@ import {
     TableHead,
     TableRow
 } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ClearIcon from "@material-ui/icons/Clear";
 import axios from 'axios';
 import moment from "moment";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector, connectAdvanced } from "react-redux";
 import { NavLink, Route, Switch, withRouter } from "react-router-dom";
 import Auth from "../../../hoc/auth";
-import { deletePost } from "../../../_actions/post_action";
 import BoardUpdatePage from "./BoardUpdatePage";
 import Comments from "./Sections/Comments";
-import SingleComment from "./Sections/SingleComment";
-import { getComment } from "../../../_actions/comment_action";
-import { getPost } from "../../../_actions/post_action"
-
 import { Drawer } from "antd";
 import LikeDislikes from "./Sections/LikeDislikes"
 
@@ -110,19 +103,11 @@ function _PostPage(props) {
     const [visible, setVisible] = useState(true);
 
 
-    const showDrawer = () => {
-        setVisible(true);
-    };
-
     const onClose = () => {
         setVisible(false);
 
     };
 
-    const onCloseAfter = () => {
-        props.history.push("/home");
-
-    };
 
     // 이 글을 삭제하는 기능
     const onDeleteHandler = (e) => {

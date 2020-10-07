@@ -40,7 +40,7 @@ function SharingList(props) {
     const ShareListMapping = Shared.map((shared, index) => {
 
         ShareList.push(
-            <Panel header={<div style={{display:"flex"}}><p>{shared.title}</p> <p>{shared.writer.name}</p> </div>} key={index}>
+            <Panel header={<p>{shared.title} <br/> 작성자 {shared.writer.name}</p>} key={index}>
                 <p>{shared.content}</p>
 
                 <Table component={Paper}>
@@ -77,8 +77,9 @@ function SharingList(props) {
 
                     // Home 컴포넌트에서 넘어온 경로지정 함수
                     props.setDrawPath(latLngValue);
+                    props.setPathView(latLngValue[0])
                 }
-                } > 경로 </Button>
+                } > 경로보기 </Button>
             </Panel>
         )
         sharedCount++;
